@@ -7,6 +7,7 @@ import Landing from './components/Landing';
 import LoginPage from './components/LoginPage';
 import Signup from './components/Signup';
 import Home from './components/Home';
+import VaccSites from './components/VaccSites';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path='/home' element={<Home/>}/>
           <Route path='/countydata' element={<CountyData/>}/>
+          <Route path='/sites' element={<VaccSites/>}/>
         </Routes>
       </BrowserRouter>
     </div>
