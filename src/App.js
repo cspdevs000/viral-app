@@ -1,15 +1,18 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import './App.css';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Welcome to Viral
-        </p>
-      </header>
+    <div className="wrapper">
+      <h1>Welcome to Viral</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/dashboard' element={<Dashboard/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
