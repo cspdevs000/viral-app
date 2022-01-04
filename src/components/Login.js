@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import NavigationBar from './NavigationBar';
+import './NavigationBar.css';
 
 import './Login.css';
 
@@ -30,6 +32,8 @@ export default function Login({ setToken }) {
 
   return(
     <div className="login-wrapper">
+      {<NavigationBar />}
+
       <h1>Please Log In</h1>
       <form onSubmit={handleSubmit}>
         <label>

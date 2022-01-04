@@ -11,7 +11,7 @@ class Home extends Component {
                 {<NavigationBar />}
 
                 <h1>Welcome to the wonder beautiful Home Page</h1>
-                <iframe src="https://covidactnow.org/embed/us/" title="CoVid Act Now" width="800" height="880" frameBorder="0" scrolling="no"></iframe>
+                <iframe src="https://covidactnow.org/embed/us/" title="CoVid Act Now" width="700" height="770" frameBorder="0" scrolling="no"></iframe>
             </div>
         );
     }
