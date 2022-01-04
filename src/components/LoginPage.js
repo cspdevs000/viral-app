@@ -1,8 +1,9 @@
 import React from 'react';
 import Login from './Login';
+import {Navigate} from 'react-router-dom';
 import useToken from './useToken';
 
-export default function Dashboard() {
+export default function LoginPage() {
   const {token, setToken } = useToken();
 
   if(!token) {
@@ -10,11 +11,6 @@ export default function Dashboard() {
   }
 
   return(
-    <div>
-      <h2>Dashboard</h2>
-      <h3>user data</h3>
-      <h3>more user data</h3>
-    </div>
-    
+      <Navigate to='/home' />
   );
 }
