@@ -14,7 +14,10 @@ class NavigationBar extends Component {
                                 <div class="navbar-start">
                                     <a class="navbar-item is-active" href="/signup" >Signup </a>
                                     <a class="navbar-item" href="/login" >Login </a>
-                                    <a class="navbar-item" href="/" >Home </a>
+                                    <a class="navbar-item" href="/dashboard" >Dashboard </a>
+                                    <a class="navbar-item" href="/countydata" >County Data </a>
+                                    <a class="navbar-item" href="/sites" >Sites </a>
+                                    <a class="navbar-item" href="/home" >Home </a>
                                 </div>
                             </div>
                         </nav>

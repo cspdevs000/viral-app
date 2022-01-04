@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import NavigationBar from './NavigationBar';
+import './NavigationBar.css';
 // import VaccSiteResult from './VaccSiteResult'
 
 class VaccSites extends Component {
@@ -9,6 +11,8 @@ class VaccSites extends Component {
     render() {
         return (
             <div>
+                {<NavigationBar />}
+                
                 <h1>Future Vaccination Sites Search Page</h1>
             </div>
             //need search by zip

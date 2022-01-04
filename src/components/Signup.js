@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import NavigationBar from './NavigationBar';
+import './NavigationBar.css';
 
 class Signup extends Component {
 
     render() {
         return (
             <div>
+                {<NavigationBar />}
+                
                 <h1>Signup Page</h1>
                 <div>
                     <form action="http://localhost:3000/users" method="POST">
