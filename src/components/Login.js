@@ -34,6 +34,7 @@ export default function Login({ setToken }) {
     <div>
       {<NavigationBar />}
 
+      
       <section class="container">
       <div class="columns is-multiline">
         <div class="column is-8 is-offset-2 register">
