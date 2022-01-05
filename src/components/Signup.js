@@ -25,12 +25,8 @@ class Signup extends Component {
                             <input type="password" name="password" />
                         </label>
                         <label>
-                            <p>First Name</p>
-                            <input type="text" name="firstName" />
-                        </label>
-                        <label>
-                            <p>Last Name</p>
-                            <input type="text" name="lastName" />
+                            <p>Name</p>
+                            <input type="text" name="name" />
                         </label>
                         <label>
                             <p>State</p>
@@ -51,3 +47,5 @@ class Signup extends Component {
 }
 
 export default Signup;
+
+//TODO REDIRECT TO HOMEPAGE

@@ -20,8 +20,12 @@ class Landing extends Component {
                     <span>Signup</span>
                 </a>
                 <br></br>
-                <a href="/dashboard">
-                    <span>Dashboard(user profile)</span>
+                <a href="/profile">
+                    <span>User Profile</span>
+                </a>
+                <br></br>
+                <a href="/home">
+                    <span>Home</span>
                 </a>
                 </div>
             </div>

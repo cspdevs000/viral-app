@@ -4,7 +4,7 @@ import {Navigate} from 'react-router-dom';
 import useToken from './useToken';
 
 export default function LoginPage() {
-  const {token, setToken } = useToken();
+  const { token, setToken } = useToken();
 
   if(!token) {
     return <Login setToken={setToken} />
