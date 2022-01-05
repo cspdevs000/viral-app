@@ -11,7 +11,7 @@ class Signup extends Component {
                 
                 <h1>Signup Page</h1>
                 <div>
-                    <form action="http://localhost:3000/users" method="POST">
+                    <form action="http://localhost:3000/users/signup" method="POST">
                         <label>
                             <p>Email</p>
                             <input type="text" name="email" />

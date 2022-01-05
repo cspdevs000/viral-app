@@ -47,3 +47,12 @@ html {
     color: #e4e2ff;
   }
  
+  table, th, td {
+    border: 1px solid black;
+    text-align: center;
+  }
+
+  table {
+    position: absolute;
+    left: 42%
+  }
