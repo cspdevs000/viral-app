@@ -1,0 +1,130 @@
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.va {
+    display: flex;
+    align-items: center;
+  }
+
+    :root {
+      --brandColor: hsl(166, 67%, 51%);
+      --background: rgb(247, 247, 247);
+      --textDark: hsla(0, 0%, 0%, 0.66);
+      --textLight: hsla(0, 0%, 0%, 0.33);
+    }
+
+    body {
+      background: var(--background);
+      height: 100vh;
+      color: var(--textDark);
+    }
+
+    .field:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    .register {
+      margin-top: 10rem;
+      background: white;
+      border-radius: 10px;
+    }
+
+    .left{
+        padding: 4.5rem;
+    }
+    
+    .right {
+      padding: 4.5rem;
+    }
+
+    .left {
+      border-right: 5px solid var(--background);
+    }
+
+    .left {
+        font-weight: 800;
+        letter-spacing: -2px;
+      }
+      
+      .title {
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    .left {
+        color: var(--brandColor);
+        font-weight: 500;
+        margin-top: 1rem !important;
+        letter-spacing: -1px;
+      }
+     .colored {
+      color: var(--brandColor);
+      font-weight: 500;
+      margin-top: 1rem !important;
+      letter-spacing: -1px;
+    }
+
+    .left{
+        color: var(--textLight);
+        font-size: 1.15rem;
+      }
+    
+      p {
+      color: var(--textLight);
+      font-size: 1.15rem;
+    }
+
+    .right {
+        font-weight: 800;
+        letter-spacing: -1px;
+      }
+      
+    .title {
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .right {
+        margin-top: 1rem;
+        margin-bottom: 1rem !important;
+        color: var(--textLight);
+        font-size: 1.15rem;
+      }
+      
+    .description {
+      margin-top: 1rem;
+      margin-bottom: 1rem !important;
+      color: var(--textLight);
+      font-size: 1.15rem;
+    }
+
+    .right {
+        color: var(--textLight);
+      }
+      
+    small {
+      color: var(--textLight);
+    }
+
+    input {
+      font-size: 1rem;
+    }
+
+    input:focus {
+      border-color: var(--brandColor) !important;
+      box-shadow: 0 0 0 1px var(--brandColor) !important;
+    }
+
+    .fab {
+        color: var(--textLight);
+        margin-right: 1rem;
+      }
+
+      
+    .fas {
+      color: var(--textLight);
+      margin-right: 1rem;
+    }

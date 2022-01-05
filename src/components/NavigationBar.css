@@ -1,0 +1,49 @@
+html {
+    font-family: 'Nunito Sans', sans-serif;
+    color: black;
+  }
+  
+  a {
+    color: #3b7adf;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+    color: #3b7adf;
+  }
+  
+  hr {
+    background: #24272c;
+  }
+  
+  .hero {
+    background: #060606;
+  }
+  
+  .title,
+  .subtitle {
+    color: white;
+  }
+  
+  .navbar .navbar-item {
+    color: #e4e2ff;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .navbar .navbar-item.is-active {
+    color: #e4e2ff;
+    font-weight: 700;
+
+  }
+  
+  .navbar .navbar-item:hover {
+    background: transparent;
+    color: white;
+  }
+  
+  .navbar .navbar-item a {
+    margin-left: 1rem;
+    color: #e4e2ff;
+  }
+ 
