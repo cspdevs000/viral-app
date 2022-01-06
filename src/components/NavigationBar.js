@@ -8,10 +8,10 @@ class NavigationBar extends Component {
     
     render() {
         return (
-            <section class="hero is-medium">
-                <div class="hero-head">
-                    <div class="container">
-                        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <section className="hero is-medium">
+                <div className="hero-head">
+                    <div className="container">
+                        <nav className="navbar" role="navigation" aria-label="main navigation">
 
                             <div id="navbarBasicExample" class="navbar-menu">
                                 <div class="navbar-start">
