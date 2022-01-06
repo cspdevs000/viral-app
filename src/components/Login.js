@@ -39,6 +39,7 @@ class Login extends Component {
     axios.post(`${REACT_APP_SERVER_URL}/users/login`, userData)
         .then(response => {
             const { token } = response.data;
+            console.log('data here---', response.data)
             // save token to localStorage
             localStorage.setItem('jwtToken', token);
             // set token to headers
@@ -46,7 +47,7 @@ class Login extends Component {
             // decode token to get the user data
             const decoded = jwt_decode(token);
             // set the current user
-            this.props.nowCurrentUser(decoded); // funnction passed down as props.
+            // this.props.nowCurrentUser(decoded); // funnction passed down as props.
         })
         .catch(error => {
             console.log('===> Error on login', error);
@@ -56,7 +57,9 @@ class Login extends Component {
 
 
   render() {
-    if (this.props.user) return <Navigate to="/home" />;
+    console.log(this.props.user)
+    if (this.props.user) 
+    return <Navigate to="/home" />;
 
     return (
       <div>
