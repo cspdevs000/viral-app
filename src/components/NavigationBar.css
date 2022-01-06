@@ -47,15 +47,19 @@ html {
     color: #e4e2ff;
   }
  
-  table, td {
+  td {
     border: 1px solid black;
     text-align: center;
   }
+
+
 
   table {
     position: absolute;
     left: 35%;
     width: 30%;
+    border: 1px solid black;
+    text-align: center;
   }
 
   th {
