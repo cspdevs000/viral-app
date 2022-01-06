@@ -8,6 +8,11 @@ class SiteSearch extends Component {
               <p>{this.props.name}</p>
               <p>{this.props.zipCode}</p>
               <p>{this.props.city}</p>
+              <form action="/site/:id">
+              <button>
+                  visit this site
+              </button>
+              </form>
           </div>
       );
     }
