@@ -9,6 +9,7 @@ import Landing from './components/Landing';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Home from './components/Home';
+import Site from './components/Site';
 import VaccSites from './components/VaccSites';
 import AddVaccSite from './components/AddVaccSite';
 import NavigationBar from './components/NavigationBar';
@@ -72,6 +73,7 @@ function App() {
           />
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/home' element={<Home/>}/>
+          <Route path='/site' element={<Site/>}/>
           <Route path='/countydata' element={<CountyData/>}/>
           <Route path='/sites' element={<VaccSites/>}/>
           <Route path='/addsite' element={<AddVaccSite/>}/>

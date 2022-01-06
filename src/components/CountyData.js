@@ -3,6 +3,7 @@ import NavigationBar from './NavigationBar';
 import './NavigationBar.css';
 import axios from 'axios';
 import CountyOptions from './CountyOptions';
+const { REACT_APP_SERVER_URL } = process.env;
 
 class CountyData extends Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class CountyData extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/countyData/counties')
+        axios.get(`${REACT_APP_SERVER_URL}/countyData/counties`)
         .then((response) => {
             this.setState({
                 data: response.data.countyNameArr
@@ -61,7 +62,7 @@ class CountyData extends Component {
           county: this.state.county
         };
 
-        axios.post(`http://localhost:3000/actNow/county`, userData)
+        axios.post(`${REACT_APP_SERVER_URL}/actNow/county`, userData)
             .then(response => {
              this.state.countyInfo.caseDensity = response.data.countyInfo.caseDensity;
              this.state.countyInfo.cases = response.data.countyInfo.cases;

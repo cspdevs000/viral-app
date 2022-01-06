@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import NavigationBar from './NavigationBar';
 import './NavigationBar.css';
+const { REACT_APP_SERVER_URL } = process.env;
 
 class AddVaccSite extends Component {
 
@@ -8,13 +8,10 @@ class AddVaccSite extends Component {
         return (
             <div>
                 <div>
-                {<NavigationBar />}
-                </div>
-                <div>
                 <h1>Add a Vaccination Site</h1>
                 </div>
                 <div>
-                <form action="http://localhost:3000/site/new" method="POST">
+                <form action={"http://localhost:3000/site/new"} method="POST">
                         <label>
                             <p>Name</p>
                             <input type="text" name="name" />
