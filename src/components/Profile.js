@@ -1,6 +1,5 @@
 import './NavigationBar.css';
 import React from 'react';
-import NavigationBar from './NavigationBar';
 import { Link } from 'react-router-dom';
 
 const Profile = (props) => {
@@ -20,27 +19,12 @@ const Profile = (props) => {
   const userData = user ?
     (<div>
       <div>
-        {<NavigationBar />}
-      </div>
-      <div>
         <h1>profile page</h1>
       </div>
       <div>
-        <table>
-          <tr>
-            <th colspan="1"></th>
-            <th colspan="2"></th>
-          </tr>
-          <tr>
-            <td>Name: {name}</td>
-          </tr>
-          <tr>
-            <td>Email: {email}</td>
-          </tr>
-          <tr>
-            <td>Account ID: {id}</td>
-          </tr>
-        </table>
+            <h1>Name: {name}</h1>
+            <h1>Email: {email}</h1>
+            <h1>Account ID: {id}</h1>
       </div>
     </div>) : <h2>Loading...</h2>
 

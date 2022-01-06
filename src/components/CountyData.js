@@ -64,7 +64,6 @@ class CountyData extends Component {
     render() {
         return (
             <div>
-                {<NavigationBar />}
 
                 <h1>Select a County</h1>
 
