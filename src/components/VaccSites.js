@@ -12,9 +12,6 @@ class VaccSites extends Component {
         return (
             <div>
                 <div>
-                {<NavigationBar />}
-                </div>
-                <div>
                 <h1>Future Vaccination Sites Search Page</h1>
                 </div>
                 <div>

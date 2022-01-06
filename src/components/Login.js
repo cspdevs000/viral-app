@@ -47,7 +47,11 @@ class Login extends Component {
             // decode token to get the user data
             const decoded = jwt_decode(token);
             // set the current user
+<<<<<<< HEAD
              this.props.nowCurrentUser(decoded); // funnction passed down as props.
+=======
+            this.props.nowCurrentUser(decoded); // funnction passed down as props.
+>>>>>>> 20450d8f0f9cd25dfad7113d151e112b3af53acc
         })
         .catch(error => {
             console.log('===> Error on login', error);
@@ -57,13 +61,16 @@ class Login extends Component {
 
 
   render() {
+<<<<<<< HEAD
     console.log('user', this.props.user)
+=======
+    console.log(this.props.user);
+>>>>>>> 20450d8f0f9cd25dfad7113d151e112b3af53acc
     if (this.props.user) 
     return <Navigate to="/home" />;
 
     return (
       <div>
-        {< NavigationBar />}
 
         <section className="container">
           <div className="columns is-multiline">
