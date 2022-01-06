@@ -47,20 +47,12 @@ function App() {
 
   const handleLogout = () => {
     if (localStorage.getItem('jwtToken')) {
-<<<<<<< HEAD
-        // remove token for localStorage
-        localStorage.removeItem('jwtToken');
-    
-        setCurrentUser(null);
-        setIsAuthenticated(false);
-=======
       // remove token for localStorage
       localStorage.removeItem('jwtToken');
       // console.log('YOU LOGGED OUT')
       setCurrentUser(null);
       setIsAuthenticated(false);
       alert('YOU LOGGED OUT');
->>>>>>> 20450d8f0f9cd25dfad7113d151e112b3af53acc
     }
   }
 
