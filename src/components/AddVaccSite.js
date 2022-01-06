@@ -8,9 +8,6 @@ class AddVaccSite extends Component {
         return (
             <div>
                 <div>
-                {<NavigationBar />}
-                </div>
-                <div>
                 <h1>Add a Vaccination Site</h1>
                 </div>
                 <div>

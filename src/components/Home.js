@@ -26,12 +26,12 @@ class Home extends Component {
             })
     }
 
-    displayTopTen() {
-        const display = this.state.data.map((s, idx) => {
-            return <TopTen key={idx} state={s.state} cases={s.cases} />
-        });
-        return display;
-    }
+    // displayTopTen() {
+    //     const display = this.state.data.map((s, idx) => {
+    //         return <TopTen key={idx} state={s.state} cases={s.cases} />
+    //     });
+    //     return display;
+    // }
 
     render() {
         return (
@@ -44,7 +44,7 @@ class Home extends Component {
 
                 <div>
                     <h1>Top Ten Covide States</h1>
-                    {this.displayTopTen()}
+                    {/* {this.displayTopTen()} */}
                 </div>
             </div>
         );

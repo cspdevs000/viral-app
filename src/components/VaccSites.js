@@ -3,7 +3,6 @@ import SiteSearch from './SiteSearch';
 import './NavigationBar.css';
 import axios from 'axios';
 const { REACT_APP_SERVER_URL } = process.env;
-// import VaccSiteResult from './VaccSiteResult'
 
 class VaccSites extends Component {
     constructor(props) {
@@ -11,31 +10,36 @@ class VaccSites extends Component {
         this.state = {
             query: "",
             data: [],
-            filteredData: []
+            secondaryData: [],
+            zipCode: ""
         };
     }
+    
+    handleZipCode(e) {
+        this.setState({
+            zipCode: e.target.value,
+        });
+      }
 
-        componentDidMount() {
-        axios.get(`${REACT_APP_SERVER_URL}/site`)
+    handleSubmit = (e) => {
+        e.preventDefault(); 
+        const zipCode = { 
+            zipCode: this.state.zipCode
+        };
+        console.log('queery', this.state.zipCode);
+        
+        axios.get(`${REACT_APP_SERVER_URL}/site/zip/${this.state.zipCode}`)
         .then((response) => {
             console.log(response.data);
             this.setState({
-                data: response.data.siteArray
+                data: response.data.zipArr,
+                secondaryData: response.data.closeByArr
             })
         })
-            // .then(data => {
-            //     const { query } = this.state;
-            //     const filteredData = this.state.data.filter(element => {
-            //         return element.name.toLowerCase().includes(query.toLowerCase());
-            //     });
-
-            //     this.setState({
-            //         data,
-            //         filteredData
-            //     });
-            // });
-
-    }
+        .catch(error => {
+            console.log('error gettin zippy', error);
+        });
+    };
     
     displaySiteSearch() {
         const display = this.state.data.map((s, idx) => {
@@ -44,21 +48,12 @@ class VaccSites extends Component {
         return display;
     }
 
-    handleInputChange = (e) => {
-        e.preventDefault();
-        const query = e.target.value;
-
-        this.setState(prevState => {
-            const filteredData = prevState.data.filter(element => {
-                return element.name.toLowerCase().includes(query.toLowerCase());
-            });
-
-            return {
-                query,
-                filteredData
-            };
+    displaySecondarySites() {
+        const display = this.state.secondaryData.map((s, idx) => {
+            return <SiteSearch key={idx} name={s.name} zipCode={s.zipCode} city={s.city} />
         });
-    };
+        return display;
+    }
 
     render() {
         return (
@@ -74,16 +69,19 @@ class VaccSites extends Component {
                     </form>
                 </div>
                 <div className="searchForm">
-                    <form>
+                    <form onSubmit={this.handleSubmit.bind(this)}>
                         <input
                             placeholder="Search for..."
-                            value={this.state.query}
-                            onChange={this.handleInputChange}
+                            value={this.state.zipCode}
+                            onChange={this.handleZipCode.bind(this)}
                         />
                     </form>
                 </div>
                 <div>
                     {this.displaySiteSearch()}
+                </div>
+                <div>
+                    {this.displaySecondarySites()}
                 </div>
             </div>
         );
