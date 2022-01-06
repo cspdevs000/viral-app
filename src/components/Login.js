@@ -30,22 +30,52 @@ export default function Login({ setToken }) {
     setToken(token);
   }
 
-  return(
-    <div>
-      {<NavigationBar />}
+  handleSubmit = (e) => {
+    e.preventDefault(); // at the beginning of a submit function
+    const userData = { 
+      email: this.state.email, 
+      password: this.state.password
+    };
+    axios.post(`${REACT_APP_SERVER_URL}/users/login`, userData)
+        .then(response => {
+            const { token } = response.data;
+            console.log('data here---', response.data)
+            // save token to localStorage
+            localStorage.setItem('jwtToken', token);
+            // set token to headers
+            setAuthToken(token);
+            // decode token to get the user data
+            const decoded = jwt_decode(token);
+            // set the current user
+            this.props.nowCurrentUser(decoded); // funnction passed down as props.
+        })
+        .catch(error => {
+            console.log('===> Error on login', error);
+            alert('Either email or password is incorrect. Please try again');
+        });
+  };
 
-      
-      <section class="container">
-      <div class="columns is-multiline">
-        <div class="column is-8 is-offset-2 register">
-          <div class="columns">
-            <div class="column left">
-              <h1 style={{color: "black"}} class="title is-1">Viral</h1>
-              <p>An elegant and robust website that answers any questions you have about COVID-19</p>
-            </div>
-            <div class="column right has-text-centered">
-              <h1 style={{color: "black"}} class="title is-4">Log In</h1>
-              <form onSubmit={handleSubmit}>
+
+  render() {
+    console.log(this.props.user)
+    if (this.props.user) 
+    return <Navigate to="/home" />;
+
+    return (
+      <div>
+        {< NavigationBar />}
+
+        <section className="container">
+          <div className="columns is-multiline">
+            <div className="column is-8 is-offset-2 register">
+              <div className="columns">
+                <div className="column left">
+                  <h1 style={{ color: "black" }} className="title is-1">Viral</h1>
+                  <p>An elegant and robust website that answers any questions you have about COVID-19</p>
+                </div>
+                <div className="column right has-text-centered">
+                  <h1 style={{ color: "black" }} className="title is-4">Log In</h1>
+                  <form onSubmit={this.handleSubmit.bind(this)}>
 
                 <div class="field">
                   <div class="control">

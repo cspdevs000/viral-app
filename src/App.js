@@ -62,7 +62,10 @@ function App() {
           <Route 
             path="/login"
             element={<Login/>}
-            render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
+            render={(props) => <Login {...props} 
+                                  nowCurrentUser={nowCurrentUser} 
+                                  setIsAuthenticated={setIsAuthenticated} 
+                                  user={currentUser}/>}
           />
           <Route path='/signup' element={<Signup/>}/>
           <Route path="/profile" element={<Profile/>} user={currentUser}/>
