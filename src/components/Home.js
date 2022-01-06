@@ -43,7 +43,7 @@ class Home extends Component {
                 </div>
 
                 <div>
-                    <h1>Top Ten Covide States</h1>
+                    <h1>Top Ten Covid States</h1>
                     {this.displayTopTen()}
                 </div>
             </div>
