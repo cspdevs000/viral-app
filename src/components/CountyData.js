@@ -9,7 +9,17 @@ class CountyData extends Component {
         super(props);
         this.state = {
             data: [],
-            county: ''
+            county: '',
+            countyInfo: {
+                caseDensity: '',
+                cases: '',
+                deaths: '',
+                newCases: '',
+                newDeaths: '',
+                population: '',
+                vaccinationsCompleted: '',
+                vaccinationsInitiated: '',
+            }
         };
     }
 
@@ -50,10 +60,31 @@ class CountyData extends Component {
         const userData = { 
           county: this.state.county
         };
-        console.log(this.state.county)
+
         axios.post(`http://localhost:3000/actNow/county`, userData)
             .then(response => {
-             console.log('Response Data', response.data);
+             this.state.countyInfo.caseDensity = response.data.countyInfo.caseDensity;
+             this.state.countyInfo.cases = response.data.countyInfo.cases;
+             this.state.countyInfo.deaths = response.data.countyInfo.deaths;
+             this.state.countyInfo.newCases = response.data.countyInfo.newCases;
+             this.state.countyInfo.newDeaths = response.data.countyInfo.newDeaths;
+             this.state.countyInfo.population = response.data.countyInfo.population;
+             this.state.countyInfo.vaccinationsCompleted = response.data.countyInfo.vaccinationsCompleted;
+             this.state.countyInfo.vaccinationsInitiated = response.data.countyInfo.vaccinationsInitiated;
+            
+             this.setState({
+                county: this.state.county,
+                countyInfo: {
+                    caseDensity: this.state.countyInfo.caseDensity,
+                    cases: this.state.countyInfo.cases,
+                    deaths: this.state.countyInfo.deaths,
+                    newCases: this.state.countyInfo.newCases,
+                    newDeaths: this.state.countyInfo.newDeaths,
+                    population: this.state.countyInfo.population,
+                    vaccinationsCompleted: this.state.countyInfo.vaccinationsCompleted,
+                    vaccinationsInitiated: this.state.countyInfo.vaccinationsInitiated,
+                }
+            })
             })
             .catch(error => {
                 console.log('===> Error on login', error);
@@ -67,19 +98,9 @@ class CountyData extends Component {
 
                 <h1>Select a County</h1>
 
-                {/* <form method = "GET" action="http://localhost:3000/actNow/">
-                    <select name="county" defaultValue={""}>
-                        <option value="" >-----</option>
-                        {this.displayCounties()}
-                    </select>
-                    <br/>
-                    <div>
-                        <button type="submit" >Submit</button>
-                    </div>
-                </form> */}
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     <select onChange={this.handleChange} name="county" defaultValue={""}>
-                        <option  value="test" >-----</option>
+                        <option  value="test" >Type County Here</option>
                         {this.displayCounties()}
                     </select>
                     <br/>
@@ -94,12 +115,36 @@ class CountyData extends Component {
                         <th>County Data</th>
                     </tr>
                     <tr>
-                        <td>Infection Rate</td>
-                        <td>120 people</td>
+                        <td>Case Density</td>
+                        <td>{this.state.countyInfo.caseDensity}</td>
                     </tr>
                     <tr>
-                        <td>Vaccination Rate</td>
-                        <td>75%</td>
+                        <td>Cases</td>
+                        <td>{this.state.countyInfo.cases}</td>
+                    </tr>
+                    <tr>
+                        <td>Deaths</td>
+                        <td>{this.state.countyInfo.deaths}</td>
+                    </tr>
+                    <tr>
+                        <td>New Cases</td>
+                        <td>{this.state.countyInfo.newCases}</td>
+                    </tr>
+                    <tr>
+                        <td>New Deaths</td>
+                        <td>{this.state.countyInfo.newDeaths}</td>
+                    </tr>
+                    <tr>
+                        <td>Population</td>
+                        <td>{this.state.countyInfo.population}</td>
+                    </tr>
+                    <tr>
+                        <td>Vaccinations Completed</td>
+                        <td>{this.state.countyInfo.vaccinationsCompleted}</td>
+                    </tr>
+                    <tr>
+                        <td>Vaccinations Initiated</td>
+                        <td>{this.state.countyInfo.vaccinationsInitiated}</td>
                     </tr>
                 </table>
             </div>
@@ -108,5 +153,3 @@ class CountyData extends Component {
 }
 
 export default CountyData;
-
-//TODO this - ref: justin

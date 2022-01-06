@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Navigate } from "react-router-dom";
-import NavigationBar from './NavigationBar';
 import axios from 'axios';
 import './NavigationBar.css';
 import './Login.css';
