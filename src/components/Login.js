@@ -59,6 +59,7 @@ class Login extends Component {
     console.log(this.props.user);
     if (this.props.user) 
     return <Navigate to="/home" />;
+    // alert('You are already logged in');
 
     return (
       <div>

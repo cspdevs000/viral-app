@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import TopTen from './TopTen';
 import TopTenNewCases from './TopTenNewCases';
 import TopTenDeaths from './TopTenDeaths';
-import NavigationBar from './NavigationBar';
 import './NavigationBar.css';
 import axios from 'axios';
+const { REACT_APP_SERVER_URL } = process.env;
 
 
 class Home extends Component {
@@ -18,16 +18,16 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3000/actNow')
+        axios.get(`${REACT_APP_SERVER_URL}/actNow`)
             .then((response) => {
-                console.log(response.data);
+                // console.log(response.data);
                 this.setState({
                     cases: response.data.topTenCasesArr,
                     deaths: response.data.topTenDeathsArr,
                     newCases: response.data.topTenNewCasesArr
                 })
-                console.log('this.state', this.state);
-                console.log('this.state.data', this.state.data);
+                // console.log('this.state', this.state);
+                // console.log('this.state.data', this.state.data);
             })
             .catch((error) => {
                 console.log('error ERROR error', error)
