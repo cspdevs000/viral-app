@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Profile = (props) => {
   const { handleLogout, user } = props;
+  console.log(user);
   const { id, name, email, exp } = user;
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();

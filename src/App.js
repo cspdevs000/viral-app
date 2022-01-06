@@ -11,6 +11,7 @@ import Signup from './components/Signup';
 import Home from './components/Home';
 import VaccSites from './components/VaccSites';
 import AddVaccSite from './components/AddVaccSite';
+import NavigationBar from './components/NavigationBar';
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
   let token = localStorage.getItem('jwtToken');
@@ -48,6 +49,7 @@ function App() {
     if (localStorage.getItem('jwtToken')) {
         // remove token for localStorage
         localStorage.removeItem('jwtToken');
+    
         setCurrentUser(null);
         setIsAuthenticated(false);
     }
@@ -55,21 +57,23 @@ function App() {
 
   return (
     <div className="wrapper">
+       <NavigationBar handleLogout={handleLogout} isAuth={isAuthenticated}/>
       <BrowserRouter>
       <div>
+       
         <Routes>
           <Route exact path='/' element={<Landing/>}/>
           <Route 
             path="/login"
-            element={<Login/>}
-            render={(props) => <Login {...props} 
-                                  nowCurrentUser={nowCurrentUser} 
-                                  setIsAuthenticated={setIsAuthenticated} 
-                                  user={currentUser}/>}
+            element={<Login 
+            nowCurrentUser={nowCurrentUser} 
+            setIsAuthenticated={setIsAuthenticated} 
+            user={currentUser}/>}
           />
+
           <Route path='/signup' element={<Signup/>}/>
-          <Route path="/profile" element={<Profile/>} user={currentUser}/>
-          <Route path='/home' element={<Home/>}/>
+          <Route path="/profile" element={<Profile user={currentUser} handleLogout={handleLogout}/>} />
+          <Route path='/home' element={<Home />}/>
           <Route path='/countydata' element={<CountyData/>}/>
           <Route path='/sites' element={<VaccSites/>}/>
           <Route path='/addsite' element={<AddVaccSite/>}/>
