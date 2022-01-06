@@ -47,12 +47,17 @@ html {
     color: #e4e2ff;
   }
  
-  table, th, td {
+  table, td {
     border: 1px solid black;
     text-align: center;
   }
 
   table {
     position: absolute;
-    left: 42%
+    left: 35%;
+    width: 30%;
+  }
+
+  th {
+    padding:  0 0 0 100px;
   }

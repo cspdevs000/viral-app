@@ -1,8 +1,62 @@
 import React, { Component } from 'react';
 import NavigationBar from './NavigationBar';
 import './NavigationBar.css';
+import axios from 'axios';
+import CountyOptions from './CountyOptions';
+let countyList = []
+
+// axios.get('https://localhost:3000/countyData/counties')
+// .then(response => {
+//     console.log('Counties', response.data);
+//     countyList = response.data;
+// })
+// .catch(error => {
+//     console.log(error);
+// });
+
+// const countyDropdown = countyList.map((c, idx) => {
+//     return (
+//         <CountyOptions
+//             key ={idx}
+//             name ={c.countyName}
+//         />
+//     );
+// })
 
 class CountyData extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: []
+        };
+    }
+
+    componentDidMount() {
+        axios.get('https://localhost:3000/countyData/counties')
+        .then((response) => {
+            console.log(response.data);
+            this.setState({
+                data: response.data.top
+            });
+        })
+        .catch((error) => {
+            console.log('ERROR', error);
+        })
+    }
+
+    displayCounties() {
+        const countyDropdown = this.state.countyList.map((c, idx) => {
+            return (
+                <CountyOptions
+                    key ={idx}
+                    name ={c.countyName}
+                />
+            );
+        })
+
+        return countyDropdown;
+    }
+
 
     render() {
         return (
@@ -12,10 +66,10 @@ class CountyData extends Component {
                 <h1>Future County Data Page</h1>
 
                 <form method = "" action="http://localhost:3001/home" >
-                    <label>
-                        <p>County:</p>
-                        <input type="text" name="county" />
-                    </label>
+                    <select name="county">
+                        <option value="" selected="selected" >--</option>
+                        {this.displayCounties()}
+                    </select>
                     <br/>
                     <label for="state"><p>State:</p></label>
                     <select name="state">
@@ -79,7 +133,7 @@ class CountyData extends Component {
                 <br/>
                 <table > 
                     <tr>
-                        County Data
+                        <th>County Data</th>
                     </tr>
                     <tr>
                         <td>Infection Rate</td>
