@@ -5,9 +5,14 @@ class SiteSearch extends Component {
     render() {
       return (
           <div>
-              <p>{this.name}</p>
-              <p>{this.zipCode}</p>
-              <p>{this.city}</p>
+              <p>{this.props.name}</p>
+              <p>{this.props.zipCode}</p>
+              <p>{this.props.city}</p>
+              <form action="/site/:id">
+              <button>
+                  visit this site
+              </button>
+              </form>
           </div>
       );
     }
