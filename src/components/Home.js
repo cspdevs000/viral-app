@@ -36,9 +36,6 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <div>
-                    {<NavigationBar />}
-                </div>
 
                 <div>
                     <h1>Home Page</h1>

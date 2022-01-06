@@ -7,7 +7,6 @@ class Landing extends Component {
     render() {
         return (
             <div>
-                {<NavigationBar />}
                 
                 <h1>Welcome to Viral</h1>
                 <h2>(landing page works)</h2>
