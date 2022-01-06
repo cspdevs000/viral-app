@@ -3,25 +3,6 @@ import NavigationBar from './NavigationBar';
 import './NavigationBar.css';
 import axios from 'axios';
 import CountyOptions from './CountyOptions';
-let countyList = []
-
-// axios.get('https://localhost:3000/countyData/counties')
-// .then(response => {
-//     console.log('Counties', response.data);
-//     countyList = response.data;
-// })
-// .catch(error => {
-//     console.log(error);
-// });
-
-// const countyDropdown = countyList.map((c, idx) => {
-//     return (
-//         <CountyOptions
-//             key ={idx}
-//             name ={c.countyName}
-//         />
-//     );
-// })
 
 class CountyData extends Component {
     constructor(props) {
@@ -34,7 +15,6 @@ class CountyData extends Component {
     componentDidMount() {
         axios.get('http://localhost:3000/countyData/counties')
         .then((response) => {
-            //console.log('County response', response.data.countyNameArr);
             this.setState({
                 data: response.data.countyNameArr
             });
@@ -47,7 +27,6 @@ class CountyData extends Component {
     displayCounties() {
         
         const display = this.state.data.map((c, idx) => {
-            console.log('County',c);
             return (
                 <CountyOptions
                     key ={idx}
