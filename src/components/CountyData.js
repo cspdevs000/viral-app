@@ -27,35 +27,36 @@ class CountyData extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [],
+            county:"Alameda_County,_California"
         };
     }
 
-    componentDidMount() {
-        axios.get('https://localhost:3000/countyData/counties')
-        .then((response) => {
-            console.log(response.data);
-            this.setState({
-                data: response.data.top
-            });
-        })
-        .catch((error) => {
-            console.log('ERROR', error);
-        })
-    }
+    // componentDidMount() {
+    //     axios.get('https://localhost:3000/countyData/counties')
+    //     .then((response) => {
+    //         console.log(response.data);
+    //         this.setState({
+    //             data: response.data.top
+    //         });
+    //     })
+    //     .catch((error) => {
+    //         console.log('ERROR', error);
+    //     })
+    // }
 
-    displayCounties() {
-        const countyDropdown = this.state.countyList.map((c, idx) => {
-            return (
-                <CountyOptions
-                    key ={idx}
-                    name ={c.countyName}
-                />
-            );
-        })
+    // displayCounties() {
+    //     const countyDropdown = this.state.countyList.map((c, idx) => {
+    //         return (
+    //             <CountyOptions
+    //                 key ={idx}
+    //                 name ={c.countyName}
+    //             />
+    //         );
+    //     })
 
-        return countyDropdown;
-    }
+    //     return countyDropdown;
+    // }
 
 
     render() {
@@ -65,10 +66,10 @@ class CountyData extends Component {
 
                 <h1>Future County Data Page</h1>
 
-                <form method = "" action="http://localhost:3001/home" >
+                <form method = "GET" action={`http://localhost:3000/actNow/${this.state.county}`} >
                     <select name="county">
-                        <option value="" selected="selected" >--</option>
-                        {this.displayCounties()}
+                        <option value="Alameda County, California"  selected="selected" >Hello</option>
+                        {/* {this.displayCounties()} */}
                     </select>
                     <br/>
                     <label for="state"><p>State:</p></label>
