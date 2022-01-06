@@ -35,6 +35,7 @@ class VaccSites extends Component {
                 data: response.data.zipArr,
                 secondaryData: response.data.closeByArr
             })
+            console.log('WHAOAOHAOHOAH', this.state.data);
         })
         .catch(error => {
             console.log('error gettin zippy', error);
@@ -48,12 +49,12 @@ class VaccSites extends Component {
         return display;
     }
 
-    displaySecondarySites() {
-        const display = this.state.secondaryData.map((s, idx) => {
-            return <SiteSearch key={idx} name={s.name} zipCode={s.zipCode} city={s.city} />
-        });
-        return display;
-    }
+    // displaySecondarySites() {
+    //     const display = this.state.secondaryData.map((s, idx) => {
+    //         return <SiteSearch key={idx} name={s.name} zipCode={s.zipCode} city={s.city} />
+    //     });
+    //     return display;
+    // }
 
     render() {
         return (
@@ -80,9 +81,9 @@ class VaccSites extends Component {
                 <div>
                     {this.displaySiteSearch()}
                 </div>
-                <div>
+                {/* <div>
                     {this.displaySecondarySites()}
-                </div>
+                </div> */}
             </div>
         );
     }
