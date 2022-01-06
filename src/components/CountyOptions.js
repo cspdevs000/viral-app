@@ -7,7 +7,7 @@ class CountyOptions extends Component {
 
     render() {
         return (
-            <option value={this.props.name} >{this.props.name}</option>
+            <option onChange={this.handleChange} value={this.props.name} >{this.props.name}</option>
         )
     }
 

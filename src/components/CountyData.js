@@ -8,7 +8,8 @@ class CountyData extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [],
+            county: ''
         };
     }
 
@@ -38,6 +39,27 @@ class CountyData extends Component {
         return display;
     }
 
+    handleChange = (event) => {
+        this.setState ({
+            county: event.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault(); // at the beginning of a submit function
+        const userData = { 
+          county: this.state.county
+        };
+        console.log(this.state.county)
+        axios.post(`http://localhost:3000/actNow/county`, userData)
+            .then(response => {
+             console.log('Response Data', response.data);
+            })
+            .catch(error => {
+                console.log('===> Error on login', error);
+            });
+      };
+
 
     render() {
         return (
@@ -45,14 +67,24 @@ class CountyData extends Component {
 
                 <h1>Select a County</h1>
 
-                <form method = "POST" action="http://localhost:3000/actNow/county" >
+                {/* <form method = "GET" action="http://localhost:3000/actNow/">
                     <select name="county" defaultValue={""}>
                         <option value="" >-----</option>
                         {this.displayCounties()}
                     </select>
                     <br/>
                     <div>
-                        <button type="submit">Submit</button>
+                        <button type="submit" >Submit</button>
+                    </div>
+                </form> */}
+                <form onSubmit={this.handleSubmit.bind(this)}>
+                    <select onChange={this.handleChange} name="county" defaultValue={""}>
+                        <option  value="test" >-----</option>
+                        {this.displayCounties()}
+                    </select>
+                    <br/>
+                    <div>
+                        <button type="submit" >Submit</button>
                     </div>
                 </form>
                 <br/>
