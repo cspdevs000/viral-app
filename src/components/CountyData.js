@@ -43,7 +43,7 @@ class CountyData extends Component {
                     key={idx}
                     name={c}
                 />
-            );
+            )
         })
 
         return display;

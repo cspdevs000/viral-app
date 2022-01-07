@@ -31,7 +31,7 @@ class Site extends Component {
 
     displayIndividualSite() {
         const display = this.state.data.map((s, idx) => {
-            return <IndividualSite key={idx} id={s._id} name={s.name} zipCode={s.zipCode} city={s.city} state={s.state} address={s.address} waitTimes={s.waitTimes} />
+            return <IndividualSite key={idx} user={this.props.user}id={s._id} name={s.name} zipCode={s.zipCode} city={s.city} state={s.state} address={s.address} waitTimes={s.waitTimes} />
         });
         return display;
       }
