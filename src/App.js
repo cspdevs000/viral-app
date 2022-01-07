@@ -74,7 +74,7 @@ function App() {
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/home' element={<Home/>}/>
           <Route path='/site/:id' element={<Site user={currentUser}/>}/>
-          <Route path='/countydata' element={<CountyData/>}/>
+          <Route path='/countydata' element={<CountyData user={currentUser}/>}/>
           <Route path='/sites' element={<VaccSites/>}/>
           <Route path='/addsite' element={<AddVaccSite/>}/>
           <Route path="/profile" element={<Profile user={currentUser} handleLogout={handleLogout}/>}/>
