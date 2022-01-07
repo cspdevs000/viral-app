@@ -57,7 +57,7 @@ class AddVaccSite extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault(); 
-        const newVaccSite = {
+        const newSite = {
             name: this.state.name,
             address: this.state.address,
             city: this.state.city,
@@ -66,7 +66,7 @@ class AddVaccSite extends Component {
             waitTimes: this.state.waitTimes,
         };
             axios
-                .post(`${REACT_APP_SERVER_URL}/site/new`, newVaccSite)
+                .post(`${REACT_APP_SERVER_URL}/site/new`, newSite)
                 .then((response) => {
                     this.setState({
                         redirect: true,
@@ -102,7 +102,7 @@ class AddVaccSite extends Component {
                         <div className="field">
                             <div className="control">
                                 <input
-                                    type="address"
+                                    type="text"
                                     placeholder="Address"
                                     autoComplete="address"
                                     name="address"
@@ -153,15 +153,16 @@ class AddVaccSite extends Component {
                         </div>
                         <div className="field">
                             <div className="control">
-                                <input
-                                    type="text"
-                                    placeholder="Wait Time"
-                                    autoComplete="waittime"
+                                <label for="waitTimes">How long did you wait?</label><br></br>
+                                <select
                                     name="waitTimes"
-                                    value={this.state.waitTimes}
-                                    onChange={this.handleWaitTimes.bind(this)}
-                                    required
-                                />
+                                    onChange={this.handleWaitTimes}
+                                    defaultValue={""}>
+                                        <option value="30minutes">less than 30 minutes</option>
+                                        <option value="30min1hour">30 minutes - 1 hour</option>
+                                        <option value="1to2hours">1-2 hours</option>
+                                        <option value="morethan2hours">more than 2 hours</option>
+                                </select>        
                             </div>
                         </div>
                         <br></br>
