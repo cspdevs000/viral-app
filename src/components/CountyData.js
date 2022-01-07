@@ -128,11 +128,11 @@ class CountyData extends Component {
                     </tr>
                     <tr>
                         <td className="countyTD">New Cases Today</td>
-                        <td className="countyTD">{this.state.countyInfo.newCases} Cases Today</td>
+                        <td className="countyTD">{this.state.countyInfo.newCases} Cases</td>
                     </tr>
                     <tr>
                         <td className="countyTD">New Deaths Today</td>
-                        <td className="countyTD">{this.state.countyInfo.newDeaths} Deaths Today</td>
+                        <td className="countyTD">{this.state.countyInfo.newDeaths} Deaths</td>
                     </tr>
                     <tr>
                         <td className="countyTD">Population</td>
