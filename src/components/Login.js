@@ -50,7 +50,7 @@ class Login extends Component {
         })
         .catch(error => {
             console.log('===> Error on login', error);
-            alert('sdEither email or password is incorrect. Please try again');
+            alert('Either email or password is incorrect. Please try again');
         });
   };
 
