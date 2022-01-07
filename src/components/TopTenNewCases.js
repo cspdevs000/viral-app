@@ -6,7 +6,7 @@ class TopTenNewCases extends Component {
         return (
             <div className='list-container'>
                 <ol>
-                    <li>{this.props.state}: {this.props.newCases}</li>
+                    <li>{this.props.order + 1}. {this.props.state}: {this.props.newCases}</li>
                 </ol>
             </div>
         );

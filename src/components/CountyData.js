@@ -43,7 +43,7 @@ class CountyData extends Component {
                     key={idx}
                     name={c}
                 />
-            );
+            )
         })
 
         return display;
@@ -63,14 +63,18 @@ class CountyData extends Component {
         
         axios.post(`${REACT_APP_SERVER_URL}/actNow/county`, userData)
             .then(response => {
-                this.state.countyInfo.caseDensity = response.data.countyInfo.caseDensity;
-                this.state.countyInfo.cases = response.data.countyInfo.cases;
-                this.state.countyInfo.deaths = response.data.countyInfo.deaths;
-                this.state.countyInfo.newCases = response.data.countyInfo.newCases;
-                this.state.countyInfo.newDeaths = response.data.countyInfo.newDeaths;
-                this.state.countyInfo.population = response.data.countyInfo.population;
-                this.state.countyInfo.vaccinationsCompleted = response.data.countyInfo.vaccinationsCompleted;
-                this.state.countyInfo.vaccinationsInitiated = response.data.countyInfo.vaccinationsInitiated;
+                this.setState({
+                    countyInfo: {
+                        caseDensity: response.data.countyInfo.caseDensity,
+                        cases: response.data.countyInfo.cases,
+                        deaths: response.data.countyInfo.deaths,
+                        newCases: response.data.countyInfo.newCases,
+                        newDeaths: response.data.countyInfo.newDeaths,
+                        population: response.data.countyInfo.population,
+                        vaccinationsCompleted: response.data.countyInfo.vaccinationsCompleted,
+                        vaccinationsInitiated: response.data.countyInfo.vaccinationsInitiated,
+                    }
+                });
 
                 this.setState({
                     county: this.state.county,
@@ -128,11 +132,11 @@ class CountyData extends Component {
                     </tr>
                     <tr>
                         <td className="countyTD">New Cases Today</td>
-                        <td className="countyTD">{this.state.countyInfo.newCases} Cases Today</td>
+                        <td className="countyTD">{this.state.countyInfo.newCases} Cases</td>
                     </tr>
                     <tr>
                         <td className="countyTD">New Deaths Today</td>
-                        <td className="countyTD">{this.state.countyInfo.newDeaths} Deaths Today</td>
+                        <td className="countyTD">{this.state.countyInfo.newDeaths} Deaths</td>
                     </tr>
                     <tr>
                         <td className="countyTD">Population</td>
