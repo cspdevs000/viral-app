@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
+import './TopTen.css';
 
 class TopTenNewCases extends Component {
-
-    //are the 'cases' in the data new cases or total cases
-
     render() {
         return (
-            <div>
-            <h2>{this.props.state}: {this.props.newCases}</h2>
+            <div className='list-container'>
+                <ol>
+                    <li>{this.props.state}: {this.props.newCases}</li>
+                </ol>
             </div>
         );
     }

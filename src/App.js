@@ -58,7 +58,7 @@ function App() {
   }
 
   return (
-    <div className="wrapper">
+    <div>
       <NavigationBar handleLogout={handleLogout} user={currentUser} isAuth={isAuthenticated}/>
       <BrowserRouter>
       <div>
@@ -75,7 +75,7 @@ function App() {
 
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/home' element={<Home/>}/>
-          <Route path='/site' element={<Site/>}/>
+          <Route path='/site/:id' element={<Site/>}/>
           <Route path='/countydata' element={<CountyData/>}/>
           <Route path='/sites' element={<VaccSites/>}/>
           <Route path='/addsite' element={<AddVaccSite/>}/>
