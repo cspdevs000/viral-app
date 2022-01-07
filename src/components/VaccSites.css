@@ -1,0 +1,22 @@
+.vacc-sites-container {
+    background-color: #A7CDBD;
+    height: 100vh;
+    width: 100vw;
+}
+
+.add-site-button {
+    margin: 30px;
+    padding: 60px;
+}
+
+.site-search-form {
+    padding: 10px;
+}
+
+.site-search-field {
+    padding: 10px;
+}
+
+.site-results-container {
+    background-color: #A7CDBD;
+}

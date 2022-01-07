@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Navigate } from "react-router-dom";
-import './NavigationBar.css';
+import './Signup.css';
 import axios from 'axios';
 const { REACT_APP_SERVER_URL } = process.env;
 
@@ -10,8 +10,10 @@ class Signup extends Component {
         this.state = {
             name: "",
             email: "",
+            userName: "",
             password: "",
             confirmPassword: "",
+            state: "",
             redirect: false,
         };
     }
@@ -28,6 +30,12 @@ class Signup extends Component {
         });
     }
 
+    handleUserName(e) {
+        this.setState({
+            userName: e.target.value,
+        });
+    }
+
     handlePassword(e) {
         this.setState({
             password: e.target.value,
@@ -37,6 +45,19 @@ class Signup extends Component {
     handleConfirmPassword(e) {
         this.setState({
             confirmPassword: e.target.value,
+        });
+    }
+
+    handleState(e) {
+        this.setState({
+            state: e.target.value,
+        });
+    }
+
+
+    handleCounty(e) {
+        this.setState({
+            county: e.target.value,
         });
     }
 
@@ -70,10 +91,10 @@ class Signup extends Component {
         if (this.state.redirect) return <Navigate to="/login" />;
 
         return (
-            <div>
-
-                <h1>Signup Page</h1>
-                <div>
+            <div className="signup-container">
+                <div className="form-container">
+                <h1>Sign up for Viral</h1>
+                <h4>keep track of the latest covid data & your vacc card</h4>
                     <form onSubmit={this.handleSubmit.bind(this)}>
                         <div className="field">
                             <div className="control">
@@ -88,10 +109,19 @@ class Signup extends Component {
                                 />
                             </div>
                         </div>
-                        <label>
-                            <p>Username</p>
-                            <input type="text" name="userName" />
-                        </label>
+                        <div className="field">
+                            <div className="control">
+                                <input
+                                    type="text"
+                                    placeholder="Username"
+                                    autoComplete="username"
+                                    name="userName"
+                                    value={this.state.userName}
+                                    onChange={this.handleUserName.bind(this)}
+                                    required
+                                />
+                            </div>
+                        </div>
                         <div className="field">
                             <div className="control">
                                 <input
@@ -104,6 +134,7 @@ class Signup extends Component {
                                     required
                                 />
                             </div>
+                        </div>
                             <div className="field">
                                 <div className="control">
                                     <input
@@ -117,7 +148,6 @@ class Signup extends Component {
                                     />
                                 </div>
                             </div>
-                        </div>
                         <div className="field">
                             <div className="control">
                                 <input
@@ -131,14 +161,33 @@ class Signup extends Component {
                                 />
                             </div>
                         </div>
-                        <label>
-                            <p>State</p>
-                            <input type="text" name="state" />
-                        </label>
-                        <label>
-                            <p>County</p>
-                            <input type="text" name="county" />
-                        </label>
+                        <div className="field">
+                            <div className="control">
+                                <input
+                                    type="text"
+                                    placeholder="State"
+                                    autoComplete="state"
+                                    name="state"
+                                    value={this.state.state}
+                                    onChange={this.handleState.bind(this)}
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className="field">
+                            <div className="control">
+                                <input
+                                    type="text"
+                                    placeholder="County"
+                                    autoComplete="county"
+                                    name="county"
+                                    value={this.state.county}
+                                    onChange={this.handleCounty.bind(this)}
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <br></br>
                         <div>
                             <button type="submit">Submit</button>
                         </div>

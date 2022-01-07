@@ -1,10 +1,26 @@
-.container {
+ .countyTH {
+    text-align: center;
+    background-color: #869D7A;
+    border: 2px solid #91785D;
+  }
+
+  .countyTable {
+    position: absolute;
+    left: 35%;
+    width: 30%;
+    border: 2px solid #91785D;
+    text-align: center;
+  }
+
+  .countyTD {
+    background-color: #A7CDBD;
+    border: 2px solid #91785D;
+  }
+
+.county-container {
     background-color: #A7CDBD;
     height: 100vh;
     width: 100vw;
-    display: grid;
-    grid-template-columns: 25% 50% 25%;
-    grid-template-rows: 20% 40% 30% 10%;
 }
 
 .form-container {

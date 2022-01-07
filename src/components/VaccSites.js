@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SiteResult from './SiteResult';
-import './NavigationBar.css';
+import './VaccSites.css';
 import axios from 'axios';
 const { REACT_APP_SERVER_URL } = process.env;
 
@@ -58,30 +58,25 @@ class VaccSites extends Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    <h1>Future Vaccination Sites Search Page</h1>
-                </div>
+            <div className="vacc-sites-container">
                 <div>
                     <form action="/addsite" method="GET">
-                        <button>
-                            Add a Vaccination Site
+                        <button className="add-site-button">
+                            Click Here to Add a Vaccination Site
                         </button>
                     </form>
                 </div>
-                <div className="searchForm">
+                <div className="site-search-form">
                     <form onSubmit={this.handleSubmit.bind(this)}>
-                        <input
-                            placeholder="Search for..."
+                        <input className='site-search-field'
+                            placeholder="Search by Zip Code"
                             value={this.state.zipCode}
                             onChange={this.handleZipCode.bind(this)}
                         />
                     </form>
                 </div>
-                <div>
+                <div className='site-results-container'>
                     {this.displaySiteSearch()}
-                </div>
-                <div>
                     {this.displaySecondarySites()}
                 </div>
             </div>
