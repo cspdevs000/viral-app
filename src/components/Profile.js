@@ -1,5 +1,5 @@
-import './NavigationBar.css';
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const Profile = (props) => {
@@ -13,6 +13,7 @@ const Profile = (props) => {
   if (currentTime >= expirationTime) {
     handleLogout();
     alert('Session has ended. Please login to continue.');
+    <Navigate to="/login"></Navigate>
   }
 
   const handleChange = (event) => {

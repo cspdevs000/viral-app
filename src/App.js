@@ -86,3 +86,6 @@ function App() {
 }
 
 export default App;
+
+//todo : implement comments to sites
+// styling
