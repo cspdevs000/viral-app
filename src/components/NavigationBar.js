@@ -22,7 +22,6 @@ class NavigationBar extends Component {
                                     <a class="navbar-item" href="/countydata" >County Data </a>
                                     <a class="navbar-item" href="/sites" >Sites </a>
                                     <a class="navbar-item" href="/home" >Home </a>
-                                    
                                 </div>
                             </div>
                         </nav>

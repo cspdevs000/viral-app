@@ -61,7 +61,7 @@ class CountyData extends Component {
         const userData = { 
           county: this.state.county
         };
-
+        
         axios.post(`${REACT_APP_SERVER_URL}/actNow/county`, userData)
             .then(response => {
              this.state.countyInfo.caseDensity = response.data.countyInfo.caseDensity;
