@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './TopTen.css';
 
 class TopTen extends Component {
 
@@ -6,8 +7,10 @@ class TopTen extends Component {
 
     render() {
         return (
-            <div>
-            <h2>{this.props.state}: {this.props.cases}</h2>
+            <div className='list-container'>
+                <ol>
+                    <li>{this.props.state}: {this.props.cases}</li>
+                </ol>
             </div>
         );
     }

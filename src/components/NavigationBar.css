@@ -1,8 +1,3 @@
-html {
-    font-family: 'Nunito Sans', sans-serif;
-    color: black;
-  }
-  
   a {
     color: #3b7adf;
   }
@@ -12,58 +7,34 @@ html {
     color: #3b7adf;
   }
   
-  hr {
-    background: #24272c;
-  }
-  
-  .hero {
-    background: #060606;
-  }
-  
-  .title,
-  .subtitle {
-    color: white;
-  }
-  
-  .navbar .navbar-item {
-    color: #e4e2ff;
-    padding: 20px;
-    text-align: left;
-  }
-  
-  .navbar .navbar-item.is-active {
-    color: #e4e2ff;
-    font-weight: 700;
-
-  }
-  
-  .navbar .navbar-item:hover {
+  .navbar-item:hover {
     background: transparent;
     color: white;
   }
   
-  .navbar .navbar-item a {
-    margin-left: 1rem;
-    color: #e4e2ff;
+  .navbar {
+    padding: 10px;
   }
- 
-  td {
-    border: 1px solid black;
-    text-align: center;
+  
+  .navbarContainer {
+    background: #91785D;
+    height: 8vw;
+    width: 100vw;
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 1px 8px #ddd;
+  }
+
+  .is-left {
+      margin-right: auto; 
+  }
+  
+  .navbar-item {
+    color: #A7CDBD;
+    padding: 25px;
   }
 
 
 
-  table {
-    position: absolute;
-    left: 35%;
-    width: 30%;
-    border: 1px solid black;
-    text-align: center;
-    border-color: #869D7A;
-  }
 
-  th {
-    /* padding:  0 0 0 100px; */
-    background-color: #A7CDBD;
-  }
