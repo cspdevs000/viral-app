@@ -61,7 +61,7 @@ class Login extends Component {
     // alert('You are already logged in');
 
     return (
-        <div className="container">
+        <div className="login-container">
           <div className="message">
             <h1 style={{ color: "black" }}>Viral</h1>
             <p>An elegant and robust website that answers any questions you have about COVID-19</p>

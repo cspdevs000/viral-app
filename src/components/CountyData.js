@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './NavigationBar.css';
 import './CountyData.css';
 import axios from 'axios';
 import CountyOptions from './CountyOptions';
@@ -96,7 +95,7 @@ class CountyData extends Component {
     render() {
         return (
             <div>
-            <div className="container">
+            <div className="county-container">
                 <div className="form-container">
                     <h1>Select a County</h1>
                     <form onSubmit={this.handleSubmit.bind(this)}>

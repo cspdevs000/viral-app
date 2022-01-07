@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import './NavigationBar.css';
 import './Profile.css';
+=======
+>>>>>>> 12e8e08ae37e99070441296036472b604071a2d8
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState, useRef } from "react";
@@ -38,6 +42,7 @@ const Profile = (props) => {
   if (currentTime >= expirationTime) {
     handleLogout();
     alert('Session has ended. Please login to continue.');
+    <Navigate to="/login"></Navigate>
   }
 
   //Gets the cloudinary publicURL and add to state

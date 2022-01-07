@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './SiteResult.css';
 const { REACT_APP_SERVER_URL } = process.env;
 
 class SiteResult extends Component {
@@ -21,7 +22,7 @@ class SiteResult extends Component {
 
     render() {
       return (
-          <div>
+          <div className='site-result-container'>
               <p>{this.props.name}</p>
               <p>{this.props.zipCode}</p>
               <p>{this.props.city}</p>

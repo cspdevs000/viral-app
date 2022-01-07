@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import IndividualSite from './IndividualSite'
+import './Site.css';
 import axios from 'axios';
 const { REACT_APP_SERVER_URL } = process.env;
 
@@ -37,8 +38,7 @@ class Site extends Component {
   
     render() {
       return (
-          <div>
-              <p>individual site page WILL BE HERE</p>
+          <div className='site-container'>
               {this.displayIndividualSite()}
           </div>
       );
