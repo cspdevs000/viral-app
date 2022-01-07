@@ -62,7 +62,6 @@ function App() {
       <NavigationBar handleLogout={handleLogout} user={currentUser} isAuth={isAuthenticated}/>
       <BrowserRouter>
       <div>
-       
         <Routes>
           <Route exact path='/' element={<Landing/>}/>
           <Route 
@@ -72,7 +71,6 @@ function App() {
             setIsAuthenticated={setIsAuthenticated} 
             user={currentUser}/>}
           />
-
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/home' element={<Home/>}/>
           <Route path='/site/:id' element={<Site/>}/>
@@ -88,6 +86,3 @@ function App() {
 }
 
 export default App;
-
-//todo : implement comments to sites
-// styling
