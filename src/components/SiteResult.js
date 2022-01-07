@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 const { REACT_APP_SERVER_URL } = process.env;
 
-class SiteSearch extends Component {
+class SiteResult extends Component {
   
   handleSubmit = (e) => {
     e.preventDefault(); 
     
     axios.get(`${REACT_APP_SERVER_URL}/site/${this.props.id}`)
     .then((response) => {
-        console.log(response.data);
+        console.log('SITE TO BE NAVIGATED TO', response.data);
         this.setState({
         })
     })
@@ -18,15 +18,17 @@ class SiteSearch extends Component {
     });
 };
 
+
     render() {
       return (
           <div>
               <p>{this.props.name}</p>
               <p>{this.props.zipCode}</p>
               <p>{this.props.city}</p>
-              <form onSubmit={this.handleSubmit}>
-              <button>
-                  visit this site
+              {/* <form action={`${REACT_APP_SERVER_URL}/site/${this.props.id}`}> */}
+              <form action={`/site/${this.props.id}`}>
+              <button type="submit">
+                  more info on this site
               </button>
               </form>
           </div>
@@ -34,4 +36,4 @@ class SiteSearch extends Component {
     }
   }
 
-  export default SiteSearch;
+  export default SiteResult;

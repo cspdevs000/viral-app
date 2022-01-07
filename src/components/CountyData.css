@@ -1,0 +1,23 @@
+.container {
+    background-color: #A7CDBD;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 20% 40% 30% 10%;
+}
+
+.form-container {
+    grid-row-start: 1;
+    grid-column-start: 2;
+    padding: 35px;
+}
+
+.table-container {
+    grid-row-start: 2;
+    grid-column-start: 2;
+}
+
+th, td {
+    padding: 3px;
+  }
