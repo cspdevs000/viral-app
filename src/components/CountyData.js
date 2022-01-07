@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './NavigationBar.css';
 import './CountyData.css';
 import axios from 'axios';
 import CountyOptions from './CountyOptions';
@@ -94,6 +95,7 @@ class CountyData extends Component {
 
     render() {
         return (
+            <div>
             <div className="container">
                 <div className="form-container">
                     <h1>Select a County</h1>
@@ -107,47 +109,47 @@ class CountyData extends Component {
                         </div>
                     </form>
                 </div>
-                <br />
-                <br />
                 <div className="table-container">
-                    <table >
-                        <tr>
-                            <th>County Data</th>
-                        </tr>
-                        <tr>
-                            <td>Case Density</td>
-                            <td>{this.state.countyInfo.caseDensity}</td>
-                        </tr>
-                        <tr>
-                            <td>Cases</td>
-                            <td>{this.state.countyInfo.cases}</td>
-                        </tr>
-                        <tr>
-                            <td>Deaths</td>
-                            <td>{this.state.countyInfo.deaths}</td>
-                        </tr>
-                        <tr>
-                            <td>New Cases</td>
-                            <td>{this.state.countyInfo.newCases}</td>
-                        </tr>
-                        <tr>
-                            <td>New Deaths</td>
-                            <td>{this.state.countyInfo.newDeaths}</td>
-                        </tr>
-                        <tr>
-                            <td>Population</td>
-                            <td>{this.state.countyInfo.population}</td>
-                        </tr>
-                        <tr>
-                            <td>Vaccinations Completed</td>
-                            <td>{this.state.countyInfo.vaccinationsCompleted}</td>
-                        </tr>
-                        <tr>
-                            <td>Vaccinations Initiated</td>
-                            <td>{this.state.countyInfo.vaccinationsInitiated}</td>
-                        </tr>
-                    </table>
+                    <table className="countyTable"> 
+                    <tr>
+                        <th className="countyTH">County Data</th>
+                        <th className="countyTH">#</th>
+                    </tr>
+                    <tr>
+                        <td className="countyTD">Case Density</td>
+                        <td className="countyTD">{this.state.countyInfo.caseDensity} Cases per 100k People</td>
+                    </tr>
+                    <tr>
+                        <td className="countyTD">Total Cases</td>
+                        <td className="countyTD">{this.state.countyInfo.cases} Cases</td>
+                    </tr>
+                    <tr>
+                        <td className="countyTD">Total Deaths</td>
+                        <td className="countyTD">{this.state.countyInfo.deaths} Deaths</td>
+                    </tr>
+                    <tr>
+                        <td className="countyTD">New Cases Today</td>
+                        <td className="countyTD">{this.state.countyInfo.newCases} Cases Today</td>
+                    </tr>
+                    <tr>
+                        <td className="countyTD">New Deaths Today</td>
+                        <td className="countyTD">{this.state.countyInfo.newDeaths} Deaths Today</td>
+                    </tr>
+                    <tr>
+                        <td className="countyTD">Population</td>
+                        <td className="countyTD">{this.state.countyInfo.population} People</td>
+                    </tr>
+                    <tr>
+                        <td className="countyTD">Vaccinations Completed</td>
+                        <td className="countyTD">{this.state.countyInfo.vaccinationsCompleted} Vaccinations</td>
+                    </tr>
+                    <tr>
+                        <td className="countyTD">Vaccinations Initiated</td>
+                        <td className="countyTD">{this.state.countyInfo.vaccinationsInitiated} Vaccinations</td>
+                    </tr>
+                </table>
                 </div>
+            </div>
             </div>
         );
     }

@@ -111,6 +111,7 @@ const Profile = (props) => {
 
   const userData = user ?
     (<div>
+      <div className="column">
       <div>
         <h1>profile page</h1>
       </div>
@@ -127,16 +128,21 @@ const Profile = (props) => {
           crop="scale"
           />
         ))}
-        <input onChange={handleChange} name="image" value={fileInputState} type='file' />
+        <br></br>
+        <br/>
         <form onSubmit={handleSubmit} >
-          <button type="submit" >Submit</button>
+        <input onChange={handleChange} name="image" value={fileInputState} type='file' />
+        
+        <button type="submit" >Submit</button>
         </form>
+        {/* <br/>
         {previewSource && (
           <img src={previewSource} style={{height:'300px'}}/>
         )}
         <br />
         <img id="myImg" src="#"></img>
-        <canvas id="myCanvas" width="200" height="100"></canvas>
+        <canvas id="myCanvas" width="200" height="100"></canvas> */}
+      </div>
       </div>
     </div>) : <h2>Loading...</h2>
 
