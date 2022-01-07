@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TopTen from './TopTen';
 import TopTenNewCases from './TopTenNewCases';
 import TopTenDeaths from './TopTenDeaths';
-import './NavigationBar.css';
+import './Home.css';
 import axios from 'axios';
 const { REACT_APP_SERVER_URL } = process.env;
 
@@ -57,18 +57,19 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
-
-                <div>
-                    <h1>Home Page</h1>
-                    <iframe src="https://covidactnow.org/embed/us/" title="CoVid Act Now" width="700" height="680" frameBorder="0" scrolling="no"></iframe>
+            <div className="container">
+                <div className="map">
+                    <iframe src="https://covidactnow.org/embed/us/" title="CoVid Act Now" width="400" height="375" frameBorder="0" scrolling="no"></iframe>
                 </div>
-
-                <div>
+                <div className='top-ten-1'>
                     <h1>Top Ten Covid Cases No.</h1>
                     {this.displayTopTenCases()}<br />
+                </div>
+                <div className='top-ten-2'>
                     <h1>Top Ten Covid Deaths</h1>
                     {this.displayTopTenDeaths()}<br />
+                </div>
+                <div className='top-ten-3'>
                     <h1>Top Ten New Covid Cases</h1>
                     {this.displayTopTenNewCases()}<br />
                 </div>

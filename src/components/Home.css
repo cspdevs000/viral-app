@@ -1,0 +1,34 @@
+.container {
+    background-color:  #A7CDBD;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 55% 45%;
+    overflow-x: auto;
+}
+
+.map {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    /* overflow-x: auto; */
+    padding: 25px;
+}
+
+.top-ten-1 {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    overflow-x: auto;
+}
+
+.top-ten-2 {
+    grid-row-start: 2;
+    grid-column-start: 2;
+    overflow-x: auto;
+}
+
+.top-ten-3 {
+    grid-row-start: 2;
+    grid-column-start: 3;
+    overflow-x: auto;
+}

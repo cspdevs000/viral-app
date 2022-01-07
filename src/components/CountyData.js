@@ -26,23 +26,23 @@ class CountyData extends Component {
 
     componentDidMount() {
         axios.get(`${REACT_APP_SERVER_URL}/countyData/counties`)
-        .then((response) => {
-            this.setState({
-                data: response.data.countyNameArr
-            });
-        })
-        .catch((error) => {
-            console.log('ERROR', error);
-        })
+            .then((response) => {
+                this.setState({
+                    data: response.data.countyNameArr
+                });
+            })
+            .catch((error) => {
+                console.log('ERROR', error);
+            })
     }
 
     displayCounties() {
-        
+
         const display = this.state.data.map((c, idx) => {
             return (
                 <CountyOptions
-                    key ={idx}
-                    name ={c}
+                    key={idx}
+                    name={c}
                 />
             );
         })
@@ -51,67 +51,66 @@ class CountyData extends Component {
     }
 
     handleChange = (event) => {
-        this.setState ({
+        this.setState({
             county: event.target.value
         })
     }
 
     handleSubmit = (e) => {
         e.preventDefault(); // at the beginning of a submit function
-        const userData = { 
-          county: this.state.county
+        const userData = {
+            county: this.state.county
         };
 
         axios.post(`${REACT_APP_SERVER_URL}/actNow/county`, userData)
             .then(response => {
-             this.state.countyInfo.caseDensity = response.data.countyInfo.caseDensity;
-             this.state.countyInfo.cases = response.data.countyInfo.cases;
-             this.state.countyInfo.deaths = response.data.countyInfo.deaths;
-             this.state.countyInfo.newCases = response.data.countyInfo.newCases;
-             this.state.countyInfo.newDeaths = response.data.countyInfo.newDeaths;
-             this.state.countyInfo.population = response.data.countyInfo.population;
-             this.state.countyInfo.vaccinationsCompleted = response.data.countyInfo.vaccinationsCompleted;
-             this.state.countyInfo.vaccinationsInitiated = response.data.countyInfo.vaccinationsInitiated;
-            
-             this.setState({
-                county: this.state.county,
-                countyInfo: {
-                    caseDensity: this.state.countyInfo.caseDensity,
-                    cases: this.state.countyInfo.cases,
-                    deaths: this.state.countyInfo.deaths,
-                    newCases: this.state.countyInfo.newCases,
-                    newDeaths: this.state.countyInfo.newDeaths,
-                    population: this.state.countyInfo.population,
-                    vaccinationsCompleted: this.state.countyInfo.vaccinationsCompleted,
-                    vaccinationsInitiated: this.state.countyInfo.vaccinationsInitiated,
-                }
-            })
+                this.state.countyInfo.caseDensity = response.data.countyInfo.caseDensity;
+                this.state.countyInfo.cases = response.data.countyInfo.cases;
+                this.state.countyInfo.deaths = response.data.countyInfo.deaths;
+                this.state.countyInfo.newCases = response.data.countyInfo.newCases;
+                this.state.countyInfo.newDeaths = response.data.countyInfo.newDeaths;
+                this.state.countyInfo.population = response.data.countyInfo.population;
+                this.state.countyInfo.vaccinationsCompleted = response.data.countyInfo.vaccinationsCompleted;
+                this.state.countyInfo.vaccinationsInitiated = response.data.countyInfo.vaccinationsInitiated;
+
+                this.setState({
+                    county: this.state.county,
+                    countyInfo: {
+                        caseDensity: this.state.countyInfo.caseDensity,
+                        cases: this.state.countyInfo.cases,
+                        deaths: this.state.countyInfo.deaths,
+                        newCases: this.state.countyInfo.newCases,
+                        newDeaths: this.state.countyInfo.newDeaths,
+                        population: this.state.countyInfo.population,
+                        vaccinationsCompleted: this.state.countyInfo.vaccinationsCompleted,
+                        vaccinationsInitiated: this.state.countyInfo.vaccinationsInitiated,
+                    }
+                })
             })
             .catch(error => {
-                console.log('===> Error on login', error);
+                console.log('===> ERROR GETTING DATA', error);
             });
-      };
+    };
 
 
     render() {
         return (
             <div>
-
-                <h1><b>Select a County</b></h1>
-
-                <form onSubmit={this.handleSubmit.bind(this)}>
-                    <select onChange={this.handleChange} name="county" defaultValue={""}>
-                        <option  value="test" >Enter County Here</option>
-                        {this.displayCounties()}
-                    </select>
-                    <br/>
-                    <div>
-                        <button type="submit" >Submit</button>
-                    </div>
-                </form>
-                <br/>
-                <br/>
-                <table className="countyTable"> 
+            <div className="container">
+                <div className="form-container">
+                    <h1>Select a County</h1>
+                    <form onSubmit={this.handleSubmit.bind(this)}>
+                        <select onChange={this.handleChange} name="county" defaultValue={""}>
+                            <option value="test" >Type County Here</option>
+                            {this.displayCounties()}
+                        </select>
+                        <div>
+                            <button type="submit" >Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div className="table-container">
+                    <table className="countyTable"> 
                     <tr>
                         <th className="countyTH">County Data</th>
                         <th className="countyTH">#</th>
@@ -149,6 +148,8 @@ class CountyData extends Component {
                         <td className="countyTD">{this.state.countyInfo.vaccinationsInitiated} Vaccinations</td>
                     </tr>
                 </table>
+                </div>
+            </div>
             </div>
         );
     }
