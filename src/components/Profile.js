@@ -1,9 +1,14 @@
+<<<<<<< HEAD
+import './NavigationBar.css';
+import './Profile.css';
+=======
+>>>>>>> 12e8e08ae37e99070441296036472b604071a2d8
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import  { useEffect, useState , useRef} from "react";
-import {Image} from 'cloudinary-react';
+import { useEffect, useState, useRef } from "react";
+import { Image } from 'cloudinary-react';
 // const express = require('express');
 // const app = express();
 // app.use(express.json());
@@ -31,7 +36,7 @@ const Profile = (props) => {
   const [imageIds, setImageIds] = useState();
   const [userEmail, setUserEmail] = useState('');
   const firstRenderRef = useRef(true)
-  
+
 
   // make a condition that compares exp and current time
   if (currentTime >= expirationTime) {
@@ -41,26 +46,26 @@ const Profile = (props) => {
   }
 
   //Gets the cloudinary publicURL and add to state
-  const loadImage = async() => {
-    try{
+  const loadImage = async () => {
+    try {
       console.log('email', email);
-      const res = await fetch (`http://localhost:3000/users/photo/${email}`);
+      const res = await fetch(`http://localhost:3000/users/photo/${email}`);
       const data = await res.json();
-      console.log(data);
+      console.log('Test String', data);
       setImageIds(data);
     }
-    catch(error){
+    catch (error) {
       console.log(error);
     }
   }
-  
+
   //loads the function only once
   useEffect(() => {
     console.log(firstRenderRef.current)
     if (firstRenderRef.current) {
       firstRenderRef.current = false
-      
-    }else{
+
+    } else {
       loadImage();
     }
     //useEffects depends on props. when it changes, useEffects reruns
@@ -81,68 +86,97 @@ const Profile = (props) => {
     reader.onloadend = () => {
       setPreviewSource(reader.result);
     }
-    console.log("preview source" , previewSource);
+    console.log("preview source", previewSource);
   }
 
   //Reaches out to backend passing the data URI
   const uploadImage = async (base64EncodedImage) => {
     console.log(base64EncodedImage)
 
-    try{
+    try {
       await fetch('http://localhost:3000/users/photo', {
         method: 'POST',
-        body: JSON.stringify({data: base64EncodedImage, userId: id}),
-        headers: {'Content-type': 'application/json'}
+        body: JSON.stringify({ data: base64EncodedImage, userId: id }),
+        headers: { 'Content-type': 'application/json' }
       })
     }
-    catch(error){
+    catch (error) {
       console.log(error);
     }
+
   }
 
   // if no image string, end. if there is, call uploadImage
   const handleSubmit = (event) => {
     console.log('submitting')
     event.preventDefault();
-    if(!previewSource) return;
+    if (!previewSource) return;
     uploadImage(previewSource);
+    setTimeout(() => { window.location.reload(false) }, 3000);
+
   }
 
 
   const userData = user ?
     (<div>
       <div className="column">
-      <div>
-        <h1>profile page</h1>
-      </div>
-      <div>
-        <h1>Name: {name}</h1>
-        <h1>Email: {email}</h1>
-        <h1>Account ID: {id}</h1>
-        {imageIds && imageIds.map((imageId, index) => (
-          <Image
-          key={index}
-          cloudName="djtd4wqoc"
-          publicId={imageId}
-          width="300"
-          crop="scale"
-          />
-        ))}
-        <br></br>
-        <br/>
-        <form onSubmit={handleSubmit} >
-        <input onChange={handleChange} name="image" value={fileInputState} type='file' />
-        
-        <button type="submit" >Submit</button>
-        </form>
-        {/* <br/>
-        {previewSource && (
-          <img src={previewSource} style={{height:'300px'}}/>
-        )}
-        <br />
-        <img id="myImg" src="#"></img>
-        <canvas id="myCanvas" width="200" height="100"></canvas> */}
-      </div>
+        <div>
+          <h1>Profile</h1>
+        </div>
+        <div>
+          <div class="content">
+            <table>
+              <tr>
+                <th></th>
+              </tr>
+              <tr>
+                <td>Name: {name}</td>
+              </tr>
+              <tr>
+                <td>Email: {email}</td>
+              </tr>
+              <tr>
+                <td>Account ID: {id}</td>
+              </tr>
+              <tr>
+                <td>
+                  Current Vaccination Card :
+                  <br />
+                  <br />
+                  {imageIds && imageIds.map((imageId, index) => (
+                    <Image
+                      key={index}
+                      cloudName="djtd4wqoc"
+                      publicId={imageId}
+                      width="500"
+                      crop="scale"
+                    />
+                  ))}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Change Vaccination Card :
+                  <br />
+                  <br/>
+                  <form onSubmit={handleSubmit} >
+                    <input onChange={handleChange} name="image" value={fileInputState} type='file' />
+
+                    <button type="submit" >Submit</button>
+                  </form>
+                  <br />
+                  {previewSource && (
+                    <img src={previewSource} style={{ height: '200px', width: '300px' }} />
+                  )}
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <br></br>
+          <br />
+
+        </div>
       </div>
     </div>) : <h2>Loading...</h2>
 
