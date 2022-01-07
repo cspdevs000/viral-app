@@ -65,17 +65,12 @@ class Home extends Component {
                 </div>
 
                 <div>
-<<<<<<< HEAD
-                    <h1>Top Ten Covid States</h1>
-                    {this.displayTopTen()}
-=======
                     <h1>Top Ten Covid Cases No.</h1>
                     {this.displayTopTenCases()}<br />
                     <h1>Top Ten Covid Deaths</h1>
                     {this.displayTopTenDeaths()}<br />
                     <h1>Top Ten New Covid Cases</h1>
                     {this.displayTopTenNewCases()}<br />
->>>>>>> d924a8310f1010096b24bb04c823963a1bb3e191
                 </div>
             </div>
         );
