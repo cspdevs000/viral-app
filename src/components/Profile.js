@@ -1,3 +1,5 @@
+import './NavigationBar.css';
+import './Profile.css';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -5,6 +7,7 @@ import axios from 'axios';
 import './Profile.css';
 import { useEffect, useState, useRef } from "react";
 import { Image } from 'cloudinary-react';
+const { REACT_APP_SERVER_URL } = process.env;
 // const express = require('express');
 // const app = express();
 // app.use(express.json());
@@ -45,7 +48,7 @@ const Profile = (props) => {
   const loadImage = async () => {
     try {
       console.log('email', email);
-      const res = await fetch(`http://localhost:3000/users/photo/${email}`);
+      const res = await fetch(`${REACT_APP_SERVER_URL}/users/photo/${email}`);
       const data = await res.json();
       console.log('Test String', data);
       setImageIds(data);
@@ -90,7 +93,7 @@ const Profile = (props) => {
     console.log(base64EncodedImage)
 
     try {
-      await fetch('http://localhost:3000/users/photo', {
+      await fetch(`${REACT_APP_SERVER_URL}/users/photo`, {
         method: 'POST',
         body: JSON.stringify({ data: base64EncodedImage, userId: id }),
         headers: { 'Content-type': 'application/json' }
@@ -114,10 +117,10 @@ const Profile = (props) => {
 
 
   const userData = user ?
-    (<div>
+    (<div className = "profile-container">
       <div className="column">
         <div>
-          <h1>Profile</h1>
+          <h1 >Profile</h1>
         </div>
         <div>
           <div class="content">

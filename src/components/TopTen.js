@@ -9,7 +9,7 @@ class TopTen extends Component {
         return (
             <div className='list-container'>
                 <ol>
-                    <li>{this.props.state}: {this.props.cases}</li>
+                    <li>{this.props.order + 1}. {this.props.state}: {this.props.cases}</li>
                 </ol>
             </div>
         );

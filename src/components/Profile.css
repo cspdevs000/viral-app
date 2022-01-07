@@ -1,3 +1,7 @@
+.profile-container {
+    background-color: #A7CDBD;
+}
+
 .content table:not(:last-child) {
     margin-bottom: 1em;
   }
