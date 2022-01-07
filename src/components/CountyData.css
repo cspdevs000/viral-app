@@ -1,0 +1,18 @@
+ .countyTH {
+    text-align: center;
+    background-color: #869D7A;
+    border: 2px solid #91785D;
+  }
+
+  .countyTable {
+    position: absolute;
+    left: 35%;
+    width: 30%;
+    border: 2px solid #91785D;
+    text-align: center;
+  }
+
+  .countyTD {
+    background-color: #A7CDBD;
+    border: 2px solid #91785D;
+  }

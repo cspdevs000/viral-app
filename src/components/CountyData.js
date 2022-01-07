@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import NavigationBar from './NavigationBar';
 import './NavigationBar.css';
+import './CountyData.css';
 import axios from 'axios';
 import CountyOptions from './CountyOptions';
 const { REACT_APP_SERVER_URL } = process.env;
@@ -97,11 +97,11 @@ class CountyData extends Component {
         return (
             <div>
 
-                <h1>Select a County</h1>
+                <h1><b>Select a County</b></h1>
 
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     <select onChange={this.handleChange} name="county" defaultValue={""}>
-                        <option  value="test" >Type County Here</option>
+                        <option  value="test" >Enter County Here</option>
                         {this.displayCounties()}
                     </select>
                     <br/>
@@ -111,41 +111,42 @@ class CountyData extends Component {
                 </form>
                 <br/>
                 <br/>
-                <table > 
+                <table className="countyTable"> 
                     <tr>
-                        <th>County Data</th>
+                        <th className="countyTH">County Data</th>
+                        <th className="countyTH">#</th>
                     </tr>
                     <tr>
-                        <td>Case Density</td>
-                        <td>{this.state.countyInfo.caseDensity}</td>
+                        <td className="countyTD">Case Density</td>
+                        <td className="countyTD">{this.state.countyInfo.caseDensity} Cases per 100k People</td>
                     </tr>
                     <tr>
-                        <td>Cases</td>
-                        <td>{this.state.countyInfo.cases}</td>
+                        <td className="countyTD">Total Cases</td>
+                        <td className="countyTD">{this.state.countyInfo.cases} Cases</td>
                     </tr>
                     <tr>
-                        <td>Deaths</td>
-                        <td>{this.state.countyInfo.deaths}</td>
+                        <td className="countyTD">Total Deaths</td>
+                        <td className="countyTD">{this.state.countyInfo.deaths} Deaths</td>
                     </tr>
                     <tr>
-                        <td>New Cases</td>
-                        <td>{this.state.countyInfo.newCases}</td>
+                        <td className="countyTD">New Cases Today</td>
+                        <td className="countyTD">{this.state.countyInfo.newCases} Cases Today</td>
                     </tr>
                     <tr>
-                        <td>New Deaths</td>
-                        <td>{this.state.countyInfo.newDeaths}</td>
+                        <td className="countyTD">New Deaths Today</td>
+                        <td className="countyTD">{this.state.countyInfo.newDeaths} Deaths Today</td>
                     </tr>
                     <tr>
-                        <td>Population</td>
-                        <td>{this.state.countyInfo.population}</td>
+                        <td className="countyTD">Population</td>
+                        <td className="countyTD">{this.state.countyInfo.population} People</td>
                     </tr>
                     <tr>
-                        <td>Vaccinations Completed</td>
-                        <td>{this.state.countyInfo.vaccinationsCompleted}</td>
+                        <td className="countyTD">Vaccinations Completed</td>
+                        <td className="countyTD">{this.state.countyInfo.vaccinationsCompleted} Vaccinations</td>
                     </tr>
                     <tr>
-                        <td>Vaccinations Initiated</td>
-                        <td>{this.state.countyInfo.vaccinationsInitiated}</td>
+                        <td className="countyTD">Vaccinations Initiated</td>
+                        <td className="countyTD">{this.state.countyInfo.vaccinationsInitiated} Vaccinations</td>
                     </tr>
                 </table>
             </div>

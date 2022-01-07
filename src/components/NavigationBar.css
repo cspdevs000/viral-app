@@ -47,23 +47,3 @@ html {
     color: #e4e2ff;
   }
  
-  td {
-    border: 1px solid black;
-    text-align: center;
-  }
-
-
-
-  table {
-    position: absolute;
-    left: 35%;
-    width: 30%;
-    border: 1px solid black;
-    text-align: center;
-    border-color: #869D7A;
-  }
-
-  th {
-    /* padding:  0 0 0 100px; */
-    background-color: #A7CDBD;
-  }

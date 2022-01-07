@@ -37,20 +37,46 @@ const Profile = (props) => {
   
   const userData = user ?
     (<div>
-      <div>
-        <h1>profile page</h1>
-      </div>
-      <div>
-            <h1>Name: {name}</h1>
-            <h1>Email: {email}</h1>
-            <h1>Account ID: {id}</h1>
-            <input onChange={handleChange} type='file' />
+      <div className="column">
+        <div className="card">
+          <div className="card-content">
+            <h3 className="title is-4" style = {{color: 'black'}}>Profile</h3>
+
+            <div className="content">
             <form onSubmit={handleSubmit} >
-              <button type="submit" >Submit</button>
-            </form>
-                
+              <table className="table-profile">
+                <tr>
+                  <th colspan="1"></th>
+                  <th colspan="2"></th>
+                </tr>
+                <tr>
+                  <td>Name: {name}</td>
+                </tr>
+                <tr>
+                  <td>Email: {email}</td>
+                </tr>   
+                <tr>
+                  <td>Account ID: {id}</td>
+                </tr>
+                <tr>
+                  <input onChange={handleChange} type='file' />
+                  <button type="submit" >Submit</button>
+                </tr>
+              </table>
+              </form>
+            </div>
             <br/>
+          </div>
+        </div>
+      </div>
+      <div className="column">
+        <div className="card">
+          <div className="card-image">
+            <figure className="image is-4by3">
             <img id="myImg" src="#"></img>
+            </figure>
+          </div>
+        </div>
       </div>
     </div>) : <h2>Loading...</h2>
 
