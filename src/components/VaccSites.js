@@ -51,7 +51,7 @@ class VaccSites extends Component {
 
     displaySecondarySites() {
         const display = this.state.secondaryData.map((s, idx) => {
-            return <SiteResult key={idx} name={s.name} zipCode={s.zipCode} city={s.city} />
+            return <SiteResult key={idx} id={s._id} name={s.name} zipCode={s.zipCode} city={s.city} />
         });
         return display;
     }
