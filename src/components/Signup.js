@@ -54,7 +54,6 @@ class Signup extends Component {
         });
     }
 
-
     handleCounty(e) {
         this.setState({
             county: e.target.value,

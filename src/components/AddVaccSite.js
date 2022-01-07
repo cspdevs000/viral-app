@@ -1,58 +1,173 @@
 import React, { Component } from 'react';
-import './NavigationBar.css';
+import { Navigate } from "react-router-dom";
+import './AddVaccSite.css';
+import axios from 'axios';
 const { REACT_APP_SERVER_URL } = process.env;
 
 class AddVaccSite extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: "",
+            address: "",
+            city: "",
+            state: "",
+            zipCode: "",
+            waitTimes: "",
+            redirect: false,
+        };
+    }
+
+    handleName(e) {
+        this.setState({
+            name: e.target.value,
+        });
+    }
+
+    handleAddress(e) {
+        this.setState({
+            address: e.target.value,
+        });
+    }
+
+    handleCity(e) {
+        this.setState({
+            city: e.target.value,
+        });
+    }
+
+    handleState(e) {
+        this.setState({
+            state: e.target.value,
+        });
+    }
+
+    handleZipCode(e) {
+        this.setState({
+            zipCode: e.target.value,
+        });
+    }
+
+    handleWaitTimes(e) {
+        this.setState({
+            waitTimes: e.target.value,
+        });
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault(); 
+        const newVaccSite = {
+            name: this.state.name,
+            address: this.state.address,
+            city: this.state.city,
+            state: this.state.state,
+            zipCode: this.state.zipCode,
+            waitTimes: this.state.waitTimes,
+        };
+            axios
+                .post(`${REACT_APP_SERVER_URL}/site/new`, newVaccSite)
+                .then((response) => {
+                    this.setState({
+                        redirect: true,
+                    });
+                    return alert('Vaccination Site Created');
+                })
+                .catch((error) => console.log("===> Error in Creating Vacc Site", error));
+    };
 
     render() {
+        if (this.state.redirect) return <Navigate to="/sites" />;
+
         return (
-            <div>
+            <div className='add-vacc-site-container'>
                 <div>
                 <h1>Add a Vaccination Site</h1>
                 </div>
                 <div>
-                <form action={"http://localhost:3000/site/new"} method="POST">
-                        <label>
-                            <p>Name</p>
-                            <input type="text" name="name" />
-                        </label>
-                        <label>
-                            <p>Address</p>
-                            <input type="text" name="address" />
-                        </label>
-                        <label>
-                            <p>City</p>
-                            <input type="text" name="city" />
-                        </label>
-                        <label>
-                            <p>State</p>
-                            <input type="text" name="state" />
-                        </label>
-                        <label>
-                            <p>Zipcode</p>
-                            <input type="text" name="zipCode" />
-                        </label>
-
-                        {/* <div className="hours">
-                        <label>
-                            <p>Monday</p>
-                            <input type="text" name="mondayHours" />
-                        </label>
-                        </div> */}
-
-                        <label>
-                            <p>Wait Time (that you experienced)</p>
-                            <input type="text" name="waitTimes" />
-                        </label>
-
+                <form onSubmit={this.handleSubmit.bind(this)}>
+                <div className="field">
+                            <div className="control">
+                                <input
+                                    type="text"
+                                    placeholder="Name"
+                                    autoComplete="name"
+                                    name="name"
+                                    value={this.state.name}
+                                    onChange={this.handleName.bind(this)}
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className="field">
+                            <div className="control">
+                                <input
+                                    type="address"
+                                    placeholder="Address"
+                                    autoComplete="address"
+                                    name="address"
+                                    value={this.state.address}
+                                    onChange={this.handleAddress.bind(this)}
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className="field">
+                            <div className="control">
+                                <input
+                                    type="text"
+                                    placeholder="City"
+                                    autoComplete="city"
+                                    name="city"
+                                    value={this.state.city}
+                                    onChange={this.handleCity.bind(this)}
+                                    required
+                                />
+                            </div>
+                        </div>
+                            <div className="field">
+                                <div className="control">
+                                    <input
+                                        type="text"
+                                        placeholder="State"
+                                        autoComplete="state"
+                                        name="state"
+                                        value={this.state.state}
+                                        onChange={this.handleState.bind(this)}
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        <div className="field">
+                            <div className="control">
+                                <input
+                                    type="text"
+                                    placeholder="Zip Code"
+                                    autoComplete="zipcode"
+                                    name="zipCode"
+                                    value={this.state.zipCode}
+                                    onChange={this.handleZipCode.bind(this)}
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className="field">
+                            <div className="control">
+                                <input
+                                    type="text"
+                                    placeholder="Wait Time"
+                                    autoComplete="waittime"
+                                    name="waitTimes"
+                                    value={this.state.waitTimes}
+                                    onChange={this.handleWaitTimes.bind(this)}
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <br></br>
                         <div>
                             <button type="submit">Submit</button>
                         </div>
                 </form>    
-                </div>
-
-                <div>
-                {/* need search by zip */}
                 </div>
             </div>
         );

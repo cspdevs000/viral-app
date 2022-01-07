@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 import './NavigationBar.css';
 import './Profile.css';
+=======
+>>>>>>> 27af970e5a21aee82e43ad886e3a57d792811d42
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './Profile.css';
 import { useEffect, useState, useRef } from "react";
 import { Image } from 'cloudinary-react';
 const { REACT_APP_SERVER_URL } = process.env;

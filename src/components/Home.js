@@ -36,21 +36,21 @@ class Home extends Component {
 
     displayTopTenCases() {
         const display = this.state.cases.map((s, idx) => {
-            return <TopTen key={idx} state={s.state} cases={s.cases} />
+            return <TopTen key={idx} order={idx} state={s.state} cases={s.cases} />
         });
         return display;
     }
 
     displayTopTenDeaths() {
         const display = this.state.deaths.map((s, idx) => {
-            return <TopTenDeaths key={idx} state={s.state} deaths={s.cases} />
+            return <TopTenDeaths key={idx} order={idx} state={s.state} deaths={s.cases} />
         });
         return display;
     }
 
     displayTopTenNewCases() {
         const display = this.state.newCases.map((s, idx) => {
-            return <TopTenNewCases key={idx} state={s.state} newCases={s.cases} />
+            return <TopTenNewCases key={idx} order={idx} state={s.state} newCases={s.cases} />
         });
         return display;
     }

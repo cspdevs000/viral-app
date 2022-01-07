@@ -9,7 +9,7 @@ class TopTenDeaths extends Component {
         return (
             <div className='list-container'>
                 <ol>
-                    <li>{this.props.state}: {this.props.deaths}</li>
+                    <li>{this.props.order + 1}. {this.props.state}: {this.props.deaths}</li>
                 </ol>
             </div>
         );
