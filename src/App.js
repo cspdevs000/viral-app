@@ -59,7 +59,7 @@ function App() {
 
   return (
     <div className="wrapper">
-      <NavigationBar handleLogout={handleLogout} isAuth={isAuthenticated}/>
+      <NavigationBar handleLogout={handleLogout} user={currentUser} isAuth={isAuthenticated}/>
       <BrowserRouter>
       <div>
         <Routes>
