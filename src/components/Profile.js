@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-import './NavigationBar.css';
-import './Profile.css';
-=======
->>>>>>> 12e8e08ae37e99070441296036472b604071a2d8
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './Profile.css';
 import { useEffect, useState, useRef } from "react";
 import { Image } from 'cloudinary-react';
 // const express = require('express');
