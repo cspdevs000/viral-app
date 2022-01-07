@@ -14,7 +14,7 @@ class AddVaccSite extends Component {
             city: "",
             state: "",
             zipCode: "",
-            waitTimes: "",
+            waitTimes: "lessThan30",
             redirect: false,
         };
     }
@@ -156,10 +156,10 @@ class AddVaccSite extends Component {
                                 <label for="waitTimes">How long did you wait?</label><br></br>
                                 <select
                                     name="waitTimes"
-                                    onChange={this.handleWaitTimes}
+                                    onChange={this.handleWaitTimes.bind(this)}
                                     defaultValue={""}>
-                                        <option value="30minutes">less than 30 minutes</option>
-                                        <option value="30min1hour">30 minutes - 1 hour</option>
+                                        <option value="lessThan30">less than 30 minutes</option>
+                                        <option value="lessThan1Hour">30 minutes - 1 hour</option>
                                         <option value="1to2hours">1-2 hours</option>
                                         <option value="morethan2hours">more than 2 hours</option>
                                 </select>        
