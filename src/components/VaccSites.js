@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SiteSearch from './SiteSearch';
+import SiteResult from './SiteResult';
 import './NavigationBar.css';
 import axios from 'axios';
 const { REACT_APP_SERVER_URL } = process.env;
@@ -44,14 +44,14 @@ class VaccSites extends Component {
     
     displaySiteSearch() {
         const display = this.state.data.map((s, idx) => {
-            return <SiteSearch key={idx} id={s._id} name={s.name} zipCode={s.zipCode} city={s.city} />
+            return <SiteResult key={idx} id={s._id} name={s.name} zipCode={s.zipCode} city={s.city} />
         });
         return display;
     }
 
     displaySecondarySites() {
         const display = this.state.secondaryData.map((s, idx) => {
-            return <SiteSearch key={idx} name={s.name} zipCode={s.zipCode} city={s.city} />
+            return <SiteResult key={idx} name={s.name} zipCode={s.zipCode} city={s.city} />
         });
         return display;
     }
@@ -90,3 +90,5 @@ class VaccSites extends Component {
 }
 
 export default VaccSites;
+
+//make the results be its own route or figure out a diff way to keep state when user hits back button on browser

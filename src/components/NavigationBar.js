@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './NavigationBar.css';
 
 
 class NavigationBar extends Component {
@@ -8,26 +9,20 @@ class NavigationBar extends Component {
     
     render() {
         return (
-            <section className="hero is-medium">
-                <div className="hero-head">
-                    <div className="container">
-                        <nav className="navbar" role="navigation" aria-label="main navigation">
-
-                            <div id="navbarBasicExample" class="navbar-menu">
-                                <div class="navbar-start">
-                                    {!this.props.user && <a class="navbar-item is-active" href="/signup" >Signup </a>}
-                                    {!this.props.user && <a class="navbar-item" href="/login" >Login </a>}
-                                    {this.props.user && <a class="navbar-item is-active" onClick={this.props.handleLogout} href="/login" >Logout</a>}
-                                    <a class="navbar-item" href="/profile" >Profile </a>
-                                    <a class="navbar-item" href="/countydata" >County Data </a>
-                                    <a class="navbar-item" href="/sites" >Sites </a>
-                                    <a class="navbar-item" href="/home" >Home </a>
-                                </div>
+                    <div className="navbarContainer">
+                        {/* <nav className="navbar" role="navigation"> */}
+                            <div className="is-left">
+                                    {!this.props.user && <a className="navbar-item" href="/signup" >Signup </a>}
+                                    {!this.props.user && <a className="navbar-item" href="/login" >Login </a>}
+                                    {this.props.user && <a className="navbar-item" onClick={this.props.handleLogout} href="/login" >Logout</a>}
                             </div>
-                        </nav>
+                                    <a className="navbar-item" href="/profile" >Profile </a>
+                                    <a className="navbar-item" href="/countydata" >County Data </a>
+                                    <a className="navbar-item" href="/sites" >Sites </a>
+                                    <a className="navbar-item" href="/home" >Home </a>
+                        {/* </nav> */}
                     </div>
-                </div>
-            </section>
+
         );
     }
 }
