@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Navigate } from "react-router-dom";
-import './NavigationBar.css';
+import './Signup.css';
 import axios from 'axios';
 const { REACT_APP_SERVER_URL } = process.env;
 
@@ -91,9 +91,10 @@ class Signup extends Component {
         if (this.state.redirect) return <Navigate to="/login" />;
 
         return (
-            <div>
-                <h1>Signup Page</h1>
-                <div>
+            <div className="signup-container">
+                <div className="form-container">
+                <h1>Sign up for Viral</h1>
+                <h4>keep track of the latest covid data & your vacc card</h4>
                     <form onSubmit={this.handleSubmit.bind(this)}>
                         <div className="field">
                             <div className="control">
