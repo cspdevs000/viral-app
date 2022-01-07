@@ -44,7 +44,7 @@ class VaccSites extends Component {
     
     displaySiteSearch() {
         const display = this.state.data.map((s, idx) => {
-            return <SiteSearch key={idx} name={s.name} zipCode={s.zipCode} city={s.city} />
+            return <SiteSearch key={idx} id={s._id} name={s.name} zipCode={s.zipCode} city={s.city} />
         });
         return display;
     }
