@@ -49,24 +49,24 @@ class AddVaccSite extends Component {
         });
     }
 
-    handleWaitTimes(e) {
-        this.setState({
-            waitTimes: e.target.value,
-        });
-    }
+    // handleWaitTimes(e) {
+    //     this.setState({
+    //         waitTimes: e.target.value,
+    //     });
+    // }
 
     handleSubmit = (e) => {
         e.preventDefault(); 
-        const newVaccSite = {
+        const newSite = {
             name: this.state.name,
             address: this.state.address,
             city: this.state.city,
             state: this.state.state,
             zipCode: this.state.zipCode,
-            waitTimes: this.state.waitTimes,
+            // waitTimes: this.state.waitTimes,
         };
             axios
-                .post(`${REACT_APP_SERVER_URL}/site/new`, newVaccSite)
+                .post(`${REACT_APP_SERVER_URL}/site/new`, newSite)
                 .then((response) => {
                     this.setState({
                         redirect: true,
@@ -151,7 +151,7 @@ class AddVaccSite extends Component {
                                 />
                             </div>
                         </div>
-                        <div className="field">
+                        {/* <div className="field">
                             <div className="control">
                                 <input
                                     type="text"
@@ -163,7 +163,7 @@ class AddVaccSite extends Component {
                                     required
                                 />
                             </div>
-                        </div>
+                        </div> */}
                         <br></br>
                         <div>
                             <button type="submit">Submit</button>
