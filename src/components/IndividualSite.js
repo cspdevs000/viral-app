@@ -31,13 +31,12 @@ class IndividualSite extends Component {
                 this.setState({
                     commentData: response.data.allReviewArr
                 });
-                // console.log(this.state.commentData);
+                // console.log(this.state.commentData[0]._id);
             })
             .catch((error) => {
                 console.log('ERROR', error);
             })
     }
-
 
     handleComment = (e) => {
         e.preventDefault();
@@ -89,6 +88,7 @@ class IndividualSite extends Component {
         const display = this.state.commentData.map((c, idx) => {
             return (
                 <Comment
+                    id={c._id}
                     key={idx}
                     review={c.review}
                     createdDate={c.createdDate}
