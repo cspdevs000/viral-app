@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './IndividualSite.css';
 import axios from 'axios';
 const { REACT_APP_SERVER_URL } = process.env;
 
@@ -39,7 +40,7 @@ class Comment extends Component {
     render() {
         return (
 
-            <div>
+            <div className='comment-container'>
                 <p>Username: {this.props.userName}</p>
                 <p>Comment: {this.props.review}</p>
                 <p>Created Date: {this.props.createdDate}</p>

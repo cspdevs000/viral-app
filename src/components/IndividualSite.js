@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Comment from "./Comment";
+import './IndividualSite.css';
 import axios from 'axios';
 const { REACT_APP_SERVER_URL } = process.env;
 
@@ -8,19 +9,8 @@ class IndividualSite extends Component {
         super(props);
         this.state = {
             message: "",
-            // comment: [
-            //     {
-            //         review: "",
-            //         createdDate: "",
-            //         upVotes: 0,
-            //         userName: "Justin"
-            //         // {
-            //         // type: mongoose.Schema.Types.ObjectId,
-            //         // ref: "User",
-            //         // }
-            //     },
-            // ],
-            commentData: []
+            commentData: [],
+            waitTimes: "lessThan30",
         };
 
     }
@@ -48,6 +38,12 @@ class IndividualSite extends Component {
         });
     };
 
+    handleWaitTimes(e) {
+        this.setState({
+            waitTimes: e.target.value,
+        });
+    }
+
 
     handleSubmit = (e) => {
         e.preventDefault();
@@ -69,15 +65,32 @@ class IndividualSite extends Component {
 
                 commentArr.push(newReview);
 
-
-
                 this.setState({
                     message: "",
-                    commentData: commentArr
+                    commentData: commentArr,
                 })
 
 
-            
+
+            })
+            .catch(error => {
+                console.log('===> ERROR GETTING DATA', error);
+            });
+    };
+
+    handleSubmitWaitTimes = (e) => {
+        e.preventDefault();
+        let commentValue = this.state.message;
+        let newWaitTimes = {
+            waitTimes: this.state.waitTimes
+        };
+
+        axios.put(`${REACT_APP_SERVER_URL}/site/updateWaitTime`, newWaitTimes)
+            .then(response => {
+                console.log(response.data);
+                // this.setState({
+                //     waitTime: this.state.waitTime
+                // })
             })
             .catch(error => {
                 console.log('===> ERROR GETTING DATA', error);
@@ -102,15 +115,30 @@ class IndividualSite extends Component {
 
     render() {
         return (
-            <div>
+            <div className="individual-site-container">
                 <p>{this.props.name}</p>
                 <p>{this.props.address}</p>
                 <p>{this.props.city}</p>
                 <p>{this.props.state}</p>
                 <p>{this.props.zipCode}</p>
                 <p>{this.props.waitTimes}</p>
+                <div className="site-wait-times">
+                    <form onSubmit={this.handleSubmitWaitTimes.bind(this)}>
+                        <h1>Been here before?</h1>
+                        <label for="waitTime">How long did you wait?</label><br></br>
+                        <select
+                            name="waitTime"
+                            onChange={this.handleWaitTimes.bind(this)}
+                            defaultValue={""}>
+                            <option value="lessThan30">less than 30 minutes</option>
+                            <option value="lessThan1Hour">30 minutes - 1 hour</option>
+                            <option value="1to2hours">1-2 hours</option>
+                            <option value="morethan2hours">more than 2 hours</option>
+                        </select><br></br>
+                        <button typ="submit">Submit</button>
+                    </form>
+                </div>
                 <h1>Comments</h1>
-
                 {this.displayComments()}
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     <input

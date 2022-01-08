@@ -14,34 +14,38 @@ class VaccSites extends Component {
             zipCode: ""
         };
     }
-    
+
     handleZipCode(e) {
         this.setState({
             zipCode: e.target.value,
         });
-      }
+    }
 
     handleSubmit = (e) => {
-        e.preventDefault(); 
-        const zipCode = { 
+        e.preventDefault();
+        const zipCode = {
             zipCode: this.state.zipCode
         };
-        console.log('queery', this.state.zipCode);
-        
+
         axios.get(`${REACT_APP_SERVER_URL}/site/zip/${this.state.zipCode}`)
-        .then((response) => {
-            console.log(response.data);
-            this.setState({
-                data: response.data.zipArr,
-                secondaryData: response.data.closeByArr
+            .then((response) => {
+                if (response.data.zipArr !== undefined) {
+                    // console.log('DATA', response.data.zipArr == undefined);
+                    this.setState({
+                        data: response.data.zipArr,
+                        secondaryData: response.data.closeByArr
+                    })
+                }
+                else {
+                    return alert("no sites available for this zipcode");
+                }
+                // console.log('WHAOAOHAOHOAH', this.state.data);
             })
-            console.log('WHAOAOHAOHOAH', this.state.data);
-        })
-        .catch(error => {
-            console.log('error gettin zippy', error);
-        });
+            .catch(error => {
+                console.log('error gettin zippy', error);
+            })
     };
-    
+
     displaySiteSearch() {
         const display = this.state.data.map((s, idx) => {
             return <SiteResult key={idx} id={s._id} name={s.name} zipCode={s.zipCode} city={s.city} />

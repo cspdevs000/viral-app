@@ -1,5 +1,6 @@
 .profile-container {
     background-color: #A7CDBD;
+    padding: 10px;
 }
 
 .content table:not(:last-child) {
