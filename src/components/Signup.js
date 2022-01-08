@@ -253,15 +253,6 @@ class Signup extends Component {
                         </div>
                         <div className="field">
                             <div className="control">
-                                {/* <input
-                                    type="text"
-                                    placeholder="County"
-                                    autoComplete="county"
-                                    name="county"
-                                    value={this.state.county}
-                                    onChange={this.handleCounty.bind(this)}
-                                    required
-                                /> */}
                                 <select 
                                     onChange={this.handleCounty.bind(this)} 
                                     name="county" 
