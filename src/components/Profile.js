@@ -7,7 +7,9 @@ import axios from 'axios';
 import './Profile.css';
 import { useEffect, useState, useRef } from "react";
 import { Image } from 'cloudinary-react';
+import CountyOptions from './CountyOptions';
 const { REACT_APP_SERVER_URL } = process.env;
+let countyData = [];
 // const express = require('express');
 // const app = express();
 // app.use(express.json());
@@ -25,8 +27,7 @@ const { REACT_APP_SERVER_URL } = process.env;
 const Profile = (props) => {
   const { handleLogout, user } = props;
   console.log(user);
-  const { id, name, email, exp } = user;
-  console.log(email)
+  const { id, name, email, exp, county, state } = user;
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
   let file = {};
@@ -34,7 +35,12 @@ const Profile = (props) => {
   const [previewSource, setPreviewSource] = useState('');
   const [imageIds, setImageIds] = useState();
   const [userEmail, setUserEmail] = useState('');
-  const firstRenderRef = useRef(true)
+  const firstRenderRef = useRef(true);
+  const [newName, setName] = useState(''); 
+  const [newEmail, setEmail] = useState('');
+  const [newState, setState] = useState('');
+  const [newCounty, setCounty] = useState('');
+
 
 
   // make a condition that compares exp and current time
@@ -60,13 +66,21 @@ const Profile = (props) => {
 
   //loads the function only once
   useEffect(() => {
-    console.log(firstRenderRef.current)
+    console.log('render', firstRenderRef.current)
     if (firstRenderRef.current) {
       firstRenderRef.current = false
 
     } else {
       loadImage();
+      axios.get(`${REACT_APP_SERVER_URL}/countyData/counties`)
+        .then((response) => {
+          countyData = response.data.countyNameArr;
+        })
+        .catch((error) => {
+          console.log('ERROR COUNTY DATA', error);
+        })
     }
+
     //useEffects depends on props. when it changes, useEffects reruns
   }, [props])
 
@@ -116,8 +130,52 @@ const Profile = (props) => {
   }
 
 
+  const handleInfoSubmit = (event) => {
+    axios
+      .post(`${REACT_APP_SERVER_URL}/users/update`, user)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => console.log("===> Error in Profile Update", error));
+  }
+
+  const handleName = (e) => {
+    setName(
+        e.target.value,
+    );
+  }
+  const handleEmail = (e) => {
+    setEmail(
+        e.target.value,
+    );
+  }
+  const handleState = (e) => {
+    setState(
+        e.target.value,
+    );
+  }
+  const handleCounty = (e) => {
+    setCounty(
+        e.target.value,
+    );
+  }
+
+  const displayCounties = () => {
+    const display = countyData.map((c, idx) => {
+      return (
+        <CountyOptions
+          key={idx}
+          name={c}
+        />
+      )
+    })
+
+    return display;
+  }
+
+
   const userData = user ?
-    (<div className = "profile-container">
+    (<div className="profile-container">
       <div className="column">
         <div>
           <h1 >Profile</h1>
@@ -129,13 +187,108 @@ const Profile = (props) => {
                 <th></th>
               </tr>
               <tr>
-                <td>Name: {name}</td>
+                <td>Name: {name}
+                  <br />
+                  <br />
+                  <input value={newName} onChange={handleName.bind(this)} type="text" name="name" placeholder={name} />
+                </td>
               </tr>
               <tr>
-                <td>Email: {email}</td>
+                <td>Email: {email}
+                  <br />
+                  <br />
+                  <input value={newEmail} onChange={handleEmail.bind(this)} type="text" name="email" placeholder={email} />
+                </td>
               </tr>
               <tr>
                 <td>Account ID: {id}</td>
+              </tr>
+              <tr>
+                <td>State: {state}
+                  <br />
+                  <br />
+                  <select
+                    value={newState} 
+                    onChange={handleState.bind(this)}
+                    name="state"
+                    defaultValue={state}>
+                    <option value="test" >Select New State</option>
+                    <option value="AL" >Alabama</option>
+                    <option value="AK" >Alaska</option>
+                    <option value="AZ" >Arizona</option>
+                    <option value="AR" >Arkansas</option>
+                    <option value="CA" >California</option>
+                    <option value="CO" >Colorado</option>
+                    <option value="CT" >Connecticut</option>
+                    <option value="DE" >Delaware</option>
+                    <option value="FL" >Florida</option>
+                    <option value="GA" >Georgia</option>
+                    <option value="HI" >Hawaii</option>
+                    <option value="ID" >Idaho</option>
+                    <option value="IL" >Illinois</option>
+                    <option value="IN" >Indiana</option>
+                    <option value="IA" >Iowa</option>
+                    <option value="KS" >Kansas</option>
+                    <option value="KY" >Kentucky</option>
+                    <option value="LA" >Louisiana</option>
+                    <option value="ME" >Maine</option>
+                    <option value="MD" >Maryland</option>
+                    <option value="MA" >Massachusetts</option>
+                    <option value="MI" >Michigan</option>
+                    <option value="MN" >Minnesota</option>
+                    <option value="MS" >Mississippi</option>
+                    <option value="MO" >Missouri</option>
+                    <option value="MT" >Montana</option>
+                    <option value="NE" >Nebraska</option>
+                    <option value="NV" >Nevada</option>
+                    <option value="NH" >New Hampshire</option>
+                    <option value="NJ" >New Jersey</option>
+                    <option value="NM" >New Mexico</option>
+                    <option value="NY" >New York</option>
+                    <option value="NC" >North Carolina</option>
+                    <option value="ND" >North Dakota</option>
+                    <option value="OH" >Ohio</option>
+                    <option value="OK" >Oklahoma</option>
+                    <option value="OR" >Oregon</option>
+                    <option value="PA" >Pennsylvania</option>
+                    <option value="RI" >Rhode Island</option>
+                    <option value="SC" >South Carolina</option>
+                    <option value="SD" >South Dakota</option>
+                    <option value="TN" >Tennessee</option>
+                    <option value="TX" >Texas</option>
+                    <option value="UT" >Utah</option>
+                    <option value="VT" >Vermont</option>
+                    <option value="VA" >Virginia</option>
+                    <option value="WA" >Washington</option>
+                    <option value="WV" >West Virginia</option>
+                    <option value="WI" >Wisconsin</option>
+                    <option value="WY" >Wyoming</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>County: {county}
+                  <br />
+                  <br />
+                  <select
+                    // onChange={this.handleCounty.bind(this)}
+                    value={newCounty} 
+                    onChange={handleCounty.bind(this)}
+                    name="county"
+                    defaultValue={county}>
+                    <option value="test" >Choose New County</option>
+                    {displayCounties()}
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Update with new submissions:
+                  <br />
+                  <br />
+                  <form onSubmit={handleInfoSubmit} >
+                    <button type="submit" >Submit</button>
+                  </form>
+                </td>
               </tr>
               <tr>
                 <td>
@@ -153,11 +306,12 @@ const Profile = (props) => {
                   ))}
                 </td>
               </tr>
+
               <tr>
                 <td>
                   Change Vaccination Card :
                   <br />
-                  <br/>
+                  <br />
                   <form onSubmit={handleSubmit} >
                     <input onChange={handleChange} name="image" value={fileInputState} type='file' />
 
