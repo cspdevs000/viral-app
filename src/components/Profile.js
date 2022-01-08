@@ -9,20 +9,8 @@ import { useEffect, useState, useRef } from "react";
 import { Image } from 'cloudinary-react';
 import CountyOptions from './CountyOptions';
 const { REACT_APP_SERVER_URL } = process.env;
-let countyData = [];
-// const express = require('express');
-// const app = express();
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
 
+let countyData = [];
 
 const Profile = (props) => {
   const { handleLogout, user } = props;
@@ -36,10 +24,11 @@ const Profile = (props) => {
   const [imageIds, setImageIds] = useState();
   const [userEmail, setUserEmail] = useState('');
   const firstRenderRef = useRef(true);
-  const [newName, setName] = useState(''); 
-  const [newEmail, setEmail] = useState('');
-  const [newState, setState] = useState('');
-  const [newCounty, setCounty] = useState('');
+  const [newName, setName] = useState(user.name); 
+  const [newEmail, setEmail] = useState(user.email);
+  const [newState, setState] = useState(user.state);
+  const [newCounty, setCounty] = useState(user.county);
+  const [display, setDisplay] = useState();
 
 
 
@@ -75,6 +64,17 @@ const Profile = (props) => {
       axios.get(`${REACT_APP_SERVER_URL}/countyData/counties`)
         .then((response) => {
           countyData = response.data.countyNameArr;
+          console.log('COUNTY DATA', countyData);
+
+          setDisplay(countyData.map((c, idx) => {
+            return (
+              <CountyOptions
+                key={idx}
+                name={c}
+              />
+            )
+          }))
+
         })
         .catch((error) => {
           console.log('ERROR COUNTY DATA', error);
@@ -131,8 +131,16 @@ const Profile = (props) => {
 
 
   const handleInfoSubmit = (event) => {
+
+    const data = {
+      user: user,
+      newName: newName,
+      newEmail: newEmail,
+      newState: newState,
+      newCounty: newCounty
+    }
     axios
-      .post(`${REACT_APP_SERVER_URL}/users/update`, user)
+      .post(`${REACT_APP_SERVER_URL}/users/update`, data)
       .then((response) => {
         console.log(response.data);
       })
@@ -160,19 +168,6 @@ const Profile = (props) => {
     );
   }
 
-  const displayCounties = () => {
-    const display = countyData.map((c, idx) => {
-      return (
-        <CountyOptions
-          key={idx}
-          name={c}
-        />
-      )
-    })
-
-    return display;
-  }
-
 
   const userData = user ?
     (<div className="profile-container">
@@ -181,7 +176,7 @@ const Profile = (props) => {
           <h1 >Profile</h1>
         </div>
         <div>
-          <div class="content">
+          <div className="content">
             <table>
               <tr>
                 <th></th>
@@ -190,14 +185,14 @@ const Profile = (props) => {
                 <td>Name: {name}
                   <br />
                   <br />
-                  <input value={newName} onChange={handleName.bind(this)} type="text" name="name" placeholder={name} />
+                  <input value={newName} defaultValue={newName} onChange={handleName.bind(this)} type="text" name="name" placeholder={name} />
                 </td>
               </tr>
               <tr>
                 <td>Email: {email}
                   <br />
                   <br />
-                  <input value={newEmail} onChange={handleEmail.bind(this)} type="text" name="email" placeholder={email} />
+                  <input value={newEmail} defaultValue={newEmail} onChange={handleEmail.bind(this)} type="text" name="email" placeholder={email} />
                 </td>
               </tr>
               <tr>
@@ -210,8 +205,7 @@ const Profile = (props) => {
                   <select
                     value={newState} 
                     onChange={handleState.bind(this)}
-                    name="state"
-                    defaultValue={state}>
+                    name="state">
                     <option value="test" >Select New State</option>
                     <option value="AL" >Alabama</option>
                     <option value="AK" >Alaska</option>
@@ -271,13 +265,11 @@ const Profile = (props) => {
                   <br />
                   <br />
                   <select
-                    // onChange={this.handleCounty.bind(this)}
                     value={newCounty} 
                     onChange={handleCounty.bind(this)}
-                    name="county"
-                    defaultValue={county}>
+                    name="county">
                     <option value="test" >Choose New County</option>
-                    {displayCounties()}
+                    {display}
                   </select>
                 </td>
               </tr>
