@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import './CountyData.css';
 import axios from 'axios';
 import CountyOptions from './CountyOptions';
-import { useEffect, useState, useRef } from "react";
 const { REACT_APP_SERVER_URL } = process.env;
 
-const firstRenderRef = useRef(true);
 
 class CountyData extends Component {
     
@@ -30,28 +28,21 @@ class CountyData extends Component {
 
 
 
-    componentDidMount() {
-        
-        
+
+    async componentDidMount() {
 
         axios.get(`${REACT_APP_SERVER_URL}/countyData/counties`)
             .then((response) => {
                 this.setState({
                     data: response.data.countyNameArr
                 });
+                console.log('Test', this.props.user.email);
+                console.log('Test', this.props.user.county);
+                console.log('Test', this.props.user.state);
             })
             .catch((error) => {
                 console.log('ERROR', error);
             })
-        console.log(firstRenderRef.current)
-        if (firstRenderRef.current) {
-            firstRenderRef.current = false
-
-        } else {
-            console.log('Test', this.props.user.email);
-            console.log('Test', this.props.user.county);
-            console.log('Test', this.props.user.state);
-        }
 
     }
 

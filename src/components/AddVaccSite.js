@@ -53,6 +53,7 @@ class AddVaccSite extends Component {
         this.setState({
             waitTimes: e.target.value,
         });
+        console.log(this.state.waitTimes);
     }
 
     handleSubmit = (e) => {
@@ -156,7 +157,7 @@ class AddVaccSite extends Component {
                                 <label for="waitTimes">How long did you wait?</label><br></br>
                                 <select
                                     name="waitTimes"
-                                    onChange={this.handleWaitTimes}
+                                    onChange={this.handleWaitTimes.bind(this)}
                                     defaultValue={""}>
                                         <option value="30minutes">less than 30 minutes</option>
                                         <option value="30min1hour">30 minutes - 1 hour</option>
