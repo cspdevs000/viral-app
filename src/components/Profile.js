@@ -204,6 +204,7 @@ const Profile = (props) => {
                   <br />
                   <select
                     value={newState} 
+                    defaultValue={newState}
                     onChange={handleState.bind(this)}
                     name="state">
                     <option value="test" >Select New State</option>
@@ -266,6 +267,7 @@ const Profile = (props) => {
                   <br />
                   <select
                     value={newCounty} 
+                    defaultValue={newCounty}
                     onChange={handleCounty.bind(this)}
                     name="county">
                     <option value="test" >Choose New County</option>
