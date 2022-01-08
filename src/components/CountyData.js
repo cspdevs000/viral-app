@@ -71,7 +71,7 @@ class CountyData extends Component {
         const userData = {
             county: this.state.county
         };
-
+        
         axios.post(`${REACT_APP_SERVER_URL}/actNow/county`, userData)
             .then(response => {
                 console.log(response.data.countyInfo)
