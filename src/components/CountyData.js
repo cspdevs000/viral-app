@@ -39,44 +39,46 @@ class CountyData extends Component {
                 console.log('Test', this.props.user.email);
                 console.log('Test', this.props.user.county);
                 console.log('Test', this.props.user.state);
-                const userData = {
-                    county: this.props.user.county
-                };
-                axios.post(`${REACT_APP_SERVER_URL}/actNow/county`, userData)
-                    .then(response => {
-                        console.log(response.data.countyInfo)
-                        this.setState({
-                            countyInfo: {
-                                name: response.data.countyInfo.county,
-                                caseDensity: response.data.countyInfo.caseDensity,
-                                cases: response.data.countyInfo.cases,
-                                deaths: response.data.countyInfo.deaths,
-                                newCases: response.data.countyInfo.newCases,
-                                newDeaths: response.data.countyInfo.newDeaths,
-                                population: response.data.countyInfo.population,
-                                vaccinationsCompleted: response.data.countyInfo.vaccinationsCompleted,
-                                vaccinationsInitiated: response.data.countyInfo.vaccinationsInitiated,
-                            }
-                        });
+                if(this.props.county !== null){
+                    const userData = {
+                        county: this.props.user.county
+                    };
+                    axios.post(`${REACT_APP_SERVER_URL}/actNow/county`, userData)
+                        .then(response => {
+                            console.log(response.data.countyInfo)
+                            this.setState({
+                                countyInfo: {
+                                    name: response.data.countyInfo.county,
+                                    caseDensity: response.data.countyInfo.caseDensity,
+                                    cases: response.data.countyInfo.cases,
+                                    deaths: response.data.countyInfo.deaths,
+                                    newCases: response.data.countyInfo.newCases,
+                                    newDeaths: response.data.countyInfo.newDeaths,
+                                    population: response.data.countyInfo.population,
+                                    vaccinationsCompleted: response.data.countyInfo.vaccinationsCompleted,
+                                    vaccinationsInitiated: response.data.countyInfo.vaccinationsInitiated,
+                                }
+                            });
 
-                        this.setState({
-                            county: this.state.county,
-                            countyInfo: {
-                                name: this.state.countyInfo.name,
-                                caseDensity: this.state.countyInfo.caseDensity,
-                                cases: this.state.countyInfo.cases,
-                                deaths: this.state.countyInfo.deaths,
-                                newCases: this.state.countyInfo.newCases,
-                                newDeaths: this.state.countyInfo.newDeaths,
-                                population: this.state.countyInfo.population,
-                                vaccinationsCompleted: this.state.countyInfo.vaccinationsCompleted,
-                                vaccinationsInitiated: this.state.countyInfo.vaccinationsInitiated,
-                            }
+                            this.setState({
+                                county: this.state.county,
+                                countyInfo: {
+                                    name: this.state.countyInfo.name,
+                                    caseDensity: this.state.countyInfo.caseDensity,
+                                    cases: this.state.countyInfo.cases,
+                                    deaths: this.state.countyInfo.deaths,
+                                    newCases: this.state.countyInfo.newCases,
+                                    newDeaths: this.state.countyInfo.newDeaths,
+                                    population: this.state.countyInfo.population,
+                                    vaccinationsCompleted: this.state.countyInfo.vaccinationsCompleted,
+                                    vaccinationsInitiated: this.state.countyInfo.vaccinationsInitiated,
+                                }
+                            })
                         })
-                    })
-                    .catch(error => {
-                        console.log('===> ERROR GETTING DATA', error);
-                    });
+                        .catch(error => {
+                            console.log('===> ERROR GETTING DATA', error);
+                        });
+                }
             })
             .catch((error) => {
                 console.log('ERROR', error);
