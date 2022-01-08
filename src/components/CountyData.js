@@ -29,7 +29,7 @@ class CountyData extends Component {
 
 
 
-    async componentDidMount() {
+    componentDidMount() {
 
         axios.get(`${REACT_APP_SERVER_URL}/countyData/counties`)
             .then((response) => {
