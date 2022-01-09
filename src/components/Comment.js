@@ -26,6 +26,8 @@ class Comment extends Component {
                 // console.log(userInfo.id);
                 if ((userArr1.includes(userInfo.id)) === true) {
                     console.log('you have already voted');
+                } else if (userInfo.id === null || userInfo.id === undefined) {
+                    console.log('please log in');
                 } else {
                     console.log('you can vote');
                     userArr1.push(userInfo.id);
