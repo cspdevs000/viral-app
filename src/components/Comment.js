@@ -9,10 +9,11 @@ class Comment extends Component {
         this.state = {
             id: this.props.id,
             upVotes: this.props.upVotes,
+            userArr: [],
         }
     }
 
-    handleLike = (e) => {
+    handleUpVote = (e) => {
         // console.log('button working');
         axios.post(`${REACT_APP_SERVER_URL}/review/comment`, this.state)
             .then((res) => {
@@ -22,9 +23,6 @@ class Comment extends Component {
                 axios.post(`${REACT_APP_SERVER_URL}/review/vote`, this.state)
                     .then(res => {
                         console.log(res.data);
-                        this.setState({
-                            upVotes: res.data
-                        })
                     })
                     .catch(err => {
                         console.log(err);
@@ -44,7 +42,7 @@ class Comment extends Component {
                 <p>Comment: {this.props.review}</p>
                 <p>Created Date: {this.props.createdDate}</p>
                 <p>Upvotes: {this.state.upVotes}</p>
-                <button>Down</button> <button onClick={this.handleLike.bind(this)}>Up</button>
+                <button>Down</button> <button onClick={this.handleUpVote.bind(this)}>Up</button>
             </div>
         )
     }
