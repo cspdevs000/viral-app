@@ -10,7 +10,7 @@ class IndividualSite extends Component {
         this.state = {
             message: "",
             commentData: [],
-            waitTimes: "lessThan30",
+            waitTimes: "choiceA",
         };
 
     }
@@ -39,6 +39,7 @@ class IndividualSite extends Component {
     };
 
     handleWaitTimes(e) {
+        
         this.setState({
             waitTimes: e.target.value,
         });
@@ -81,8 +82,10 @@ class IndividualSite extends Component {
     handleSubmitWaitTimes = (e) => {
         e.preventDefault();
         let commentValue = this.state.message;
+       
         let newWaitTimes = {
-            waitTimes: this.state.waitTimes
+            waitTimes: this.state.waitTimes, 
+            siteId: this.props.id
         };
 
         axios.put(`${REACT_APP_SERVER_URL}/site/updateWaitTime`, newWaitTimes)
@@ -130,10 +133,10 @@ class IndividualSite extends Component {
                             name="waitTime"
                             onChange={this.handleWaitTimes.bind(this)}
                             defaultValue={""}>
-                            <option value="lessThan30">less than 30 minutes</option>
-                            <option value="lessThan1Hour">30 minutes - 1 hour</option>
-                            <option value="1to2hours">1-2 hours</option>
-                            <option value="morethan2hours">more than 2 hours</option>
+                            <option value="choiceA">less than 30 minutes</option>
+                            <option value="choiceB">30 minutes - 1 hour</option>
+                            <option value="choiceC">1-2 hours</option>
+                            <option value="choiceD">more than 2 hours</option>
                         </select><br></br>
                         <button typ="submit">Submit</button>
                     </form>
