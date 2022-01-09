@@ -22,10 +22,12 @@ class IndividualSite extends Component {
                     commentData: response.data.allReviewArr
                 });
                 // console.log(this.state.commentData[0]._id);
+                console.log(this.props.user);
             })
             .catch((error) => {
                 console.log('ERROR', error);
             })
+
     }
 
     handleComment = (e) => {
@@ -110,6 +112,7 @@ class IndividualSite extends Component {
                     createdDate={c.createdDate}
                     upVotes={c.upVotes}
                     userName={c.userName}
+                    user={this.props.user}
                 />
             );
         });
