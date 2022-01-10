@@ -13,6 +13,7 @@ class Site extends Component {
         super(props);
         this.state = {
             data: [],
+            typWaitTime: '',
         };
     }
 
@@ -21,7 +22,8 @@ class Site extends Component {
         .then((response) => {
             console.log('DATA SPOSED TO BE ON PAGE', response.data);
             this.setState({
-                data: response.data.site
+                data: response.data.site,
+                typWaitTime: response.data.popularWaitTime
             })
         })
         .catch(error => {
@@ -31,7 +33,7 @@ class Site extends Component {
 
     displayIndividualSite() {
         const display = this.state.data.map((s, idx) => {
-            return <IndividualSite key={idx} user={this.props.user}id={s._id} name={s.name} zipCode={s.zipCode} city={s.city} state={s.state} address={s.address}  />
+            return <IndividualSite key={idx} user={this.props.user}id={s._id} name={s.name} zipCode={s.zipCode} city={s.city} state={s.state} address={s.address} typWaitTime={this.state.typWaitTime} />
         });
         return display;
       }
