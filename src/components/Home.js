@@ -27,13 +27,14 @@ class Home extends Component {
                     newCases: response.data.topTenNewCasesArr
                 })
                 // console.log('this.state', this.state);
-                // console.log('this.state.data', this.state.data);
+                console.log('this.state.data', this.state.cases);
             })
             .catch((error) => {
                 console.log('error ERROR error', error)
             })
     }
 
+    
     displayTopTenCases() {
         const display = this.state.cases.map((s, idx) => {
             return <TopTen key={idx} order={idx} state={s.state} cases={s.cases} />
