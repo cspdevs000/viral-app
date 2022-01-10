@@ -146,6 +146,7 @@ const Profile = (props) => {
         console.log(response.data);
       })
       .catch((error) => console.log("===> Error in Profile Update", error));
+      handleProfileUpdateLogout();
   }
 
   const handleName = (e) => {
@@ -280,7 +281,7 @@ const Profile = (props) => {
                 <td>Update with new submissions:
                   <br />
                   <br />
-                  <form onSubmit={handleInfoSubmit, handleProfileUpdateLogout} >
+                  <form onSubmit={handleInfoSubmit} >
                     <button type="submit" >Submit</button>
                   </form>
                 </td>

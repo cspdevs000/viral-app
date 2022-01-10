@@ -65,7 +65,7 @@ function App() {
       setCurrentUser(null);
       setIsAuthenticated(false);
       alert('Please log back in');
-      <Navigate to="/login"/>
+      window.location.href = '/login'
     }
   }
 
