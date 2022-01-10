@@ -34,7 +34,7 @@ class Home extends Component {
             })
     }
 
-    
+
     displayTopTenCases() {
         const display = this.state.cases.map((s, idx) => {
             return <TopTen key={idx} order={idx} state={s.state} cases={s.cases} />
@@ -62,17 +62,19 @@ class Home extends Component {
                 <div className="map-container">
                     <iframe className="map" src="https://covidactnow.org/embed/us/" title="CoVid Act Now"></iframe>
                 </div>
-                <div className='top-ten-1'>
-                    <h1>Top Ten Covid Cases No.</h1>
-                    {this.displayTopTenCases()}<br />
-                </div>
-                <div className='top-ten-2'>
-                    <h1>Top Ten Covid Deaths</h1>
-                    {this.displayTopTenDeaths()}<br />
-                </div>
-                <div className='top-ten-3'>
-                    <h1>Top Ten New Covid Cases</h1>
-                    {this.displayTopTenNewCases()}<br />
+                <div className='top-ten-container'>
+                    <div className='top-ten-1'>
+                        <h3>Top Ten Covid Cases No.</h3>
+                        {this.displayTopTenCases()}<br />
+                    </div>
+                    <div className='top-ten-2'>
+                        <h3>Top Ten Covid Deaths</h3>
+                        {this.displayTopTenDeaths()}<br />
+                    </div>
+                    <div className='top-ten-3'>
+                        <h3>Top Ten New Covid Cases</h3>
+                        {this.displayTopTenNewCases()}<br />
+                    </div>
                 </div>
             </div>
         );

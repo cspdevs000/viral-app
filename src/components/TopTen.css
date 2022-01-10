@@ -5,3 +5,8 @@
 .top-ten-list {
     list-style-type: none;
 }
+
+.top-ten-list-item {
+    margin: 0 auto;
+    font-size: smaller;
+}
