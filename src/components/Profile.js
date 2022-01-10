@@ -126,7 +126,6 @@ const Profile = (props) => {
     if (!previewSource) return;
     uploadImage(previewSource);
     setTimeout(() => { window.location.reload(false) }, 3000);
-
   }
 
 
