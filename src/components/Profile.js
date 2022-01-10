@@ -35,7 +35,6 @@ const Profile = (props) => {
   // make a condition that compares exp and current time
   if (currentTime >= expirationTime) {
     handleLogout();
-    alert('Session has ended. Please login to continue.');
     window.location.href = '/login';
   }
 
