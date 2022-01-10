@@ -57,6 +57,18 @@ function App() {
     }
   }
 
+  const handleProfileUpdateLogout = () => {
+    if (localStorage.getItem('jwtToken')) {
+      // remove token for localStorage
+      localStorage.removeItem('jwtToken');
+      // console.log('YOU LOGGED OUT')
+      setCurrentUser(null);
+      setIsAuthenticated(false);
+      alert('Please log back in');
+      <Navigate to="/login"/>
+    }
+  }
+
   return (
     <div>
       <NavigationBar handleLogout={handleLogout} user={currentUser} isAuth={isAuthenticated}/>
@@ -77,7 +89,7 @@ function App() {
           <Route path='/countydata' element={<CountyData user={currentUser}/>}/>
           <Route path='/sites' element={<VaccSites/>}/>
           <Route path='/addsite' element={<AddVaccSite/>}/>
-          <Route path="/profile" element={<Profile user={currentUser} handleLogout={handleLogout}/>}/>
+          <Route path="/profile" element={<Profile user={currentUser} handleLogout={handleLogout} handleProfileUpdateLogout={handleProfileUpdateLogout}/>}/>
         </Routes>
       </div>
       </BrowserRouter>

@@ -13,7 +13,7 @@ const { REACT_APP_SERVER_URL } = process.env;
 let countyData = [];
 
 const Profile = (props) => {
-  const { handleLogout, user } = props;
+  const { handleLogout, handleProfileUpdateLogout, user } = props;
   console.log(user);
   const { id, name, email, exp, county, state } = user;
   const expirationTime = new Date(exp * 1000);
@@ -279,7 +279,7 @@ const Profile = (props) => {
                 <td>Update with new submissions:
                   <br />
                   <br />
-                  <form onSubmit={handleInfoSubmit} >
+                  <form onSubmit={handleInfoSubmit, handleProfileUpdateLogout} >
                     <button type="submit" >Submit</button>
                   </form>
                 </td>
