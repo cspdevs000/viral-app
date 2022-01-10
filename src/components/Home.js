@@ -43,14 +43,14 @@ class Home extends Component {
 
     displayTopTenDeaths() {
         const display = this.state.deaths.map((s, idx) => {
-            return <TopTenDeaths key={idx} order={idx} state={s.state} deaths={s.cases} />
+            return <TopTenDeaths key={idx} order={idx} state={s.state} deaths={s.deaths} />
         });
         return display;
     }
 
     displayTopTenNewCases() {
         const display = this.state.newCases.map((s, idx) => {
-            return <TopTenNewCases key={idx} order={idx} state={s.state} newCases={s.cases} />
+            return <TopTenNewCases key={idx} order={idx} state={s.state} newCases={s.newCases} />
         });
         return display;
     }
