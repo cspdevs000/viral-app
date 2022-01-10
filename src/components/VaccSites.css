@@ -20,3 +20,10 @@
 .site-results-container {
     background-color: #A7CDBD;
 }
+
+.zip-submit {
+    background-color: #869D7A;
+    padding: 11px 6px;
+    border-radius: 12px;
+    margin: 6px;
+}

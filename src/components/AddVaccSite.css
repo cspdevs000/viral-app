@@ -4,3 +4,37 @@
     width: 100vw;
     padding: 10px;
 }
+
+.content table:not(:last-child) {
+    margin-bottom: 1em;
+  }
+
+.content table td,
+.content table th {
+  border: 1px solid black;
+  border-width: 0 0 1px;
+  padding: 0.5em 0.75em;
+  vertical-align: top;
+}
+
+.content table th {
+  color: #363636;
+}
+
+.content table thead td,
+.content table thead th {
+  border-width: 0 0 2px;
+  color: #363636;
+}
+
+.content table tfoot td,
+.content table tfoot th {
+  border-width: 2px 0 0;
+  color: #363636;
+}
+
+.content table {
+    margin-left: auto;
+    margin-right: auto;
+  
+}

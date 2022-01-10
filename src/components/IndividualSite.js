@@ -122,16 +122,42 @@ class IndividualSite extends Component {
     render() {
         return (
             <div className="individual-site-container">
-                <p>{this.props.name}</p>
-                <p>{this.props.address}</p>
-                <p>{this.props.city}</p>
-                <p>{this.props.state}</p>
-                <p>{this.props.zipCode}</p>
-                <p>{this.props.waitTimes}</p>
-                <div className="site-wait-times">
+                <div className='card content'>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Name of the Location: {this.props.name}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Address: {this.props.address}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>City: {this.props.city}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>State: {this.props.state}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Zip Code: {this.props.zipCode}</p>
+                            </td>
+                        </tr>
+                        <p> Wait Time: {this.props.waitTimes}</p>
+                    </table>
+                </div>
+                <div className="card content">
                     <form onSubmit={this.handleSubmitWaitTimes.bind(this)}>
                         <h1>Been here before?</h1>
-                        <label for="waitTime">How long did you wait?</label><br></br>
+                        <label for="waitTime">How long did you wait?</label>
+                        <br/>
+                        <br/>
                         <select
                             name="waitTime"
                             onChange={this.handleWaitTimes.bind(this)}
@@ -140,20 +166,22 @@ class IndividualSite extends Component {
                             <option value="choiceB">30 minutes - 1 hour</option>
                             <option value="choiceC">1-2 hours</option>
                             <option value="choiceD">more than 2 hours</option>
-                        </select><br></br>
+                        </select>
+                        <br/>
+                        <br/>
                         <button typ="submit">Submit</button>
                     </form>
                 </div>
                 <h1>Comments</h1>
                 {this.displayComments()}
-                <form onSubmit={this.handleSubmit.bind(this)}>
-                    <input
-                        type="text"
-                        placeholder="Add a comment..."
-                        value={this.state.message}
-                        onChange={this.handleComment.bind(this)}
-                    ></input>
+                <form className="card" onSubmit={this.handleSubmit.bind(this)}>
+                    Write a comment:
+                    <br/>
+                    <br/>
+                    <textarea  className='comment-box' placeholder="Add a comment..." value={this.state.message} onChange={this.handleComment.bind(this)} wrap="soft"  ></textarea>
+                    <button typ="submit">Submit</button>
                 </form>
+                <br/>
             </div>
         );
     }
