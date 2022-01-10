@@ -94,8 +94,8 @@ class Comment extends Component {
                 let userArr1 = res.data.comment[0].userArr;
                 let userInfo = this.props.user;
                 console.log('logged in user information', userInfo);
-                console.log(userArr1);
-                console.log(userArr1.includes(userInfo.id));
+                // console.log(userArr1);
+                // console.log(userArr1.includes(userInfo.id));
                 // console.log(userInfo.id);
                 let downVoteArr1 = res.data.comment[0].downVoteArr;
                 console.log(downVoteArr1);
@@ -120,7 +120,7 @@ class Comment extends Component {
                             downVoteArr: downVoteArr1,
                             userArr: userArr1
                         })
-                        axios.post(`${REACT_APP_SERVER_URL}/review/vote`, this.state)
+                        axios.post(`${REACT_APP_SERVER_URL}/review/downVote`, this.state)
                             .then(res => {
                                 console.log(res.data);
                             })
