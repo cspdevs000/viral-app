@@ -58,7 +58,7 @@ class IndividualSite extends Component {
         let commentValue = this.state.message;
         let newComment = {
             review: commentValue,
-            createdDate: String(new Date()),
+            createdDate: String(new Date().toJSON().slice(0, 10)),
             upVotes: 0,
             downVotes: 0,
             nameOfUser: this.props.user.name,
@@ -140,10 +140,10 @@ class IndividualSite extends Component {
                         </tr>
                         <tr>
                             <td>
-                                <p>Address: {this.props.address}</p>
+                                <p>Address: {this.props.address}, {this.props.city}, {this.props.state}, {this.props.zipCode}</p>
                             </td>
                         </tr>
-                        <tr>
+                        {/* <tr>
                             <td>
                                 <p>City: {this.props.city}</p>
                             </td>
@@ -157,7 +157,7 @@ class IndividualSite extends Component {
                             <td>
                                 <p>Zip Code: {this.props.zipCode}</p>
                             </td>
-                        </tr>
+                        </tr> */}
                         <p> Typical Wait Time: {this.state.typWaitTime}</p>
                     </table>
                 </div>
