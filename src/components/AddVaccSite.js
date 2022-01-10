@@ -9,6 +9,7 @@ class AddVaccSite extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: "",
             name: "",
             address: "",
             city: "",
@@ -58,6 +59,7 @@ class AddVaccSite extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const newSite = {
+            id: this.state.id,
             name: this.state.name,
             address: this.state.address,
             city: this.state.city,
@@ -68,16 +70,19 @@ class AddVaccSite extends Component {
         axios
             .post(`${REACT_APP_SERVER_URL}/site/new`, newSite)
             .then((response) => {
+                // console.log(response.data)
+                // console.log(response.data.newSite[0]._id)
                 this.setState({
-                    redirect: true,
+                    id: response.data.newSite[0]._id
                 });
+                window.location.href = `/site/${this.state.id}`;
                 return alert('Vaccination Site Created');
             })
             .catch((error) => console.log("===> Error in Creating Vacc Site", error));
     };
 
     render() {
-        if (this.state.redirect) return <Navigate to="/sites" />;
+        // if (this.state.redirect) return <Navigate to="/site/${this.props.id}" />;
 
         return (
             <div className='add-vacc-site-container'>

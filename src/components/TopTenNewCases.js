@@ -79,7 +79,7 @@ class TopTenNewCases extends Component {
         return (
             <div className='list-container'>
                 <ol className="top-ten-list">
-                    <li>{this.props.order + 1}. {this.abbrState(this.props.state, 'name')}: {this.props.newCases}</li>
+                    <li className='top-ten-list-item'>{this.props.order + 1}. {this.abbrState(this.props.state, 'name')}: {this.props.newCases} cases</li>
                 </ol>
             </div>
         );
