@@ -178,7 +178,7 @@ class IndividualSite extends Component {
                         </select>
                         <br/>
                         <br/>
-                        <button typ="submit">Submit</button>
+                        <button type="submit">Submit</button>
                     </form>
                 </div>
                 <h1>Comments</h1>
