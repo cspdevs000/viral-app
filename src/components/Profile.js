@@ -36,7 +36,7 @@ const Profile = (props) => {
   if (currentTime >= expirationTime) {
     handleLogout();
     alert('Session has ended. Please login to continue.');
-    <Navigate to="/login"></Navigate>
+    window.location.href = '/login';
   }
 
   //Gets the cloudinary publicURL and add to state
@@ -80,6 +80,7 @@ const Profile = (props) => {
           console.log('ERROR COUNTY DATA', error);
         })
     }
+    console.log('USER', user);
 
     //useEffects depends on props. when it changes, useEffects reruns
   }, [props])
