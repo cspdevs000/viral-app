@@ -108,6 +108,7 @@ class IndividualSite extends Component {
             .catch(error => {
                 console.log('===> ERROR GETTING DATA', error);
             });
+        window.location.reload();
     };
 
     displayComments() {

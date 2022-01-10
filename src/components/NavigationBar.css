@@ -7,27 +7,48 @@
     color: #3b7adf;
   }
   
+
   .navbar-item:hover {
     background: transparent;
     color: white;
+    text-decoration: none;
   }
   
-  .navbar {
-    padding: 10px;
-  }
-  
-  .navbarContainer {
-    background: #91785D;
-    height: 8vw;
-    width: 100vw;
-    display: flex; 
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: 0 1px 8px #ddd;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
   }
 
-  .is-left {
-      margin-right: auto; 
+  li {
+    float: right;
+    display: inline;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  a {
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .navbar {
+    position: relative;
+    font-size: 20px;
+    padding-top: 12px;
+  }
+
+  .navbar-login{
+    float: left;
+  }
+
+  .navbarContainer {
+    background: #91785D;
+    height: 50px;
+    align-items: center;
+    box-shadow: 0 1px 8px #ddd;
   }
   
   .navbar-item {
