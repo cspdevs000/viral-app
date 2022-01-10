@@ -10,10 +10,14 @@ class Comment extends Component {
         this.state = {
             id: this.props.id,
             upVotes: this.props.upVotes,
+            downVotes: this.props.downVotes,
             userArr: [],
         }
     }
-
+    componentDidMount() {
+        console.log(this.props);
+        console.log(this.state);
+    }
     handleUpVote = (e) => {
         // console.log('button working');
         axios.post(`${REACT_APP_SERVER_URL}/review/comment`, this.state)
@@ -50,6 +54,42 @@ class Comment extends Component {
             });
     };
 
+    handleDownVote = (e) => {
+        axios.post(`${REACT_APP_SERVER_URL}/review/comment`, this.state)
+            .then(res => {
+                console.log(this.props.downVotes);
+                let userArr1 = res.data.comment[0].userArr;
+                let userInfo = this.props.user;
+                console.log('logged in user information', userInfo);
+                console.log(userArr1);
+                console.log(userArr1.includes(userInfo.id));
+                // console.log(userInfo.id);
+                if ((userArr1.includes(userInfo.id)) === true) {
+                    console.log('you have already voted');
+                    
+                } else if (userInfo.id === null || userInfo.id === undefined) {
+                    console.log('please log in');
+                } else {
+                    console.log('you can vote');
+                    userArr1.push(userInfo.id);
+                    this.setState({
+                        downVotes: this.state.downVotes + 1,
+                        userArr: userArr1
+                    })
+                    console.log(userArr1);
+                    axios.post(`${REACT_APP_SERVER_URL}/review/downVote`, this.state)
+                        .then(res => {
+                            console.log(res.data);
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        })
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
 
     render() {
         return (
@@ -71,10 +111,11 @@ class Comment extends Component {
                             <p>Created Date: {this.props.createdDate}</p>
                         </td>
                     </tr>
-                    
+
                     <button onClick={this.handleUpVote.bind(this)}>Up</button>
                     <p>Upvotes: {this.state.upVotes}</p>
-                    <button>Down</button>
+                    <button onClick={this.handleDownVote.bind(this)}>Down</button>
+                    <p>Downvotes: {this.state.downVotes}</p>
                 </table>
             </div>
         )

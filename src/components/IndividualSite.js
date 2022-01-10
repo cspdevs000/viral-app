@@ -22,7 +22,8 @@ class IndividualSite extends Component {
                     commentData: response.data.allReviewArr
                 });
                 // console.log(this.state.commentData[0]._id);
-                console.log(this.props.user);
+                console.log(this.props);
+                console.log(response.data.allReviewArr);
             })
             .catch((error) => {
                 console.log('ERROR', error);
@@ -55,6 +56,7 @@ class IndividualSite extends Component {
             review: commentValue,
             createdDate: String(new Date()),
             upVotes: 0,
+            downVotes: 0,
             nameOfUser: this.props.user.name,
             userId: this.props.user.id,
             siteId: this.props.id,
@@ -111,6 +113,7 @@ class IndividualSite extends Component {
                     review={c.review}
                     createdDate={c.createdDate}
                     upVotes={c.upVotes}
+                    downVotes={c.downVotes}
                     userName={c.userName}
                     user={this.props.user}
                 />
