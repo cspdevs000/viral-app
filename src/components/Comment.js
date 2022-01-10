@@ -10,10 +10,14 @@ class Comment extends Component {
         this.state = {
             id: this.props.id,
             upVotes: this.props.upVotes,
+            downVotes: this.props.downVotes,
             userArr: [],
         }
     }
-
+    componentDidMount() {
+        console.log(this.props);
+        console.log(this.state);
+    }
     handleUpVote = (e) => {
         // console.log('button working');
         axios.post(`${REACT_APP_SERVER_URL}/review/comment`, this.state)
@@ -50,6 +54,16 @@ class Comment extends Component {
             });
     };
 
+    handleDownVote = (e) => {
+        axios.post(`${REACT_APP_SERVER_URL}/review/vote`, this.state)
+            .then(res => {
+                console.log(this.props.downVotes);
+                console.log(this.props.upVotes);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
 
     render() {
         return (
@@ -71,10 +85,11 @@ class Comment extends Component {
                             <p>Created Date: {this.props.createdDate}</p>
                         </td>
                     </tr>
-                    
+
                     <button onClick={this.handleUpVote.bind(this)}>Up</button>
                     <p>Upvotes: {this.state.upVotes}</p>
-                    <button>Down</button>
+                    <button onClick={this.handleDownVote.bind(this)}>Down</button>
+                    <p>Downvotes: {this.state.downVotes}</p>
                 </table>
             </div>
         )
