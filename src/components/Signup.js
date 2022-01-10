@@ -123,150 +123,190 @@ class Signup extends Component {
         return (
             <div className="signup-container">
                 <div className="form-container">
-                <h1>Sign up for Viral</h1>
-                <h4>keep track of the latest covid data & your vacc card</h4>
-                    <form onSubmit={this.handleSubmit.bind(this)}>
-                        <div className="field">
-                            <div className="control">
-                                <input
-                                    type="email"
-                                    placeholder="Email"
-                                    autoComplete="email"
-                                    name="email"
-                                    value={this.state.email}
-                                    onChange={this.handleEmail.bind(this)}
-                                    required
-                                />
-                            </div>
+                    <h1>Sign up for Viral</h1>
+                    <h4>keep track of the latest covid data & your vaccine card</h4>
+                    <div className="card">
+                        <div className='content grid'>
+                            <table className="left">
+                                <tr>
+                                    <td><h4>Email: </h4>
+                                        <div className="field">
+                                            <div className="control">
+                                                <input
+                                                    className="input"
+                                                    type="email"
+                                                    placeholder="Email"
+                                                    autoComplete="email"
+                                                    name="email"
+                                                    value={this.state.email}
+                                                    onChange={this.handleEmail.bind(this)}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Name: </h4>
+                                        <div className="field">
+                                            <div className="control">
+                                                <input
+                                                    className="input"
+                                                    type="text"
+                                                    placeholder="Name"
+                                                    autoComplete="name"
+                                                    name="name"
+                                                    value={this.state.name}
+                                                    onChange={this.handleName.bind(this)}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Username: </h4>
+                                        <div className="field">
+                                            <div className="control">
+                                                <input
+                                                    className="input"
+                                                    type="text"
+                                                    placeholder="Username"
+                                                    autoComplete="username"
+                                                    name="userName"
+                                                    value={this.state.userName}
+                                                    onChange={this.handleUserName.bind(this)}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table className="right">
+                                <tr>
+                                    <td><h4>Password: </h4>
+                                        <div className="field">
+                                            <div className="control">
+                                                <input
+                                                    className="input"
+                                                    type="password"
+                                                    placeholder="Password"
+                                                    autoComplete="password"
+                                                    name="password"
+                                                    value={this.state.password}
+                                                    onChange={this.handlePassword.bind(this)}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><h4>Confirm Password: </h4>
+                                        <div className="field">
+                                            <div className="control">
+                                                <input
+                                                    className="input"
+                                                    type="password"
+                                                    placeholder="Confirm Password"
+                                                    autoComplete="password"
+                                                    name="confirmPassword"
+                                                    value={this.state.confirmPassword}
+                                                    onChange={this.handleConfirmPassword.bind(this)}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                
+
+                                        {/* <div className="field">
+                                            <div className="control">
+                                                <select 
+                                                    onChange={this.handleState.bind(this)} 
+                                                    name="state" 
+                                                    defaultValue={""}>
+                                                    <option value="test" >Select State</option>
+                                                    <option value="AL" >Alabama</option>
+                                                    <option value="AK" >Alaska</option>
+                                                    <option value="AZ" >Arizona</option>
+                                                    <option value="AR" >Arkansas</option>
+                                                    <option value="CA" >California</option>
+                                                    <option value="CO" >Colorado</option>
+                                                    <option value="CT" >Connecticut</option>
+                                                    <option value="DE" >Delaware</option>
+                                                    <option value="FL" >Florida</option>
+                                                    <option value="GA" >Georgia</option>
+                                                    <option value="HI" >Hawaii</option>
+                                                    <option value="ID" >Idaho</option>
+                                                    <option value="IL" >Illinois</option>
+                                                    <option value="IN" >Indiana</option>
+                                                    <option value="IA" >Iowa</option>
+                                                    <option value="KS" >Kansas</option>
+                                                    <option value="KY" >Kentucky</option>
+                                                    <option value="LA" >Louisiana</option>
+                                                    <option value="ME" >Maine</option>
+                                                    <option value="MD" >Maryland</option>
+                                                    <option value="MA" >Massachusetts</option>
+                                                    <option value="MI" >Michigan</option>
+                                                    <option value="MN" >Minnesota</option>
+                                                    <option value="MS" >Mississippi</option>
+                                                    <option value="MO" >Missouri</option>
+                                                    <option value="MT" >Montana</option>
+                                                    <option value="NE" >Nebraska</option>
+                                                    <option value="NV" >Nevada</option>
+                                                    <option value="NH" >New Hampshire</option>
+                                                    <option value="NJ" >New Jersey</option>
+                                                    <option value="NM" >New Mexico</option>
+                                                    <option value="NY" >New York</option>
+                                                    <option value="NC" >North Carolina</option>
+                                                    <option value="ND" >North Dakota</option>
+                                                    <option value="OH" >Ohio</option>
+                                                    <option value="OK" >Oklahoma</option>
+                                                    <option value="OR" >Oregon</option>
+                                                    <option value="PA" >Pennsylvania</option>
+                                                    <option value="RI" >Rhode Island</option>
+                                                    <option value="SC" >South Carolina</option>
+                                                    <option value="SD" >South Dakota</option>
+                                                    <option value="TN" >Tennessee</option>
+                                                    <option value="TX" >Texas</option>
+                                                    <option value="UT" >Utah</option>
+                                                    <option value="VT" >Vermont</option>
+                                                    <option value="VA" >Virginia</option>
+                                                    <option value="WA" >Washington</option>
+                                                    <option value="WV" >West Virginia</option>
+                                                    <option value="WI" >Wisconsin</option>
+                                                    <option value="WY" >Wyoming</option>
+                                                </select>
+                                            </div>
+                                        </div> */}
+
+                                <tr>
+                                    <td><h4>County: </h4>
+                                        <div className="field">
+                                            <div className="control">
+                                                <select
+                                                    onChange={this.handleCounty.bind(this)}
+                                                    name="county"
+                                                    defaultValue={""}>
+                                                    <option value="test" >Choose County</option>
+                                                    {this.displayCounties()}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
-                        <div className="field">
-                            <div className="control">
-                                <input
-                                    type="text"
-                                    placeholder="Username"
-                                    autoComplete="username"
-                                    name="userName"
-                                    value={this.state.userName}
-                                    onChange={this.handleUserName.bind(this)}
-                                    required
-                                />
+                        <br/>
+                        <form onSubmit={this.handleSubmit.bind(this)}>
+                            <div>
+                                <button className="add-submit" type="submit">Submit</button>
                             </div>
-                        </div>
-                        <div className="field">
-                            <div className="control">
-                                <input
-                                    type="password"
-                                    placeholder="Password"
-                                    autoComplete="password"
-                                    name="password"
-                                    value={this.state.password}
-                                    onChange={this.handlePassword.bind(this)}
-                                    required
-                                />
-                            </div>
-                        </div>
-                            <div className="field">
-                                <div className="control">
-                                    <input
-                                        type="password"
-                                        placeholder="Confirm Password"
-                                        autoComplete="password"
-                                        name="confirmPassword"
-                                        value={this.state.confirmPassword}
-                                        onChange={this.handleConfirmPassword.bind(this)}
-                                        required
-                                    />
-                                </div>
-                            </div>
-                        <div className="field">
-                            <div className="control">
-                                <input
-                                    type="text"
-                                    placeholder="Name"
-                                    autoComplete="name"
-                                    name="name"
-                                    value={this.state.name}
-                                    onChange={this.handleName.bind(this)}
-                                    required
-                                />
-                            </div>
-                        </div>
-                        <div className="field">
-                            <div className="control">
-                                <select 
-                                    onChange={this.handleState.bind(this)} 
-                                    name="state" 
-                                    defaultValue={""}>
-                                    <option value="test" >Select State</option>
-                                    <option value="AL" >Alabama</option>
-                                    <option value="AK" >Alaska</option>
-                                    <option value="AZ" >Arizona</option>
-                                    <option value="AR" >Arkansas</option>
-                                    <option value="CA" >California</option>
-                                    <option value="CO" >Colorado</option>
-                                    <option value="CT" >Connecticut</option>
-                                    <option value="DE" >Delaware</option>
-                                    <option value="FL" >Florida</option>
-                                    <option value="GA" >Georgia</option>
-                                    <option value="HI" >Hawaii</option>
-                                    <option value="ID" >Idaho</option>
-                                    <option value="IL" >Illinois</option>
-                                    <option value="IN" >Indiana</option>
-                                    <option value="IA" >Iowa</option>
-                                    <option value="KS" >Kansas</option>
-                                    <option value="KY" >Kentucky</option>
-                                    <option value="LA" >Louisiana</option>
-                                    <option value="ME" >Maine</option>
-                                    <option value="MD" >Maryland</option>
-                                    <option value="MA" >Massachusetts</option>
-                                    <option value="MI" >Michigan</option>
-                                    <option value="MN" >Minnesota</option>
-                                    <option value="MS" >Mississippi</option>
-                                    <option value="MO" >Missouri</option>
-                                    <option value="MT" >Montana</option>
-                                    <option value="NE" >Nebraska</option>
-                                    <option value="NV" >Nevada</option>
-                                    <option value="NH" >New Hampshire</option>
-                                    <option value="NJ" >New Jersey</option>
-                                    <option value="NM" >New Mexico</option>
-                                    <option value="NY" >New York</option>
-                                    <option value="NC" >North Carolina</option>
-                                    <option value="ND" >North Dakota</option>
-                                    <option value="OH" >Ohio</option>
-                                    <option value="OK" >Oklahoma</option>
-                                    <option value="OR" >Oregon</option>
-                                    <option value="PA" >Pennsylvania</option>
-                                    <option value="RI" >Rhode Island</option>
-                                    <option value="SC" >South Carolina</option>
-                                    <option value="SD" >South Dakota</option>
-                                    <option value="TN" >Tennessee</option>
-                                    <option value="TX" >Texas</option>
-                                    <option value="UT" >Utah</option>
-                                    <option value="VT" >Vermont</option>
-                                    <option value="VA" >Virginia</option>
-                                    <option value="WA" >Washington</option>
-                                    <option value="WV" >West Virginia</option>
-                                    <option value="WI" >Wisconsin</option>
-                                    <option value="WY" >Wyoming</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className="field">
-                            <div className="control">
-                                <select 
-                                    onChange={this.handleCounty.bind(this)} 
-                                    name="county" 
-                                    defaultValue={""}>
-                                    <option value="test" >Choose County</option>
-                                    {this.displayCounties()}
-                                </select>
-                            </div>
-                        </div>
-                        <br></br>
-                        <div>
-                            <button type="submit">Submit</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         );

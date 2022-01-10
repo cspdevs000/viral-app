@@ -66,6 +66,7 @@ class Comment extends Component {
                     }
                 } else if (userInfo.id === null || userInfo.id === undefined) {
                     console.log('please log in');
+                    alert('You must be logged in to vote');
                 } else {
                     console.log('you can vote');
                     upVoteArr1.push(userInfo.id);
@@ -137,6 +138,7 @@ class Comment extends Component {
                     }
                 } else if (userInfo.id === null || userInfo.id === undefined) {
                     console.log('please log in');
+                    alert('You must be logged in to vote');
                 } else {
                     // if they have not voted 
                     console.log('you can vote');
