@@ -11,6 +11,7 @@ class IndividualSite extends Component {
             message: "",
             commentData: [],
             waitTimes: "choiceA",
+            typWaitTime: '', 
         };
 
     }
@@ -27,7 +28,10 @@ class IndividualSite extends Component {
             .catch((error) => {
                 console.log('ERROR', error);
             })
-
+            if(this.props.typWaitTime == "choiceA"){this.setState({typWaitTime: "Less than 30 Minutes" })};
+            if(this.props.typWaitTime == "choiceB"){this.setState({typWaitTime: "30 minutes - 1 hour" })};
+            if(this.props.typWaitTime == "choiceC"){this.setState({typWaitTime: "1-2 hours" })};
+            if(this.props.typWaitTime == "choiceD"){this.setState({typWaitTime: "More than 2 hours" })};
     }
 
     handleComment = (e) => {
@@ -96,6 +100,8 @@ class IndividualSite extends Component {
                 // this.setState({
                 //     waitTime: this.state.waitTime
                 // })
+           
+                alert('Your wait time has been submitted. Thanks for your feedback!');
             })
             .catch(error => {
                 console.log('===> ERROR GETTING DATA', error);
@@ -149,7 +155,7 @@ class IndividualSite extends Component {
                                 <p>Zip Code: {this.props.zipCode}</p>
                             </td>
                         </tr>
-                        <p> Wait Time: {this.props.waitTimes}</p>
+                        <p> Typical Wait Time: {this.state.typWaitTime}</p>
                     </table>
                 </div>
                 <div className="card content">
