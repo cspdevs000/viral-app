@@ -38,3 +38,42 @@
     margin-right: auto;
   
 }
+
+.card {
+  background-color: #869D7A;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+  color: #2c2c2c;
+  max-width: 50%;
+  position: relative;
+  left: 25%;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  
+}
+
+.left {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.right {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.add-submit {
+  background-color: #91785D;
+  padding: 6px 20px;
+  border-radius: 10px;
+  margin: 15px;
+}
+
+.input {
+  border-radius: 4px;
+}
