@@ -56,7 +56,7 @@ class AddVaccSite extends Component {
     }
 
     handleSubmit = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         const newSite = {
             name: this.state.name,
             address: this.state.address,
@@ -65,15 +65,15 @@ class AddVaccSite extends Component {
             zipCode: this.state.zipCode,
             waitTimes: this.state.waitTimes,
         };
-            axios
-                .post(`${REACT_APP_SERVER_URL}/site/new`, newSite)
-                .then((response) => {
-                    this.setState({
-                        redirect: true,
-                    });
-                    return alert('Vaccination Site Created');
-                })
-                .catch((error) => console.log("===> Error in Creating Vacc Site", error));
+        axios
+            .post(`${REACT_APP_SERVER_URL}/site/new`, newSite)
+            .then((response) => {
+                this.setState({
+                    redirect: true,
+                });
+                return alert('Vaccination Site Created');
+            })
+            .catch((error) => console.log("===> Error in Creating Vacc Site", error));
     };
 
     render() {
@@ -82,94 +82,109 @@ class AddVaccSite extends Component {
         return (
             <div className='add-vacc-site-container'>
                 <div>
-                <h1>Add a Vaccination Site</h1>
+                    <h1>Add a Vaccination Site</h1>
                 </div>
-                <div>
-                <form onSubmit={this.handleSubmit.bind(this)}>
-                <div className="field">
-                            <div className="control">
+                <div className='content'>
+                    <table>
+                        <tr>
+                            <td>Name of Location:
+                                <br />
+                                <br />
                                 <input
                                     type="text"
-                                    placeholder="Name"
+                                    placeholder="Type Here"
                                     autoComplete="name"
                                     name="name"
                                     value={this.state.name}
                                     onChange={this.handleName.bind(this)}
                                     required
                                 />
-                            </div>
-                        </div>
-                        <div className="field">
-                            <div className="control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Address:
+                                <br />
+                                <br />
                                 <input
                                     type="text"
-                                    placeholder="Address"
+                                    placeholder="Type Here"
                                     autoComplete="address"
                                     name="address"
                                     value={this.state.address}
                                     onChange={this.handleAddress.bind(this)}
                                     required
                                 />
-                            </div>
-                        </div>
-                        <div className="field">
-                            <div className="control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>City:
+                                <br />
+                                <br />
                                 <input
                                     type="text"
-                                    placeholder="City"
+                                    placeholder="Type Here"
                                     autoComplete="city"
                                     name="city"
                                     value={this.state.city}
                                     onChange={this.handleCity.bind(this)}
                                     required
                                 />
-                            </div>
-                        </div>
-                            <div className="field">
-                                <div className="control">
-                                    <input
-                                        type="text"
-                                        placeholder="State"
-                                        autoComplete="state"
-                                        name="state"
-                                        value={this.state.state}
-                                        onChange={this.handleState.bind(this)}
-                                        required
-                                    />
-                                </div>
-                            </div>
-                        <div className="field">
-                            <div className="control">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>State:
+                                <br />
+                                <br />
                                 <input
                                     type="text"
-                                    placeholder="Zip Code"
+                                    placeholder="Type Here"
+                                    autoComplete="state"
+                                    name="state"
+                                    value={this.state.state}
+                                    onChange={this.handleState.bind(this)}
+                                    required
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Zip Code:
+                                <br />
+                                <br />
+                                <input
+                                    type="text"
+                                    placeholder="Type Here"
                                     autoComplete="zipcode"
                                     name="zipCode"
                                     value={this.state.zipCode}
                                     onChange={this.handleZipCode.bind(this)}
                                     required
                                 />
-                            </div>
-                        </div>
-                        <div className="field">
-                            <div className="control">
-                                <label for="waitTimes">How long did you wait?</label><br></br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="waitTimes">How long did you wait?</label>
+                                <br />
+                                <br />
                                 <select
                                     name="waitTimes"
                                     onChange={this.handleWaitTimes.bind(this)}
                                     defaultValue={""}>
-                                        <option value="lessThan30">less than 30 minutes</option>
-                                        <option value="lessThan1Hour">30 minutes - 1 hour</option>
-                                        <option value="1to2hours">1-2 hours</option>
-                                        <option value="morethan2hours">more than 2 hours</option>
-                                </select>        
-                            </div>
-                        </div>
-                        <br></br>
+                                    <option value="lessThan30">less than 30 minutes</option>
+                                    <option value="lessThan1Hour">30 minutes - 1 hour</option>
+                                    <option value="1to2hours">1-2 hours</option>
+                                    <option value="morethan2hours">more than 2 hours</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <br />
                         <div>
-                            <button type="submit">Submit</button>
+                            <form onSubmit={this.handleSubmit.bind(this)}>
+                                <button type="submit">Submit</button>
+                            </form>
                         </div>
-                </form>    
+
+                    </table>
                 </div>
             </div>
         );

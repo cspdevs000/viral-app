@@ -54,12 +54,28 @@ class Comment extends Component {
     render() {
         return (
 
-            <div className='comment-container'>
-                <p>Username: {this.props.userName}</p>
-                <p>Comment: {this.props.review}</p>
-                <p>Created Date: {this.props.createdDate}</p>
-                <p>Upvotes: {this.state.upVotes}</p>
-                <button>Down</button> <button onClick={this.handleUpVote.bind(this)}>Up</button>
+            <div className='card content' >
+                <table>
+                    <tr>
+                        <td>
+                            <p>Username: {this.props.userName}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Comment: {this.props.review}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Created Date: {this.props.createdDate}</p>
+                        </td>
+                    </tr>
+                    
+                    <button onClick={this.handleUpVote.bind(this)}>Up</button>
+                    <p>Upvotes: {this.state.upVotes}</p>
+                    <button>Down</button>
+                </table>
             </div>
         )
     }

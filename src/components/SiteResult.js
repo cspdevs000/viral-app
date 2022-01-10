@@ -22,14 +22,14 @@ class SiteResult extends Component {
 
     render() {
       return (
-          <div className='site-result-container'>
+          <div className='card'>
               <p>{this.props.name}</p>
               <p>{this.props.zipCode}</p>
               <p>{this.props.city}</p>
               {/* <form action={`${REACT_APP_SERVER_URL}/site/${this.props.id}`}> */}
               <form action={`/site/${this.props.id}`}>
               <button type="submit">
-                  more info on this site
+                  More Info
               </button>
               </form>
           </div>

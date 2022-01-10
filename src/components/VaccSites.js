@@ -77,6 +77,7 @@ class VaccSites extends Component {
                             value={this.state.zipCode}
                             onChange={this.handleZipCode.bind(this)}
                         />
+                        <button className="zip-submit" type="submit" >Submit</button>
                     </form>
                 </div>
                 <div className='site-results-container'>
