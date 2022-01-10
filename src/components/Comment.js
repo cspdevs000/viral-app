@@ -9,6 +9,8 @@ class Comment extends Component {
         super(props);
         this.state = {
             id: this.props.id,
+            upVoteArr: [], 
+            downVoteArr: [], 
             upVotes: this.props.upVotes,
             downVotes: this.props.downVotes,
             userArr: [],
@@ -25,18 +27,49 @@ class Comment extends Component {
                 let userArr1 = res.data.comment[0].userArr;
                 let userInfo = this.props.user;
                 console.log('logged in user information', userInfo);
-                console.log(userArr1);
-                console.log(userArr1.includes(userInfo.id));
+                // console.log(userArr1);
+                // console.log(userArr1.includes(userInfo.id));
+                let upVoteArr1 = res.data.comment[0].upVoteArr;
+                console.log(upVoteArr1);
+                console.log('includes in upVoteArr1', upVoteArr1.includes(userInfo.id));
                 // console.log(userInfo.id);
                 if ((userArr1.includes(userInfo.id)) === true) {
                     console.log('you have already voted');
+                    if ((upVoteArr1.includes(userInfo.id)) === true) {
+                        for (let i = 0; i < upVoteArr1.length; i++) {
+                            if (upVoteArr1[i] === userInfo.id) {
+                                upVoteArr1.splice(i, 1);
+                                i--;
+                            }
+                        }
+                        for (let i = 0; i < userArr1.length; i++) {
+                            if (userArr1[i] === userInfo.id) {
+                                userArr1.splice(i, 1);
+                                i--;
+                            }
+                        }
+                        this.setState({
+                            upVotes: this.state.upVotes - 1,
+                            upVoteArr: upVoteArr1,
+                            userArr: userArr1
+                        })
+                        axios.post(`${REACT_APP_SERVER_URL}/review/vote`, this.state)
+                            .then(res => {
+                                console.log(res.data);
+                            })
+                            .catch(err => {
+                                console.log(err);
+                            })
+                    }
                 } else if (userInfo.id === null || userInfo.id === undefined) {
                     console.log('please log in');
                 } else {
                     console.log('you can vote');
+                    upVoteArr1.push(userInfo.id);
                     userArr1.push(userInfo.id);
                     this.setState({
                         upVotes: this.state.upVotes + 1,
+                        upVoteArr: upVoteArr1,
                         userArr: userArr1
                     })
                     console.log(userArr1);
@@ -64,16 +97,46 @@ class Comment extends Component {
                 console.log(userArr1);
                 console.log(userArr1.includes(userInfo.id));
                 // console.log(userInfo.id);
+                let downVoteArr1 = res.data.comment[0].downVoteArr;
+                console.log(downVoteArr1);
+                console.log('includes in downVoteArr1', downVoteArr1.includes(userInfo.id));
                 if ((userArr1.includes(userInfo.id)) === true) {
                     console.log('you have already voted');
-                    
+                    if ((downVoteArr1.includes(userInfo.id)) === true) {
+                        for (let i = 0; i < downVoteArr1.length; i++) {
+                            if (downVoteArr1[i] === userInfo.id) {
+                                downVoteArr1.splice(i, 1);
+                                i--;
+                            }
+                        }
+                        for (let i = 0; i < userArr1.length; i++) {
+                            if (userArr1[i] === userInfo.id) {
+                                userArr1.splice(i, 1);
+                                i--;
+                            }
+                        }
+                        this.setState({
+                            downVotes: this.state.downVotes - 1,
+                            downVoteArr: downVoteArr1,
+                            userArr: userArr1
+                        })
+                        axios.post(`${REACT_APP_SERVER_URL}/review/vote`, this.state)
+                            .then(res => {
+                                console.log(res.data);
+                            })
+                            .catch(err => {
+                                console.log(err);
+                            })
+                    }
                 } else if (userInfo.id === null || userInfo.id === undefined) {
                     console.log('please log in');
                 } else {
                     console.log('you can vote');
                     userArr1.push(userInfo.id);
+                    downVoteArr1.push(userInfo.id);
                     this.setState({
                         downVotes: this.state.downVotes + 1,
+                        downVoteArr: downVoteArr1,
                         userArr: userArr1
                     })
                     console.log(userArr1);
