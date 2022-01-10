@@ -84,107 +84,105 @@ class AddVaccSite extends Component {
                 <div>
                     <h1>Add a Vaccination Site</h1>
                 </div>
-                <div className='content'>
-                    <table>
-                        <tr>
-                            <td>Name of Location:
-                                <br />
-                                <br />
-                                <input
-                                    type="text"
-                                    placeholder="Type Here"
-                                    autoComplete="name"
-                                    name="name"
-                                    value={this.state.name}
-                                    onChange={this.handleName.bind(this)}
-                                    required
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Address:
-                                <br />
-                                <br />
-                                <input
-                                    type="text"
-                                    placeholder="Type Here"
-                                    autoComplete="address"
-                                    name="address"
-                                    value={this.state.address}
-                                    onChange={this.handleAddress.bind(this)}
-                                    required
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>City:
-                                <br />
-                                <br />
-                                <input
-                                    type="text"
-                                    placeholder="Type Here"
-                                    autoComplete="city"
-                                    name="city"
-                                    value={this.state.city}
-                                    onChange={this.handleCity.bind(this)}
-                                    required
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>State:
-                                <br />
-                                <br />
-                                <input
-                                    type="text"
-                                    placeholder="Type Here"
-                                    autoComplete="state"
-                                    name="state"
-                                    value={this.state.state}
-                                    onChange={this.handleState.bind(this)}
-                                    required
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Zip Code:
-                                <br />
-                                <br />
-                                <input
-                                    type="text"
-                                    placeholder="Type Here"
-                                    autoComplete="zipcode"
-                                    name="zipCode"
-                                    value={this.state.zipCode}
-                                    onChange={this.handleZipCode.bind(this)}
-                                    required
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="waitTimes">How long did you wait?</label>
-                                <br />
-                                <br />
-                                <select
-                                    name="waitTimes"
-                                    onChange={this.handleWaitTimes.bind(this)}
-                                    defaultValue={""}>
-                                    <option value="choiceA">less than 30 minutes</option>
-                                    <option value="choiceB">30 minutes - 1 hour</option>
-                                    <option value="choiceC">1-2 hours</option>
-                                    <option value="choiceD">more than 2 hours</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <br />
-                        <div>
-                            <form onSubmit={this.handleSubmit.bind(this)}>
-                                <button type="submit">Submit</button>
-                            </form>
-                        </div>
-
-                    </table>
+                <div className="card">
+                    <div className='content grid'>
+                        <table className="left">
+                            <tr>
+                                <td><h4>Name of Location:</h4>
+                                   
+                                    <input
+                                        className="input"
+                                        type="text"
+                                        placeholder="Type Here"
+                                        autoComplete="name"
+                                        name="name"
+                                        value={this.state.name}
+                                        onChange={this.handleName.bind(this)}
+                                        required
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>Address:</h4>
+                                    <input
+                                        className="input"
+                                        type="text"
+                                        placeholder="Type Here"
+                                        autoComplete="address"
+                                        name="address"
+                                        value={this.state.address}
+                                        onChange={this.handleAddress.bind(this)}
+                                        required
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>City:</h4>
+                                    <input
+                                        className="input"
+                                        type="text"
+                                        placeholder="Type Here"
+                                        autoComplete="city"
+                                        name="city"
+                                        value={this.state.city}
+                                        onChange={this.handleCity.bind(this)}
+                                        required
+                                    />
+                                </td>
+                            </tr>
+                        </table>
+                        <table className="right">
+                            <tr>
+                                <td><h4>State:</h4>
+                                    <input
+                                        className="input"
+                                        type="text"
+                                        placeholder="Type Here"
+                                        autoComplete="state"
+                                        name="state"
+                                        value={this.state.state}
+                                        onChange={this.handleState.bind(this)}
+                                        required
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>Zip Code:</h4>
+                                    <input
+                                        className="input"
+                                        type="text"
+                                        placeholder="Type Here"
+                                        autoComplete="zipcode"
+                                        name="zipCode"
+                                        value={this.state.zipCode}
+                                        onChange={this.handleZipCode.bind(this)}
+                                        required
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4><label for="waitTimes">How long did you wait?</label></h4>
+                                    <select
+                                        className="input"
+                                        name="waitTimes"
+                                        onChange={this.handleWaitTimes.bind(this)}
+                                        defaultValue={""}>
+                                        <option value="choiceA">less than 30 minutes</option>
+                                        <option value="choiceB">30 minutes - 1 hour</option>
+                                        <option value="choiceC">1-2 hours</option>
+                                        <option value="choiceD">more than 2 hours</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br />
+                    <div>
+                        <form onSubmit={this.handleSubmit.bind(this)}>
+                            <button className="add-submit" type="submit">Submit</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         );

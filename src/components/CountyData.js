@@ -157,24 +157,21 @@ class CountyData extends Component {
                     <div className="form-container">
                         <h1>Select a County</h1>
                         <form onSubmit={this.handleSubmit.bind(this)}>
-                            <select onChange={this.handleChange} name="county" defaultValue={""}>
+                            <select className="dropdown" onChange={this.handleChange} name="county" defaultValue={""}>
                                 <option value="test" >Type County Here</option>
                                 {this.displayCounties()}
                             </select>
-                            <div>
-                                <button type="submit" >Submit</button>
-                            </div>
+                            
+                            <button type="submit" className="county-submit">Submit</button>
+
                         </form>
                     </div>
+                    <h1>{this.state.countyInfo.name}</h1>
                     <div className="table-container">
                         <table className="countyTable">
                             <tr>
                                 <th className="countyTH">County Data</th>
                                 <th className="countyTH">#</th>
-                            </tr>
-                            <tr>
-                                <td className="countyTD">County</td>
-                                <td className="countyTD">{this.state.countyInfo.name} </td>
                             </tr>
                             <tr>
                                 <td className="countyTD">Case Density</td>

@@ -6,15 +6,17 @@
 
   .countyTable {
     position: absolute;
-    left: 35%;
-    width: 30%;
+    left: 25%;
+    width: 50%;
     border: 2px solid #91785D;
     text-align: center;
+    font-size: 20px;
   }
 
   .countyTD {
     background-color: #8fb8a6;
     border: 2px solid #91785D;
+    padding: 7px;
   }
 
 .county-container {
@@ -26,7 +28,7 @@
 .form-container {
     grid-row-start: 1;
     grid-column-start: 2;
-    padding: 35px;
+    padding: 35px 35px 15px 35px;
 }
 
 .table-container {
@@ -37,3 +39,14 @@
 th, td {
     padding: 3px;
   }
+
+  .county-submit {
+    background-color: #869D7A;
+    padding: 11px 6px;
+    border-radius: 12px;
+    margin: 15px;
+  }
+.dropdown {
+  padding: 11px 6px;
+  border-radius: 8px;
+}
