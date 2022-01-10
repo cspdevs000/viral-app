@@ -14,6 +14,8 @@ class Comment extends Component {
             upVotes: this.props.upVotes,
             downVotes: this.props.downVotes,
             userArr: [],
+            downVoteColor: 'white',
+            upVoteColor:'white'
         }
     }
     componentDidMount() {
@@ -51,7 +53,8 @@ class Comment extends Component {
                         this.setState({
                             upVotes: this.state.upVotes - 1,
                             upVoteArr: upVoteArr1,
-                            userArr: userArr1
+                            userArr: userArr1, 
+                            upVoteColor:'white'
                         })
                         axios.post(`${REACT_APP_SERVER_URL}/review/vote`, this.state)
                             .then(res => {
@@ -70,7 +73,8 @@ class Comment extends Component {
                     this.setState({
                         upVotes: this.state.upVotes + 1,
                         upVoteArr: upVoteArr1,
-                        userArr: userArr1
+                        userArr: userArr1, 
+                        upVoteColor:'green'
                     })
                     console.log(userArr1);
                     axios.post(`${REACT_APP_SERVER_URL}/review/vote`, this.state)
@@ -100,8 +104,10 @@ class Comment extends Component {
                 let downVoteArr1 = res.data.comment[0].downVoteArr;
                 console.log(downVoteArr1);
                 console.log('includes in downVoteArr1', downVoteArr1.includes(userInfo.id));
+                //If they already voted
                 if ((userArr1.includes(userInfo.id)) === true) {
                     console.log('you have already voted');
+                    //if already voted in downvote
                     if ((downVoteArr1.includes(userInfo.id)) === true) {
                         for (let i = 0; i < downVoteArr1.length; i++) {
                             if (downVoteArr1[i] === userInfo.id) {
@@ -118,7 +124,8 @@ class Comment extends Component {
                         this.setState({
                             downVotes: this.state.downVotes - 1,
                             downVoteArr: downVoteArr1,
-                            userArr: userArr1
+                            userArr: userArr1,
+                            downVoteColor:'white'
                         })
                         axios.post(`${REACT_APP_SERVER_URL}/review/downVote`, this.state)
                             .then(res => {
@@ -131,13 +138,16 @@ class Comment extends Component {
                 } else if (userInfo.id === null || userInfo.id === undefined) {
                     console.log('please log in');
                 } else {
+                    // if they have not voted 
                     console.log('you can vote');
+                
                     userArr1.push(userInfo.id);
                     downVoteArr1.push(userInfo.id);
                     this.setState({
                         downVotes: this.state.downVotes + 1,
                         downVoteArr: downVoteArr1,
-                        userArr: userArr1
+                        userArr: userArr1,
+                        downVoteColor:'red'
                     })
                     console.log(userArr1);
                     axios.post(`${REACT_APP_SERVER_URL}/review/downVote`, this.state)
@@ -175,9 +185,9 @@ class Comment extends Component {
                         </td>
                     </tr>
 
-                    <button onClick={this.handleUpVote.bind(this)}>Up</button>
+                    <button style={{backgroundColor: this.state.upVoteColor}} onClick={this.handleUpVote.bind(this)}>Up</button>
                     <p>Upvotes: {this.state.upVotes}</p>
-                    <button onClick={this.handleDownVote.bind(this)}>Down</button>
+                    <button style={{backgroundColor: this.state.downVoteColor}} onClick={this.handleDownVote.bind(this)}>Down</button>
                     <p>Downvotes: {this.state.downVotes}</p>
                 </table>
             </div>
