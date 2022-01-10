@@ -55,10 +55,36 @@ class Comment extends Component {
     };
 
     handleDownVote = (e) => {
-        axios.post(`${REACT_APP_SERVER_URL}/review/vote`, this.state)
+        axios.post(`${REACT_APP_SERVER_URL}/review/comment`, this.state)
             .then(res => {
                 console.log(this.props.downVotes);
-                console.log(this.props.upVotes);
+                let userArr1 = res.data.comment[0].userArr;
+                let userInfo = this.props.user;
+                console.log('logged in user information', userInfo);
+                console.log(userArr1);
+                console.log(userArr1.includes(userInfo.id));
+                // console.log(userInfo.id);
+                if ((userArr1.includes(userInfo.id)) === true) {
+                    console.log('you have already voted');
+                    
+                } else if (userInfo.id === null || userInfo.id === undefined) {
+                    console.log('please log in');
+                } else {
+                    console.log('you can vote');
+                    userArr1.push(userInfo.id);
+                    this.setState({
+                        downVotes: this.state.downVotes + 1,
+                        userArr: userArr1
+                    })
+                    console.log(userArr1);
+                    axios.post(`${REACT_APP_SERVER_URL}/review/downVote`, this.state)
+                        .then(res => {
+                            console.log(res.data);
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        })
+                }
             })
             .catch(err => {
                 console.log(err);
