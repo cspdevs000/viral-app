@@ -73,7 +73,7 @@ function App() {
     <div>
       <NavigationBar handleLogout={handleLogout} user={currentUser} isAuth={isAuthenticated}/>
       <BrowserRouter>
-      <div>
+      <div className="everything">
         <Routes>
           <Route exact path='/' element={<Landing/>}/>
           <Route 

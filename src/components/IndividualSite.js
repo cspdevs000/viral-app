@@ -64,6 +64,8 @@ class IndividualSite extends Component {
             nameOfUser: this.props.user.name,
             userId: this.props.user.id,
             siteId: this.props.id,
+            downVoteColor: '#F0F8FF',
+            upVoteColor: '#F0F8FF',
         };
 
         axios.post(`${REACT_APP_SERVER_URL}/review/new`, newComment)
@@ -123,6 +125,8 @@ class IndividualSite extends Component {
                     downVotes={c.downVotes}
                     userName={c.userName}
                     user={this.props.user}
+                    downVoteColor={c.downVoteColor}
+                    upVoteColor={c.upVoteColor}
                 />
             );
         });
