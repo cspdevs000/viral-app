@@ -27,9 +27,9 @@ class VaccSites extends Component {
             alert("Please enter a 5 digit number for the zip code");
         }
         else{
-        const zipCode = {
-            zipCode: this.state.zipCode
-        };
+        // const zipCode = {
+        //     zipCode: this.state.zipCode
+        // };
 
         axios.get(`${REACT_APP_SERVER_URL}/site/zip/${this.state.zipCode}`)
             .then((response) => {
