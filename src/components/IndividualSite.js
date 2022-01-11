@@ -123,6 +123,8 @@ class IndividualSite extends Component {
                     downVotes={c.downVotes}
                     userName={c.userName}
                     user={this.props.user}
+                    downVoteColor={c.downVoteColor}
+                    upVoteColor={c.upVoteColor}
                 />
             );
         });

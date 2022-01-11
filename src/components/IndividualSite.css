@@ -20,8 +20,9 @@
 
   .comment-box {
     height: 70px; 
-    width: 100%;
+    width: 95%;
     text-align: left;
+    border-radius: 10px;
   }
 
 .content table td,

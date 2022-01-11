@@ -14,8 +14,8 @@ class Comment extends Component {
             upVotes: this.props.upVotes,
             downVotes: this.props.downVotes,
             userArr: [],
-            downVoteColor: 'white',
-            upVoteColor: 'white'
+            downVoteColor: this.props.downVoteColor,
+            upVoteColor: this.props.upVoteColor
         }
     }
     componentDidMount() {
@@ -54,7 +54,7 @@ class Comment extends Component {
                             upVotes: this.state.upVotes - 1,
                             upVoteArr: upVoteArr1,
                             userArr: userArr1,
-                            upVoteColor: 'white'
+                            upVoteColor: '#F0F8FF'
                         })
                         axios.post(`${REACT_APP_SERVER_URL}/review/vote`, this.state)
                             .then(res => {
@@ -126,7 +126,7 @@ class Comment extends Component {
                             downVotes: this.state.downVotes - 1,
                             downVoteArr: downVoteArr1,
                             userArr: userArr1,
-                            downVoteColor: 'white'
+                            downVoteColor: '#F0F8FF'
                         })
                         axios.post(`${REACT_APP_SERVER_URL}/review/downVote`, this.state)
                             .then(res => {
@@ -181,10 +181,10 @@ class Comment extends Component {
                 <div className="vote-container">
                     <i class="material-icons vote-button" style={{ backgroundColor: this.state.upVoteColor }} onClick={this.handleUpVote.bind(this)}>arrow_upward</i>
                     {/* <button class="vote-button" style={{ backgroundColor: this.state.upVoteColor }} onClick={this.handleUpVote.bind(this)}>Up</button> */}
-                    <p>Upvotes: {this.state.upVotes}</p>
+                    <p>{this.state.upVotes}</p>
                     <i class="material-icons vote-button downvote-button" style={{ backgroundColor: this.state.downVoteColor }} onClick={this.handleDownVote.bind(this)}>arrow_downward</i>
                     {/* <button class="vote-button downvote-button" style={{ backgroundColor: this.state.downVoteColor }} onClick={this.handleDownVote.bind(this)}>Down</button> */}
-                    <p>Downvotes: {this.state.downVotes}</p>
+                    <p>{this.state.downVotes}</p>
                 </div>
                 {/* <table> */}
                 {/* <tr>
