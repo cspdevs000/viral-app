@@ -176,115 +176,40 @@ const Profile = (props) => {
           <h1 >Profile</h1>
         </div>
         <div>
-          <div className="content">
-            <table>
-              <tr>
-                <th></th>
-              </tr>
-              <tr>
-                <td>Name: {name}
-                  <br />
-                  <br />
-                  <input value={newName} defaultValue={newName} onChange={handleName.bind(this)} type="text" name="name" placeholder={name} />
-                </td>
-              </tr>
-              <tr>
-                <td>Email: {email}
-                  <br />
-                  <br />
-                  <input value={newEmail} defaultValue={newEmail} onChange={handleEmail.bind(this)} type="text" name="email" placeholder={email} />
-                </td>
-              </tr>
-              <tr>
-                <td>State: {state}
-                  <br />
-                  <br />
-                  <select
-                    value={newState}
-                    defaultValue={newState}
-                    onChange={handleState.bind(this)}
-                    name="state">
-                    <option value="test" >Select New State</option>
-                    <option value="AL" >Alabama</option>
-                    <option value="AK" >Alaska</option>
-                    <option value="AZ" >Arizona</option>
-                    <option value="AR" >Arkansas</option>
-                    <option value="CA" >California</option>
-                    <option value="CO" >Colorado</option>
-                    <option value="CT" >Connecticut</option>
-                    <option value="DE" >Delaware</option>
-                    <option value="FL" >Florida</option>
-                    <option value="GA" >Georgia</option>
-                    <option value="HI" >Hawaii</option>
-                    <option value="ID" >Idaho</option>
-                    <option value="IL" >Illinois</option>
-                    <option value="IN" >Indiana</option>
-                    <option value="IA" >Iowa</option>
-                    <option value="KS" >Kansas</option>
-                    <option value="KY" >Kentucky</option>
-                    <option value="LA" >Louisiana</option>
-                    <option value="ME" >Maine</option>
-                    <option value="MD" >Maryland</option>
-                    <option value="MA" >Massachusetts</option>
-                    <option value="MI" >Michigan</option>
-                    <option value="MN" >Minnesota</option>
-                    <option value="MS" >Mississippi</option>
-                    <option value="MO" >Missouri</option>
-                    <option value="MT" >Montana</option>
-                    <option value="NE" >Nebraska</option>
-                    <option value="NV" >Nevada</option>
-                    <option value="NH" >New Hampshire</option>
-                    <option value="NJ" >New Jersey</option>
-                    <option value="NM" >New Mexico</option>
-                    <option value="NY" >New York</option>
-                    <option value="NC" >North Carolina</option>
-                    <option value="ND" >North Dakota</option>
-                    <option value="OH" >Ohio</option>
-                    <option value="OK" >Oklahoma</option>
-                    <option value="OR" >Oregon</option>
-                    <option value="PA" >Pennsylvania</option>
-                    <option value="RI" >Rhode Island</option>
-                    <option value="SC" >South Carolina</option>
-                    <option value="SD" >South Dakota</option>
-                    <option value="TN" >Tennessee</option>
-                    <option value="TX" >Texas</option>
-                    <option value="UT" >Utah</option>
-                    <option value="VT" >Vermont</option>
-                    <option value="VA" >Virginia</option>
-                    <option value="WA" >Washington</option>
-                    <option value="WV" >West Virginia</option>
-                    <option value="WI" >Wisconsin</option>
-                    <option value="WY" >Wyoming</option>
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td>County: {county}
-                  <br />
-                  <br />
-                  <select
+          <div className="user-content">
+              <p>
+                Name: {name}
+                </p><p>
+                Email: {email}
+                  </p><p>
+              County: {county}
+                    </p>  
+                    <br />
+            </div>
+               
+               <div className='update-user-content'>
+
+                  <input className='profile-field' value={newName} defaultValue={newName} onChange={handleName.bind(this)} type="text" name="name" placeholder="Name" /><br />
+                  <input className='profile-field' value={newEmail} defaultValue={newEmail} onChange={handleEmail.bind(this)} type="text" name="email" placeholder="email" /><br />
+
+                  <select className='profile-field'
                     value={newCounty}
                     defaultValue={newCounty}
                     onChange={handleCounty.bind(this)}
                     name="county">
                     <option value="test" >Choose New County</option>
                     {display}
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td>Update with new submissions:
-                  <br />
-                  <br />
+                  </select><br /><br />
+
+                {/* Update with new submissions: */}
+
                   <form onSubmit={handleInfoSubmit} >
-                    <button type="submit" >Submit</button>
+                    <button type="submit" >Update Profile</button>
                   </form>
-                </td>
-              </tr>
-            </table>
+                      </div>
+
                   </div>
                 </div>
-          </div>
 
             <div className='vacc-photo-container'>
               <div className='vacc-photo-sub-container'>
@@ -302,7 +227,7 @@ const Profile = (props) => {
                   ))}
                   </div>
 
-              Change Vaccination Card :
+              Change Vaccination Card Photo :
               <br />
               <br />
               <form onSubmit={handleSubmit} >
