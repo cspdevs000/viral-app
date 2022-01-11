@@ -10,6 +10,7 @@ class SiteResult extends Component {
         super(props);
         this.state = {
             typWaitTime: '', 
+            phoneNumber: this.props.phoneNumber,
         };
 
     }
@@ -20,7 +21,11 @@ class SiteResult extends Component {
             if(this.props.popularWaitTime == "choiceB"){this.setState({typWaitTime: "30 minutes - 1 hour" })};
             if(this.props.popularWaitTime == "choiceC"){this.setState({typWaitTime: "1-2 hours" })};
             if(this.props.popularWaitTime == "choiceD"){this.setState({typWaitTime: "More than 2 hours" })};
-            console.log("TYP WAIT TIME", this.props.popularWaitTime)
+            // console.log("TYP WAIT TIME", this.props.popularWaitTime)
+            if(this.props.phoneNumber == '' || this.props.phoneNumber == undefined){
+                this.setState({phoneNumber: 'N/A'})
+            }
+            console.log(this.props.phoneNumber);
     }
   
   handleSubmit = (e) => {
@@ -44,6 +49,7 @@ class SiteResult extends Component {
               <h1 className="search-result-siteName">{this.props.name}</h1>
               <p>{this.props.address}, {this.props.city}, {this.props.state}, {this.props.zipCode}</p>
               <p>Typical Wait Time: {this.state.typWaitTime}</p>
+              <p>Phone Number: {this.state.phoneNumber}</p>
               {/* <form action={`${REACT_APP_SERVER_URL}/site/${this.props.id}`}> */}
               <form action={`/site/${this.props.id}`}>
               <button type="submit">
