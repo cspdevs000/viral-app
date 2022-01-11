@@ -129,22 +129,35 @@ const Profile = (props) => {
   }
 
 
-  const handleInfoSubmit = (event) => {
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
 
-    const data = {
-      user: user,
-      newName: newName,
-      newEmail: newEmail,
-      newState: newState,
-      newCounty: newCounty
+  const handleInfoSubmit = (event) => {
+    if (validateEmail(newEmail) == null) {
+      console.log("NOT VALID")
+      alert('email is not valid');
     }
-    axios
-      .post(`${REACT_APP_SERVER_URL}/users/update`, data)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => console.log("===> Error in Profile Update", error));
-    handleProfileUpdateLogout();
+    else {
+      const data = {
+        user: user,
+        newName: newName,
+        newEmail: newEmail,
+        newState: newState,
+        newCounty: newCounty
+      }
+      axios
+        .post(`${REACT_APP_SERVER_URL}/users/update`, data)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => console.log("===> Error in Profile Update", error));
+      handleProfileUpdateLogout();
+    }
   }
 
   const handleName = (e) => {
@@ -189,8 +202,8 @@ const Profile = (props) => {
 
           <div className='update-user-content'>
 
-            <input className='profile-field' value={newName} defaultValue={newName} onChange={handleName.bind(this)} type="text" name="name" placeholder={name} /><br />
-            <input className='profile-field' value={newEmail} defaultValue={newEmail} onChange={handleEmail.bind(this)} type="text" name="email" placeholder={email} /><br />
+            <input className='profile-field' value={newName} defaultValue={newName} onChange={handleName.bind(this)} type="text" name="name" placeholder="Name" /><br />
+            <input className='profile-field' value={newEmail} defaultValue={newEmail} onChange={handleEmail.bind(this)} type="text" name="email" placeholder="email" /><br />
 
             <select className='profile-field'
               value={newCounty}
@@ -221,24 +234,24 @@ const Profile = (props) => {
                 key={index}
                 cloudName="djtd4wqoc"
                 publicId={imageId}
+                width="500"
+                crop="scale"
               />
             ))}
           </div>
-              <div className='update-vacc-photo'>
 
-          <p>
-            Change Vaccination Card Photo :
-            </p>
+          Change Vaccination Card Photo :
+          <br />
+          <br />
           <form onSubmit={handleSubmit} >
             <input onChange={handleChange} name="image" value={fileInputState} type='file' />
-              <br></br>
+
             <button type="submit" >Submit</button>
           </form>
           <br />
           {previewSource && (
             <img src={previewSource} style={{ height: '200px', width: '300px' }} />
-            )}
-            </div>
+          )}
 
         </div>
 
