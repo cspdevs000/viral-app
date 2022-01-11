@@ -59,9 +59,6 @@ class Home extends Component {
     render() {
         return (
             <div className="home-container">
-                <div className="map-container">
-                    <iframe className="map" src="https://covidactnow.org/embed/us/" title="CoVid Act Now"></iframe>
-                </div>
                 <div className='top-ten-container'>
                     <div className='top-ten-1'>
                         <h3 className='home-label'>Top Ten Total Covid Cases</h3>
@@ -75,6 +72,9 @@ class Home extends Component {
                         <h3 className='home-label'>Top Ten New Covid Cases</h3>
                         {this.displayTopTenNewCases()}<br />
                     </div>
+                </div>
+                <div className="map-container">
+                    <iframe className="map" src="https://covidactnow.org/embed/us/" title="CoVid Act Now"></iframe>
                 </div>
             </div>
         );
