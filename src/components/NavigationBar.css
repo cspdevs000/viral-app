@@ -6,7 +6,6 @@
     text-decoration: underline;
     color: #3b7adf;
   }
-  
 
   .navbar-item:hover {
     background: transparent;
@@ -14,13 +13,13 @@
     text-decoration: none;
   }
   
-  ul {
+  .navbar-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
   }
 
-  li {
+  .navbar-list-item {
     float: right;
     display: inline;
   }
