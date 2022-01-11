@@ -70,10 +70,10 @@ function App() {
   }
 
   return (
-    <div>
+    <div >
       <NavigationBar handleLogout={handleLogout} user={currentUser} isAuth={isAuthenticated}/>
       <BrowserRouter>
-      <div className="everything">
+      <div className="everything test">
         <Routes>
           <Route exact path='/' element={<Landing/>}/>
           <Route 

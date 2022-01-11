@@ -152,7 +152,7 @@ class CountyData extends Component {
 
     render() {
         return (
-            <div>
+            <div className="county-page">
                 <div className="county-container">
                     <div className="form-container">
                         <h1>Select a County</h1>
