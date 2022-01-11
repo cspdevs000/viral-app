@@ -60,39 +60,45 @@ class IndividualSite extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let commentValue = this.state.message;
-        let newComment = {
-            review: commentValue,
-            createdDate: String(new Date().toJSON().slice(0, 10)),
-            upVotes: 0,
-            downVotes: 0,
-            nameOfUser: this.props.user.name,
-            userId: this.props.user.id,
-            siteId: this.props.id,
-            downVoteColor: '#F0F8FF',
-            upVoteColor: '#F0F8FF',
-           
-        };
-
-        axios.post(`${REACT_APP_SERVER_URL}/review/new`, newComment)
-            .then(response => {
-                let newReview = response.data.newReview[0]
-
-                let commentArr = this.state.commentData.slice();
-
-                commentArr.push(newReview);
-
-                this.setState({
-                    message: "",
-                    commentData: commentArr,
+        if(this.state.message == '' || this.state.message.length <6){
+            alert('Please enter a more detailed review')
+        }
+        else{
+            let commentValue = this.state.message;
+            let newComment = {
+                review: commentValue,
+                createdDate: String(new Date().toJSON().slice(0, 10)),
+                upVotes: 0,
+                downVotes: 0,
+                nameOfUser: this.props.user.name,
+                userId: this.props.user.id,
+                siteId: this.props.id,
+                downVoteColor: '#F0F8FF',
+                upVoteColor: '#F0F8FF',
+               
+            };
+    
+            axios.post(`${REACT_APP_SERVER_URL}/review/new`, newComment)
+                .then(response => {
+                    let newReview = response.data.newReview[0]
+    
+                    let commentArr = this.state.commentData.slice();
+    
+                    commentArr.push(newReview);
+    
+                    this.setState({
+                        message: "",
+                        commentData: commentArr,
+                    })
+    
+    
+    
                 })
-
-
-
-            })
-            .catch(error => {
-                console.log('===> ERROR GETTING DATA', error);
-            });
+                .catch(error => {
+                    console.log('===> ERROR GETTING DATA', error);
+                });
+        }
+        
     };
 
     handleSubmitWaitTimes = (e) => {
