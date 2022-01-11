@@ -186,14 +186,14 @@ class IndividualSite extends Component {
                         <button type="submit">Submit</button>
                     </form>
                 </div>
-                <h1>Comments</h1>
+                <h1>Review</h1>
                 {this.displayComments()}
                 <form className="card" onSubmit={this.handleSubmit.bind(this)}>
-                    Write a comment:
+                    Add a review:
                     <br/>
                     <br/>
-                    <textarea  className='comment-box' placeholder="Add a comment..." value={this.state.message} onChange={this.handleComment.bind(this)} wrap="soft"  ></textarea>
-                    <button typ="submit">Submit</button>
+                    <textarea  className='comment-box' placeholder="..." value={this.state.message} onChange={this.handleComment.bind(this)} wrap="soft"  ></textarea>
+                    <button type="submit">Submit</button>
                 </form>
                 <br/>
             </div>
