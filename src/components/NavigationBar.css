@@ -1,7 +1,22 @@
 @media screen and (max-width: 600px) {
-  .navbarContainer {
+  .navbarContainer a:not(:first-child) {display: none;}
+  .navbarContainer a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbarContainer.responsive {position: relative;}
+  .navbarContainer.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navbarContainer.responsive a {
     float: none;
-    width: 100%;
+    display: block;
+    text-align: left;
   }
 }
   
