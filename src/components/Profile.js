@@ -129,22 +129,35 @@ const Profile = (props) => {
   }
 
 
-  const handleInfoSubmit = (event) => {
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
 
-    const data = {
-      user: user,
-      newName: newName,
-      newEmail: newEmail,
-      newState: newState,
-      newCounty: newCounty
+  const handleInfoSubmit = (event) => {
+    if (validateEmail(newEmail) == null) {
+      console.log("NOT VALID")
+      alert('email is not valid');
     }
-    axios
-      .post(`${REACT_APP_SERVER_URL}/users/update`, data)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => console.log("===> Error in Profile Update", error));
-    handleProfileUpdateLogout();
+    else {
+      const data = {
+        user: user,
+        newName: newName,
+        newEmail: newEmail,
+        newState: newState,
+        newCounty: newCounty
+      }
+      axios
+        .post(`${REACT_APP_SERVER_URL}/users/update`, data)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => console.log("===> Error in Profile Update", error));
+      handleProfileUpdateLogout();
+    }
   }
 
   const handleName = (e) => {
@@ -177,72 +190,72 @@ const Profile = (props) => {
         </div>
         <div>
           <div className="user-content">
-              <p>
-                Name: {name}
-                </p><p>
-                Email: {email}
-                  </p><p>
+            <p>
+              Name: {name}
+            </p><p>
+              Email: {email}
+            </p><p>
               County: {county}
-                    </p>  
-                    <br />
-            </div>
-               
-               <div className='update-user-content'>
+            </p>
+            <br />
+          </div>
 
-                  <input className='profile-field' value={newName} defaultValue={newName} onChange={handleName.bind(this)} type="text" name="name" placeholder="Name" /><br />
-                  <input className='profile-field' value={newEmail} defaultValue={newEmail} onChange={handleEmail.bind(this)} type="text" name="email" placeholder="email" /><br />
+          <div className='update-user-content'>
 
-                  <select className='profile-field'
-                    value={newCounty}
-                    defaultValue={newCounty}
-                    onChange={handleCounty.bind(this)}
-                    name="county">
-                    <option value="test" >Choose New County</option>
-                    {display}
-                  </select><br /><br />
+            <input className='profile-field' value={newName} defaultValue={newName} onChange={handleName.bind(this)} type="text" name="name" placeholder="Name" /><br />
+            <input className='profile-field' value={newEmail} defaultValue={newEmail} onChange={handleEmail.bind(this)} type="text" name="email" placeholder="email" /><br />
 
-                {/* Update with new submissions: */}
+            <select className='profile-field'
+              value={newCounty}
+              defaultValue={newCounty}
+              onChange={handleCounty.bind(this)}
+              name="county">
+              <option value="test" >Choose New County</option>
+              {display}
+            </select><br /><br />
 
-                  <form onSubmit={handleInfoSubmit} >
-                    <button type="submit" >Update Profile</button>
-                  </form>
-                      </div>
+            {/* Update with new submissions: */}
 
-                  </div>
-                </div>
+            <form onSubmit={handleInfoSubmit} >
+              <button type="submit" >Update Profile</button>
+            </form>
+          </div>
 
-            <div className='vacc-photo-container'>
-              <div className='vacc-photo-sub-container'>
-                <div className='vacc-photo'>
+        </div>
+      </div>
 
-                Current Vaccination Card :
-                {imageIds && imageIds.map((imageId, index) => (
-                  <Image
-                  key={index}
-                  cloudName="djtd4wqoc"
-                  publicId={imageId}
-                  width="500"
-                  crop="scale"
-                  />
-                  ))}
-                  </div>
+      <div className='vacc-photo-container'>
+        <div className='vacc-photo-sub-container'>
+          <div className='vacc-photo'>
 
-              Change Vaccination Card Photo :
-              <br />
-              <br />
-              <form onSubmit={handleSubmit} >
-                <input onChange={handleChange} name="image" value={fileInputState} type='file' />
+            Current Vaccination Card :
+            {imageIds && imageIds.map((imageId, index) => (
+              <Image
+                key={index}
+                cloudName="djtd4wqoc"
+                publicId={imageId}
+                width="500"
+                crop="scale"
+              />
+            ))}
+          </div>
 
-                <button type="submit" >Submit</button>
-              </form>
-              <br />
-              {previewSource && (
-                <img src={previewSource} style={{ height: '200px', width: '300px' }} />
-                )}
+          Change Vaccination Card Photo :
+          <br />
+          <br />
+          <form onSubmit={handleSubmit} >
+            <input onChange={handleChange} name="image" value={fileInputState} type='file' />
 
-            </div>
+            <button type="submit" >Submit</button>
+          </form>
+          <br />
+          {previewSource && (
+            <img src={previewSource} style={{ height: '200px', width: '300px' }} />
+          )}
 
-    </div>
+        </div>
+
+      </div>
 
     </div>) : <h2>Loading...</h2>
 
