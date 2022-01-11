@@ -23,6 +23,10 @@ class VaccSites extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        if(this.state.zipCode.length != 5 || isNaN(this.state.zipCode)){
+            alert("Please enter a 5 digit number for the zip code");
+        }
+        else{
         const zipCode = {
             zipCode: this.state.zipCode
         };
@@ -44,6 +48,7 @@ class VaccSites extends Component {
             .catch(error => {
                 console.log('error gettin zippy', error);
             })
+        }
     };
 
     displaySiteSearch() {
