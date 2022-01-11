@@ -125,7 +125,7 @@ class Signup extends Component {
                 <div className="form-container">
                     <h1>Sign up for Viral</h1>
                     <h4>keep track of the latest covid data & your vaccine card</h4>
-                    <div className="card">
+                    <div className="signup-card">
                         <div className='content grid'>
                             <table className="left">
                                 <tr>
