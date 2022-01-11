@@ -5,7 +5,6 @@ import setAuthToken from './utils/setAuthToken';
 import './App.css';
 import Profile from './components/Profile';
 import CountyData from './components/CountyData';
-import Landing from './components/Landing';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Home from './components/Home';
@@ -14,14 +13,6 @@ import VaccSites from './components/VaccSites';
 import AddVaccSite from './components/AddVaccSite';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
-
-const PrivateRoute = ({ component: Component, ...rest}) => {
-  let token = localStorage.getItem('jwtToken');
-  // console.log('===> Hitting a Private Route');
-  return <Route {...rest} render={(props) => {
-    return token ? <Component {...rest} {...props} /> : <Navigate to="/login"/>
-  }} />
-}
 
 function App() {
 
@@ -76,7 +67,7 @@ function App() {
       <BrowserRouter>
       <div className="everything test">
         <Routes>
-          <Route exact path='/' element={<Landing/>}/>
+          <Route exact path='/' element={<Home/>}/>
           <Route 
             path="/login"
             element={<Login

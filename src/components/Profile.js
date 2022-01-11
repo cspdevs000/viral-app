@@ -63,8 +63,7 @@ const Profile = (props) => {
       axios.get(`${REACT_APP_SERVER_URL}/countyData/counties`)
         .then((response) => {
           countyData = response.data.countyNameArr;
-          console.log('COUNTY DATA', countyData);
-
+          // console.log('COUNTY DATA', countyData);
           setDisplay(countyData.map((c, idx) => {
             return (
               <CountyOptions
@@ -87,7 +86,7 @@ const Profile = (props) => {
   //Grabs the file and runs previewFile function
   const handleChange = (event) => {
     file = event.target.files[0];
-    console.log('running', file);
+    // console.log('running', file);
     previewFile(file);
   }
 
@@ -121,7 +120,7 @@ const Profile = (props) => {
 
   // if no image string, end. if there is, call uploadImage
   const handleSubmit = (event) => {
-    console.log('submitting')
+    // console.log('submitting')
     event.preventDefault();
     if (!previewSource) return;
     uploadImage(previewSource);
@@ -139,7 +138,7 @@ const Profile = (props) => {
 
   const handleInfoSubmit = (event) => {
     if (validateEmail(newEmail) == null) {
-      console.log("NOT VALID")
+      // console.log("NOT VALID")
       alert('email is not valid');
     }
     else {
@@ -153,7 +152,7 @@ const Profile = (props) => {
       axios
         .post(`${REACT_APP_SERVER_URL}/users/update`, data)
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
         })
         .catch((error) => console.log("===> Error in Profile Update", error));
       handleProfileUpdateLogout();
@@ -211,50 +210,41 @@ const Profile = (props) => {
               <option value="test" >Choose New County</option>
               {display}
             </select><br /><br />
-
-            {/* Update with new submissions: */}
-
             <form onSubmit={handleInfoSubmit} >
               <button type="submit" >Update Profile</button>
             </form>
           </div>
-
         </div>
       </div>
       <div className='vacc-photo-container'>
-
-              <p>
-
-                  Current Vaccination Card :
-          </p>
-      <div className='vacc-photo-sub-container'>
-
-            {imageIds && imageIds.map((imageId, index) => (
-              <Image
+        <p>
+          Current Vaccination Card :
+        </p>
+        <div className='vacc-photo-sub-container'>
+          {imageIds && imageIds.map((imageId, index) => (
+            <Image
               className="vacc-photo"
               key={index}
               cloudName="djtd4wqoc"
               publicId={imageId}
-              />
-              ))}
-          </div>
-          <div className='update-vacc-photo'>
-
-<br></br>
+            />
+          ))}
+        </div>
+        <div className='update-vacc-photo'>
+          <br></br>
           <p>
             Change Vaccination Card Photo :
-            </p>
+          </p>
           <form onSubmit={handleSubmit} >
             <input onChange={handleChange} name="image" value={fileInputState} type='file' />
-
             <button type="submit" >Submit</button>
           </form>
           <br />
           {previewSource && (
             <img src={previewSource} style={{ height: '200px', width: '300px' }} />
-            )}
-            </div>
-            </div>
+          )}
+        </div>
+      </div>
 
 
 
