@@ -58,6 +58,9 @@ class AddVaccSite extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        if(this.state.zipCode.length != 5 || isNaN(this.state.zipCode)){
+            alert("Please enter a 5 digit number for the zip code");
+        }
         const newSite = {
             id: this.state.id,
             name: this.state.name,
@@ -152,6 +155,7 @@ class AddVaccSite extends Component {
                                     <div className="field">
                                             <div className="control">
                                                 <select 
+                                                    className="input"
                                                     onChange={this.handleState.bind(this)} 
                                                     name="state" 
                                                     defaultValue={""}>
