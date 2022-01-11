@@ -94,11 +94,11 @@ class Login extends Component {
             </form>
             <br />
           </div>
-          <div className="footer">
+          {/* <div className="footer">
             <small>
               &copy; Viral Website. All Rights Reserved.
             </small>
-          </div>
+          </div> */}
         </div>
     );
   }

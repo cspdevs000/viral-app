@@ -20,9 +20,13 @@
   }
 
 .county-container {
-    background-color: #A7CDBD;
-    height: 130vh;
+    /* background-color: #A7CDBD; */
+    height: 120vh;
     width: 100vw;
+}
+
+html {
+  background-color: #A7CDBD;
 }
 
 .form-container {
