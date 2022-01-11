@@ -3,34 +3,37 @@
     height: 100vh;
     width: 100vw;
     display: grid;
-    grid-template-rows: 55% 45%;
-    position: absolute;
+    grid-template-rows: 60% 40%;
+    position: relative;
+    overflow: visible;
 }
 
 .map {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
+    position: absolute;
+    top: 1vh;
+    left: 12vw;
+    width: 75%;
     height: 100%;
     max-width: 1024px;
-    overflow: visible;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
 .map-container {
     background-color: #A7CDBD;
-    height: 45vh;
+    height: 40vh;
     width: 100vw;
     grid-row-start: 2;
     position: relative;
     padding-bottom: 41.25%;
-    overflow: visible;
+    overflow: hidden;
     max-width: 100%;
     max-height: 100%;
+    margin: 0 auto;
 }
 
 .top-ten-container {
-    height: 55vh;
+    height: 60vh;
     width: 100vw;
     grid-row-start: 1;
     display: grid;
@@ -40,12 +43,19 @@
 
 .top-ten-1 {
     grid-column-start: 1;
+    /* padding: 10px; */
 }
 
 .top-ten-2 {
     grid-column-start: 2;
+    /* padding: 10px; */
 }
 
 .top-ten-3 {
     grid-column-start: 3;
+    /* padding: 10px; */
+}
+
+.home-label {
+    text-align: center;
 }

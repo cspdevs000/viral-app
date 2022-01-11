@@ -7,6 +7,7 @@
 }
 
 .top-ten-list-item {
+    text-align: left;
     margin: 0 auto;
     font-size: smaller;
 }

@@ -64,15 +64,15 @@ class Home extends Component {
                 </div>
                 <div className='top-ten-container'>
                     <div className='top-ten-1'>
-                        <h3>Top Ten Covid Cases No.</h3>
+                        <h3 className='home-label'>Top Ten Total Covid Cases</h3>
                         {this.displayTopTenCases()}<br />
                     </div>
                     <div className='top-ten-2'>
-                        <h3>Top Ten Covid Deaths</h3>
+                        <h3 className='home-label'>Top Ten Covid Deaths</h3>
                         {this.displayTopTenDeaths()}<br />
                     </div>
                     <div className='top-ten-3'>
-                        <h3>Top Ten New Covid Cases</h3>
+                        <h3 className='home-label'>Top Ten New Covid Cases</h3>
                         {this.displayTopTenNewCases()}<br />
                     </div>
                 </div>

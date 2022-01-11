@@ -32,6 +32,14 @@ class Signup extends Component {
             })
     }
 
+    validateEmail = (email) => {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    };
+
     handleName(e) {
         this.setState({
             name: e.target.value,
@@ -93,23 +101,32 @@ class Signup extends Component {
         // make sure password and confirm password are equal
         // password length >= 8 characters
         if (this.state.password === this.state.confirmPassword && this.state.password.length >= 8) {
-            const newUser = {
-                name: this.state.name,
-                email: this.state.email,
-                password: this.state.password,
-                state: this.state.state,
-                county: this.state.county
-            };
-            axios
-                .post(`${REACT_APP_SERVER_URL}/users/signup`, newUser)
-                .then((response) => {
-                    console.log(response.data);
-                    this.setState({
-                        redirect: true,
+            if (this.validateEmail(this.state.email) == null) {
+                alert('email is not valid');
+            }
+            else {
+
+                const newUser = {
+                    name: this.state.name,
+                    email: this.state.email,
+                    password: this.state.password,
+                    state: this.state.state,
+                    county: this.state.county
+                };
+                axios
+                    .post(`${REACT_APP_SERVER_URL}/users/signup`, newUser)
+                    .then((response) => {
+                        console.log(response.data);
+                        this.setState({
+                            redirect: true,
+                        });
+                        return alert('Account Created');
+                    })
+                    .catch((error) => {
+                        console.log("===> Error in Signup", error);
+                        alert('Error signing up, User email may already exist')
                     });
-                    return alert('Account Created');
-                })
-                .catch((error) => console.log("===> Error in Signup", error));
+            }
         } else {
             if (this.state.password !== this.state.confirmPassword)
                 return alert("Passwords don't match");
@@ -125,7 +142,7 @@ class Signup extends Component {
                 <div className="form-container">
                     <h1>Sign up for Viral</h1>
                     <h4>keep track of the latest covid data & your vaccine card</h4>
-                    <div className="card">
+                    <div className="signup-card">
                         <div className='content grid'>
                             <table className="left">
                                 <tr>
@@ -220,9 +237,9 @@ class Signup extends Component {
                                         </div>
                                     </td>
                                 </tr>
-                                
 
-                                        {/* <div className="field">
+
+                                {/* <div className="field">
                                             <div className="control">
                                                 <select 
                                                     onChange={this.handleState.bind(this)} 
@@ -300,10 +317,10 @@ class Signup extends Component {
                                 </tr>
                             </table>
                         </div>
-                        <br/>
+                        <br />
                         <form onSubmit={this.handleSubmit.bind(this)}>
                             <div>
-                                <button className="add-submit" type="submit">Submit</button>
+                                <button className="signup-submit" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>
