@@ -303,7 +303,7 @@ class Signup extends Component {
                         <br/>
                         <form onSubmit={this.handleSubmit.bind(this)}>
                             <div>
-                                <button className="add-submit" type="submit">Submit</button>
+                                <button className="signup-submit" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>
