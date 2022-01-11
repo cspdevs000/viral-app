@@ -136,12 +136,12 @@ class IndividualSite extends Component {
                     <table>
                         <tr>
                             <td>
-                                <p>Name of the Location: {this.props.name}</p>
+                                <h1>{this.props.name}</h1>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <p>Address: {this.props.address}, {this.props.city}, {this.props.state}, {this.props.zipCode}</p>
+                                <p>{this.props.address}, {this.props.city}, {this.props.state}, {this.props.zipCode}</p>
                             </td>
                         </tr>
                         {/* <tr>
