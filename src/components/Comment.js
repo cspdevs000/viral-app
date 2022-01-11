@@ -187,9 +187,11 @@ class Comment extends Component {
                         </td>
                     </tr>
 
-                    <button style={{backgroundColor: this.state.upVoteColor}} onClick={this.handleUpVote.bind(this)}>Up</button>
+                    <i className="material-icons" style={{backgroundColor: this.state.upVoteColor}} onClick={this.handleUpVote.bind(this)}>arrow_upward</i>
+                    {/* <button style={{backgroundColor: this.state.upVoteColor}} onClick={this.handleUpVote.bind(this)}>Up</button> */}
                     <p>Upvotes: {this.state.upVotes}</p>
-                    <button style={{backgroundColor: this.state.downVoteColor}} onClick={this.handleDownVote.bind(this)}>Down</button>
+                    <i className="material-icons" style={{backgroundColor: this.state.downVoteColor}} onClick={this.handleDownVote.bind(this)}>arrow_downward</i>
+                    {/* <button style={{backgroundColor: this.state.downVoteColor}} onClick={this.handleDownVote.bind(this)}>Down</button> */}
                     <p>Downvotes: {this.state.downVotes}</p>
                 </table>
             </div>
