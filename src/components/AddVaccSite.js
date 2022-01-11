@@ -152,6 +152,7 @@ class AddVaccSite extends Component {
                                     <div className="field">
                                             <div className="control">
                                                 <select 
+                                                    className="input"
                                                     onChange={this.handleState.bind(this)} 
                                                     name="state" 
                                                     defaultValue={""}>
