@@ -94,7 +94,7 @@ function App() {
         </Routes>
       </div>
       </BrowserRouter>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
