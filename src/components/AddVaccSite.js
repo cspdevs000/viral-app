@@ -76,37 +76,40 @@ class AddVaccSite extends Component {
         if (this.state.zipCode.length != 5 || isNaN(this.state.zipCode)) {
             alert("Please enter a 5 digit number for the zip code");
         }
-        else {
-            if (this.state.phoneNumber != '' && this.validatePhoneNumber(this.state.phoneNumber) == null) {
-           
-                alert('Please enter the phone number in XXX-XXX-XXXX format');
-            }
-            else {
+        else if (this.state.phoneNumber != '' && this.validatePhoneNumber(this.state.phoneNumber) == null) {
 
-                const newSite = {
-                    id: this.state.id,
-                    name: this.state.name,
-                    address: this.state.address,
-                    city: this.state.city,
-                    state: this.state.state,
-                    zipCode: this.state.zipCode,
-                    waitTimes: this.state.waitTimes,
-                    phoneNumber: this.state.phoneNumber
-                };
-                axios
-                    .post(`${REACT_APP_SERVER_URL}/site/new`, newSite)
-                    .then((response) => {
-                        // console.log(response.data)
-                        // console.log(response.data.newSite[0]._id)
-                        this.setState({
-                            id: response.data.newSite[0]._id
-                        });
-                        window.location.href = `/site/${this.state.id}`;
-                        return alert('Vaccination Site Created');
-                    })
-                    .catch((error) => console.log("===> Error in Creating Vacc Site", error));
-            }
+            alert('Please enter the phone number in XXX-XXX-XXXX format');
         }
+        else if(this.state.address == '' || this.state.address.length < 6){
+           
+            alert('Invalid address');
+        }
+        else {
+
+            const newSite = {
+                id: this.state.id,
+                name: this.state.name,
+                address: this.state.address,
+                city: this.state.city,
+                state: this.state.state,
+                zipCode: this.state.zipCode,
+                waitTimes: this.state.waitTimes,
+                phoneNumber: this.state.phoneNumber
+            };
+            axios
+                .post(`${REACT_APP_SERVER_URL}/site/new`, newSite)
+                .then((response) => {
+                    // console.log(response.data)
+                    // console.log(response.data.newSite[0]._id)
+                    this.setState({
+                        id: response.data.newSite[0]._id
+                    });
+                    window.location.href = `/site/${this.state.id}`;
+                    return alert('Vaccination Site Created');
+                })
+                .catch((error) => console.log("===> Error in Creating Vacc Site", error));
+        }
+
     };
 
     render() {
