@@ -17,6 +17,7 @@
     max-width: 1024px;
     overflow: hidden;
     margin: 0 auto;
+    /* padding-bottom: 10vw; */
 }
 
 .map-container {
