@@ -125,7 +125,7 @@ class Signup extends Component {
                 <div className="form-container">
                     <h1>Sign up for Viral</h1>
                     <h4>keep track of the latest covid data & your vaccine card</h4>
-                    <div className="card">
+                    <div className="signup-card">
                         <div className='content grid'>
                             <table className="left">
                                 <tr>
@@ -303,7 +303,7 @@ class Signup extends Component {
                         <br/>
                         <form onSubmit={this.handleSubmit.bind(this)}>
                             <div>
-                                <button className="add-submit" type="submit">Submit</button>
+                                <button className="signup-submit" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>
