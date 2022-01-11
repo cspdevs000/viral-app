@@ -223,26 +223,29 @@ const Profile = (props) => {
 
         </div>
       </div>
-
       <div className='vacc-photo-container'>
-        <div className='vacc-photo-sub-container'>
-          <div className='vacc-photo'>
 
-            Current Vaccination Card :
+              <p>
+
+                  Current Vaccination Card :
+          </p>
+      <div className='vacc-photo-sub-container'>
+
             {imageIds && imageIds.map((imageId, index) => (
               <Image
-                key={index}
-                cloudName="djtd4wqoc"
-                publicId={imageId}
-                width="500"
-                crop="scale"
+              className="vacc-photo"
+              key={index}
+              cloudName="djtd4wqoc"
+              publicId={imageId}
               />
-            ))}
+              ))}
           </div>
+          <div className='update-vacc-photo'>
 
-          Change Vaccination Card Photo :
-          <br />
-          <br />
+<br></br>
+          <p>
+            Change Vaccination Card Photo :
+            </p>
           <form onSubmit={handleSubmit} >
             <input onChange={handleChange} name="image" value={fileInputState} type='file' />
 
@@ -251,11 +254,11 @@ const Profile = (props) => {
           <br />
           {previewSource && (
             <img src={previewSource} style={{ height: '200px', width: '300px' }} />
-          )}
+            )}
+            </div>
+            </div>
 
-        </div>
 
-      </div>
 
     </div>) : <h2>Loading...</h2>
 
