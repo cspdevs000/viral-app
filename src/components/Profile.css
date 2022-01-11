@@ -1,7 +1,7 @@
 .profile-container {
     background-color: #A7CDBD;
     width: 100vw;
-    height: 100vh;
+    height: 100vw;
     display: grid;
     grid-template-columns: 50% 50%;
     position: absolute;
