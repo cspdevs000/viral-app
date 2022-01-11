@@ -4,9 +4,20 @@
     width: 100vw;
 }
 
+.add-site-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  
+}
+
 .add-site-button {
     margin: 30px;
     padding: 40px;
+    font-size: 25px;
+    background-color:rgba(210, 224, 211, 0.527);
+    border-radius: 10px;
+    align-self: center;
 }
 
 .site-search-form {
@@ -14,15 +25,21 @@
 }
 
 .site-search-field {
+    margin-right: 20px;
+    margin-bottom: 20px;
     padding: 10px;
+    border-radius: 5px;
 }
 
 .site-results-container {
     background-color: #A7CDBD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .zip-submit {
-    background-color: #869D7A;
+    background-color: rgba(210, 224, 211, 0.527);
     padding: 11px 6px;
     border-radius: 12px;
     margin: 6px;
