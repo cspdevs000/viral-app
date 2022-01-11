@@ -1,12 +1,16 @@
 
 .home-container {
     background-color: #A7CDBD;
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     display: flex;
+<<<<<<< HEAD
     grid-template-rows: 60% 40%;
+=======
+    flex-direction:column;
+>>>>>>> 4ba5abbd3eca2a1de2f29b0d18e335a48255da48
     position: relative;
-    overflow: visible;
+    /* overflow: visible; */
     padding-top: 5px;
 }
 
@@ -17,7 +21,7 @@
     width: 75%;
     height: 100%;
     max-width: 1024px;
-    overflow: hidden;
+ 
     margin: 0 auto;
     /* padding-bottom: 10vw; */
 }
@@ -30,7 +34,7 @@
     grid-row-end: 3;
     position: relative;
     padding-bottom: 41.25%;
-    overflow: auto;
+    overflow: hidden;
     max-width: 100%;
     max-height: 100%;
     margin: 0 auto;
@@ -38,10 +42,9 @@
 
 .top-ten-container {
     position: relative;
-    height: 100vh;
+    min-height: 450px;
+    max-height: 1000px;
     width: 100vw;
-    grid-row-start: 1;
-    grid-row-end: 2;
     display: grid;
     overflow: visible;
     grid-template-rows: subgrid;
