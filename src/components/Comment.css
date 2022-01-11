@@ -6,9 +6,9 @@
     position: relative;
     left: 25%;
     border-radius: 25px;
-    padding: 10px;
+    padding: 5px;
     margin: 10px;
-    margin-bottom:30px;
+    /* margin-bottom:30px; */
 }
 
 .comment-user-container{

@@ -186,7 +186,7 @@ class IndividualSite extends Component {
                         <button type="submit">Submit</button>
                     </form>
                 </div>
-                <h1>Review</h1>
+                <h1>Reviews</h1>
                 {this.displayComments()}
                 <form className="card" onSubmit={this.handleSubmit.bind(this)}>
                     Add a review:
