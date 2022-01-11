@@ -35,12 +35,13 @@
 
   .navbar {
     position: relative;
-    font-size: 20px;
-    padding-top: 12px;
+    font-size: 17px;
+    padding-top: 13px;
   }
 
   .navbar-login{
     float: left;
+    /* width: 10vw; */
   }
 
   .navbarContainer {
