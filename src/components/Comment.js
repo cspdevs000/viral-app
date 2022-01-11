@@ -9,13 +9,13 @@ class Comment extends Component {
         super(props);
         this.state = {
             id: this.props.id,
-            upVoteArr: [], 
-            downVoteArr: [], 
+            upVoteArr: [],
+            downVoteArr: [],
             upVotes: this.props.upVotes,
             downVotes: this.props.downVotes,
             userArr: [],
             downVoteColor: 'white',
-            upVoteColor:'white'
+            upVoteColor: 'white'
         }
     }
     componentDidMount() {
@@ -53,8 +53,8 @@ class Comment extends Component {
                         this.setState({
                             upVotes: this.state.upVotes - 1,
                             upVoteArr: upVoteArr1,
-                            userArr: userArr1, 
-                            upVoteColor:'white'
+                            userArr: userArr1,
+                            upVoteColor: 'white'
                         })
                         axios.post(`${REACT_APP_SERVER_URL}/review/vote`, this.state)
                             .then(res => {
@@ -74,8 +74,8 @@ class Comment extends Component {
                     this.setState({
                         upVotes: this.state.upVotes + 1,
                         upVoteArr: upVoteArr1,
-                        userArr: userArr1, 
-                        upVoteColor:'green'
+                        userArr: userArr1,
+                        upVoteColor: 'green'
                     })
                     console.log(userArr1);
                     axios.post(`${REACT_APP_SERVER_URL}/review/vote`, this.state)
@@ -126,7 +126,7 @@ class Comment extends Component {
                             downVotes: this.state.downVotes - 1,
                             downVoteArr: downVoteArr1,
                             userArr: userArr1,
-                            downVoteColor:'white'
+                            downVoteColor: 'white'
                         })
                         axios.post(`${REACT_APP_SERVER_URL}/review/downVote`, this.state)
                             .then(res => {
@@ -142,14 +142,14 @@ class Comment extends Component {
                 } else {
                     // if they have not voted 
                     console.log('you can vote');
-                
+
                     userArr1.push(userInfo.id);
                     downVoteArr1.push(userInfo.id);
                     this.setState({
                         downVotes: this.state.downVotes + 1,
                         downVoteArr: downVoteArr1,
                         userArr: userArr1,
-                        downVoteColor:'red'
+                        downVoteColor: 'red'
                     })
                     console.log(userArr1);
                     axios.post(`${REACT_APP_SERVER_URL}/review/downVote`, this.state)
@@ -172,36 +172,38 @@ class Comment extends Component {
 
             <div className='comment-card content' >
                 <div className="comment-user-container">
-                        <p class="comment-username">{this.props.userName}</p>
-                        <p>Posted: {this.props.createdDate}</p>
+                    <p class="comment-username">{this.props.userName}</p>
+                    <p>Posted: {this.props.createdDate}</p>
                 </div>
                 <div className="review-text-container">
-                    <p>{this.props.review}</p> 
+                    <p>{this.props.review}</p>
                 </div>
                 <div className="vote-container">
-                    <button class="vote-button" style={{backgroundColor: this.state.upVoteColor}} onClick={this.handleUpVote.bind(this)}>Up</button>
+                    <i class="material-icons vote-button" style={{ backgroundColor: this.state.upVoteColor }} onClick={this.handleUpVote.bind(this)}>arrow_upward</i>
+                    {/* <button class="vote-button" style={{ backgroundColor: this.state.upVoteColor }} onClick={this.handleUpVote.bind(this)}>Up</button> */}
                     <p>Upvotes: {this.state.upVotes}</p>
-                    <button class="vote-button downvote-button" style={{backgroundColor: this.state.downVoteColor}} onClick={this.handleDownVote.bind(this)}>Down</button>
+                    <i class="material-icons vote-button downvote-button" style={{ backgroundColor: this.state.downVoteColor }} onClick={this.handleDownVote.bind(this)}>arrow_downward</i>
+                    {/* <button class="vote-button downvote-button" style={{ backgroundColor: this.state.downVoteColor }} onClick={this.handleDownVote.bind(this)}>Down</button> */}
                     <p>Downvotes: {this.state.downVotes}</p>
                 </div>
                 {/* <table> */}
-                    {/* <tr>
+                {/* <tr>
                         <td> */}
-                            {/* <p>Username: {this.props.userName}</p> */}
-                        {/* </td>
+                {/* <p>Username: {this.props.userName}</p> */}
+                {/* </td>
                     </tr>
                     <tr>
                         <td> */}
-                            {/* <p>Comment: {this.props.review}</p> */}
-                        {/* </td>
+                {/* <p>Comment: {this.props.review}</p> */}
+                {/* </td>
                     </tr>
                     <tr>
                         <td> */}
-                            {/* <p>Created Date: {this.props.createdDate}</p> */}
-                        {/* </td>
+                {/* <p>Created Date: {this.props.createdDate}</p> */}
+                {/* </td>
                     </tr> */}
 
-                    
+
                 {/* </table> */}
             </div>
         )
