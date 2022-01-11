@@ -24,7 +24,7 @@ const Profile = (props) => {
   const [imageIds, setImageIds] = useState();
   const [userEmail, setUserEmail] = useState('');
   const firstRenderRef = useRef(true);
-  const [newName, setName] = useState(user.name); 
+  const [newName, setName] = useState(user.name);
   const [newEmail, setEmail] = useState(user.email);
   const [newState, setState] = useState(user.state);
   const [newCounty, setCounty] = useState(user.county);
@@ -144,34 +144,34 @@ const Profile = (props) => {
         console.log(response.data);
       })
       .catch((error) => console.log("===> Error in Profile Update", error));
-      handleProfileUpdateLogout();
+    handleProfileUpdateLogout();
   }
 
   const handleName = (e) => {
     setName(
-        e.target.value,
+      e.target.value,
     );
   }
   const handleEmail = (e) => {
     setEmail(
-        e.target.value,
+      e.target.value,
     );
   }
   const handleState = (e) => {
     setState(
-        e.target.value,
+      e.target.value,
     );
   }
   const handleCounty = (e) => {
     setCounty(
-        e.target.value,
+      e.target.value,
     );
   }
 
 
   const userData = user ?
     (<div className="profile-container">
-      <div className="column">
+      <div className="profile-data-container">
         <div>
           <h1 >Profile</h1>
         </div>
@@ -196,14 +196,11 @@ const Profile = (props) => {
                 </td>
               </tr>
               <tr>
-                <td>Account ID: {id}</td>
-              </tr>
-              <tr>
                 <td>State: {state}
                   <br />
                   <br />
                   <select
-                    value={newState} 
+                    value={newState}
                     defaultValue={newState}
                     onChange={handleState.bind(this)}
                     name="state">
@@ -266,7 +263,7 @@ const Profile = (props) => {
                   <br />
                   <br />
                   <select
-                    value={newCounty} 
+                    value={newCounty}
                     defaultValue={newCounty}
                     onChange={handleCounty.bind(this)}
                     name="county">
@@ -284,47 +281,44 @@ const Profile = (props) => {
                   </form>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  Current Vaccination Card :
-                  <br />
-                  <br />
-                  {imageIds && imageIds.map((imageId, index) => (
-                    <Image
-                      key={index}
-                      cloudName="djtd4wqoc"
-                      publicId={imageId}
-                      width="500"
-                      crop="scale"
-                    />
-                  ))}
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  Change Vaccination Card :
-                  <br />
-                  <br />
-                  <form onSubmit={handleSubmit} >
-                    <input onChange={handleChange} name="image" value={fileInputState} type='file' />
-
-                    <button type="submit" >Submit</button>
-                  </form>
-                  <br />
-                  {previewSource && (
-                    <img src={previewSource} style={{ height: '200px', width: '300px' }} />
-                  )}
-                </td>
-              </tr>
             </table>
+                  </div>
+                </div>
           </div>
 
-          <br></br>
-          <br />
+            <div className='vacc-photo-container'>
+              <div className='vacc-photo-sub-container'>
+                <div className='vacc-photo'>
 
-        </div>
-      </div>
+                Current Vaccination Card :
+                {imageIds && imageIds.map((imageId, index) => (
+                  <Image
+                  key={index}
+                  cloudName="djtd4wqoc"
+                  publicId={imageId}
+                  width="500"
+                  crop="scale"
+                  />
+                  ))}
+                  </div>
+
+              Change Vaccination Card :
+              <br />
+              <br />
+              <form onSubmit={handleSubmit} >
+                <input onChange={handleChange} name="image" value={fileInputState} type='file' />
+
+                <button type="submit" >Submit</button>
+              </form>
+              <br />
+              {previewSource && (
+                <img src={previewSource} style={{ height: '200px', width: '300px' }} />
+                )}
+
+            </div>
+
+    </div>
+
     </div>) : <h2>Loading...</h2>
 
   const errorDiv = () => {

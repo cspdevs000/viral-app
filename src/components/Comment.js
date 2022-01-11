@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './IndividualSite.css';
+import './Comment.css';
 import axios from 'axios';
 const { REACT_APP_SERVER_URL } = process.env;
 
@@ -169,29 +169,39 @@ class Comment extends Component {
     render() {
         return (
 
-            <div className='card content' >
-                <table>
-                    <tr>
-                        <td>
-                            <p>Username: {this.props.userName}</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Comment: {this.props.review}</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>Created Date: {this.props.createdDate}</p>
-                        </td>
-                    </tr>
-
-                    <button style={{backgroundColor: this.state.upVoteColor}} onClick={this.handleUpVote.bind(this)}>Up</button>
+            <div className='comment-card content' >
+                <div className="comment-user-container">
+                        <p class="comment-username">{this.props.userName}</p>
+                        <p>Posted: {this.props.createdDate}</p>
+                </div>
+                <div className="review-text-container">
+                    <p>{this.props.review}</p> 
+                </div>
+                <div className="vote-container">
+                    <button class="vote-button" style={{backgroundColor: this.state.upVoteColor}} onClick={this.handleUpVote.bind(this)}>Up</button>
                     <p>Upvotes: {this.state.upVotes}</p>
-                    <button style={{backgroundColor: this.state.downVoteColor}} onClick={this.handleDownVote.bind(this)}>Down</button>
+                    <button class="vote-button downvote-button" style={{backgroundColor: this.state.downVoteColor}} onClick={this.handleDownVote.bind(this)}>Down</button>
                     <p>Downvotes: {this.state.downVotes}</p>
-                </table>
+                </div>
+                {/* <table> */}
+                    {/* <tr>
+                        <td> */}
+                            {/* <p>Username: {this.props.userName}</p> */}
+                        {/* </td>
+                    </tr>
+                    <tr>
+                        <td> */}
+                            {/* <p>Comment: {this.props.review}</p> */}
+                        {/* </td>
+                    </tr>
+                    <tr>
+                        <td> */}
+                            {/* <p>Created Date: {this.props.createdDate}</p> */}
+                        {/* </td>
+                    </tr> */}
+
+                    
+                {/* </table> */}
             </div>
         )
     }

@@ -25,11 +25,11 @@ class NavigationBar extends Component {
                     </div>
                     <div id="navbarMenu" className="navbar-menu">
                         <div className="tabs is-right">
-                            <ul>
-                                <li><a className="navbar-item" href="/home" >Home </a></li>
-                                <li><a className="navbar-item" href="/countydata" >County Data </a></li>
-                                <li><a className="navbar-item" href="/sites" >Sites </a></li>
-                                <li><a className="navbar-item" href="/profile" >Profile </a></li>
+                            <ul className="navbar-list">
+                                <li className="navbar-list-item"><a className="navbar-item" href="/home" >Home </a></li>
+                                <li className="navbar-list-item"><a className="navbar-item" href="/countydata" >County Data </a></li>
+                                <li className="navbar-list-item"><a className="navbar-item" href="/sites" >Sites </a></li>
+                                <li className="navbar-list-item"><a className="navbar-item" href="/profile" >Profile </a></li>
                             </ul>
                         </div>
                     </div>
