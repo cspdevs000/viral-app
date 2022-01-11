@@ -1,3 +1,4 @@
+
 .home-container {
     background-color: #A7CDBD;
     height: 100vh;
@@ -6,6 +7,7 @@
     grid-template-rows: 60% 40%;
     position: relative;
     overflow: visible;
+    padding-top: 5px;
 }
 
 .map {
@@ -25,35 +27,45 @@
     height: 40vh;
     width: 100vw;
     grid-row-start: 2;
+    grid-row-end: 3;
     position: relative;
     padding-bottom: 41.25%;
-    overflow: hidden;
+    overflow: auto;
     max-width: 100%;
     max-height: 100%;
     margin: 0 auto;
 }
 
 .top-ten-container {
-    height: 60vh;
+    position: relative;
+    height: 100vh;
     width: 100vw;
     grid-row-start: 1;
+    grid-row-end: 2;
     display: grid;
+    overflow: visible;
     grid-template-rows: subgrid;
     grid-template-columns: 33% 34% 33%;
 }
 
 .top-ten-1 {
     grid-column-start: 1;
+    position: absolute;
+    width: 33vw;
     /* padding: 10px; */
 }
 
 .top-ten-2 {
     grid-column-start: 2;
+    position: absolute;
+    width: 34vw;
     /* padding: 10px; */
 }
 
 .top-ten-3 {
     grid-column-start: 3;
+    position: absolute;
+    width: 33vw;
     /* padding: 10px; */
 }
 

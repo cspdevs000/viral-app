@@ -53,14 +53,14 @@ class VaccSites extends Component {
 
     displaySiteSearch() {
         const display = this.state.data.map((s, idx) => {
-            return <SiteResult key={idx} id={s._id} name={s.name} popularWaitTime={s.popularWaitTime} address={s.address} state={s.state} zipCode={s.zipCode} city={s.city} />
+            return <SiteResult key={idx} id={s._id} name={s.name} phoneNumber={s.phoneNumber} popularWaitTime={s.popularWaitTime} address={s.address} state={s.state} zipCode={s.zipCode} city={s.city} />
         });
         return display;
     }
 
     displaySecondarySites() {
         const display = this.state.secondaryData.map((s, idx) => {
-            return <SiteResult key={idx} id={s._id} name={s.name} zipCode={s.zipCode} city={s.city} />
+            return <SiteResult key={idx} id={s._id} phoneNumber={s.phoneNumber} name={s.name} zipCode={s.zipCode} city={s.city} />
         });
         return display;
     }

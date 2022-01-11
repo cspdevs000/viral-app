@@ -13,6 +13,7 @@ import Site from './components/Site';
 import VaccSites from './components/VaccSites';
 import AddVaccSite from './components/AddVaccSite';
 import NavigationBar from './components/NavigationBar';
+import Footer from './components/Footer';
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
   let token = localStorage.getItem('jwtToken');
@@ -93,6 +94,7 @@ function App() {
         </Routes>
       </div>
       </BrowserRouter>
+      {/* <Footer /> */}
     </div>
   );
 }
