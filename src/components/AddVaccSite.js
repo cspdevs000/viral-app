@@ -21,6 +21,15 @@ class AddVaccSite extends Component {
         };
     }
 
+
+    validatePhoneNumber = (phoneNumber) => {
+        return String(phoneNumber)
+            .toLowerCase()
+            .match(
+                /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+            );
+    };
+
     handleName(e) {
         this.setState({
             name: e.target.value,
@@ -64,31 +73,40 @@ class AddVaccSite extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        if(this.state.zipCode.length != 5 || isNaN(this.state.zipCode)){
+        if (this.state.zipCode.length != 5 || isNaN(this.state.zipCode)) {
             alert("Please enter a 5 digit number for the zip code");
         }
-        const newSite = {
-            id: this.state.id,
-            name: this.state.name,
-            address: this.state.address,
-            city: this.state.city,
-            state: this.state.state,
-            zipCode: this.state.zipCode,
-            waitTimes: this.state.waitTimes,
-            phoneNumber: this.state.phoneNumber
-        };
-        axios
-            .post(`${REACT_APP_SERVER_URL}/site/new`, newSite)
-            .then((response) => {
-                // console.log(response.data)
-                // console.log(response.data.newSite[0]._id)
-                this.setState({
-                    id: response.data.newSite[0]._id
-                });
-                window.location.href = `/site/${this.state.id}`;
-                return alert('Vaccination Site Created');
-            })
-            .catch((error) => console.log("===> Error in Creating Vacc Site", error));
+        else {
+            if (this.state.phoneNumber != '' && this.validatePhoneNumber(this.state.phoneNumber) == null) {
+           
+                alert('Please enter the phone number in XXX-XXX-XXXX format');
+            }
+            else {
+
+                const newSite = {
+                    id: this.state.id,
+                    name: this.state.name,
+                    address: this.state.address,
+                    city: this.state.city,
+                    state: this.state.state,
+                    zipCode: this.state.zipCode,
+                    waitTimes: this.state.waitTimes,
+                    phoneNumber: this.state.phoneNumber
+                };
+                axios
+                    .post(`${REACT_APP_SERVER_URL}/site/new`, newSite)
+                    .then((response) => {
+                        // console.log(response.data)
+                        // console.log(response.data.newSite[0]._id)
+                        this.setState({
+                            id: response.data.newSite[0]._id
+                        });
+                        window.location.href = `/site/${this.state.id}`;
+                        return alert('Vaccination Site Created');
+                    })
+                    .catch((error) => console.log("===> Error in Creating Vacc Site", error));
+            }
+        }
     };
 
     render() {
@@ -104,7 +122,7 @@ class AddVaccSite extends Component {
                         <table className="left">
                             <tr>
                                 <td><h4>Name of Location:</h4>
-                                   
+
                                     <input
                                         className="input"
                                         type="text"
@@ -174,66 +192,66 @@ class AddVaccSite extends Component {
                                         required
                                     /> */}
                                     <div className="field">
-                                            <div className="control">
-                                                <select 
-                                                    className="input"
-                                                    onChange={this.handleState.bind(this)} 
-                                                    name="state" 
-                                                    defaultValue={""}>
-                                                    <option value="test" >Select State</option>
-                                                    <option value="AL" >Alabama</option>
-                                                    <option value="AK" >Alaska</option>
-                                                    <option value="AZ" >Arizona</option>
-                                                    <option value="AR" >Arkansas</option>
-                                                    <option value="CA" >California</option>
-                                                    <option value="CO" >Colorado</option>
-                                                    <option value="CT" >Connecticut</option>
-                                                    <option value="DE" >Delaware</option>
-                                                    <option value="FL" >Florida</option>
-                                                    <option value="GA" >Georgia</option>
-                                                    <option value="HI" >Hawaii</option>
-                                                    <option value="ID" >Idaho</option>
-                                                    <option value="IL" >Illinois</option>
-                                                    <option value="IN" >Indiana</option>
-                                                    <option value="IA" >Iowa</option>
-                                                    <option value="KS" >Kansas</option>
-                                                    <option value="KY" >Kentucky</option>
-                                                    <option value="LA" >Louisiana</option>
-                                                    <option value="ME" >Maine</option>
-                                                    <option value="MD" >Maryland</option>
-                                                    <option value="MA" >Massachusetts</option>
-                                                    <option value="MI" >Michigan</option>
-                                                    <option value="MN" >Minnesota</option>
-                                                    <option value="MS" >Mississippi</option>
-                                                    <option value="MO" >Missouri</option>
-                                                    <option value="MT" >Montana</option>
-                                                    <option value="NE" >Nebraska</option>
-                                                    <option value="NV" >Nevada</option>
-                                                    <option value="NH" >New Hampshire</option>
-                                                    <option value="NJ" >New Jersey</option>
-                                                    <option value="NM" >New Mexico</option>
-                                                    <option value="NY" >New York</option>
-                                                    <option value="NC" >North Carolina</option>
-                                                    <option value="ND" >North Dakota</option>
-                                                    <option value="OH" >Ohio</option>
-                                                    <option value="OK" >Oklahoma</option>
-                                                    <option value="OR" >Oregon</option>
-                                                    <option value="PA" >Pennsylvania</option>
-                                                    <option value="RI" >Rhode Island</option>
-                                                    <option value="SC" >South Carolina</option>
-                                                    <option value="SD" >South Dakota</option>
-                                                    <option value="TN" >Tennessee</option>
-                                                    <option value="TX" >Texas</option>
-                                                    <option value="UT" >Utah</option>
-                                                    <option value="VT" >Vermont</option>
-                                                    <option value="VA" >Virginia</option>
-                                                    <option value="WA" >Washington</option>
-                                                    <option value="WV" >West Virginia</option>
-                                                    <option value="WI" >Wisconsin</option>
-                                                    <option value="WY" >Wyoming</option>
-                                                </select>
-                                            </div>
+                                        <div className="control">
+                                            <select
+                                                className="input"
+                                                onChange={this.handleState.bind(this)}
+                                                name="state"
+                                                defaultValue={""}>
+                                                <option value="test" >Select State</option>
+                                                <option value="AL" >Alabama</option>
+                                                <option value="AK" >Alaska</option>
+                                                <option value="AZ" >Arizona</option>
+                                                <option value="AR" >Arkansas</option>
+                                                <option value="CA" >California</option>
+                                                <option value="CO" >Colorado</option>
+                                                <option value="CT" >Connecticut</option>
+                                                <option value="DE" >Delaware</option>
+                                                <option value="FL" >Florida</option>
+                                                <option value="GA" >Georgia</option>
+                                                <option value="HI" >Hawaii</option>
+                                                <option value="ID" >Idaho</option>
+                                                <option value="IL" >Illinois</option>
+                                                <option value="IN" >Indiana</option>
+                                                <option value="IA" >Iowa</option>
+                                                <option value="KS" >Kansas</option>
+                                                <option value="KY" >Kentucky</option>
+                                                <option value="LA" >Louisiana</option>
+                                                <option value="ME" >Maine</option>
+                                                <option value="MD" >Maryland</option>
+                                                <option value="MA" >Massachusetts</option>
+                                                <option value="MI" >Michigan</option>
+                                                <option value="MN" >Minnesota</option>
+                                                <option value="MS" >Mississippi</option>
+                                                <option value="MO" >Missouri</option>
+                                                <option value="MT" >Montana</option>
+                                                <option value="NE" >Nebraska</option>
+                                                <option value="NV" >Nevada</option>
+                                                <option value="NH" >New Hampshire</option>
+                                                <option value="NJ" >New Jersey</option>
+                                                <option value="NM" >New Mexico</option>
+                                                <option value="NY" >New York</option>
+                                                <option value="NC" >North Carolina</option>
+                                                <option value="ND" >North Dakota</option>
+                                                <option value="OH" >Ohio</option>
+                                                <option value="OK" >Oklahoma</option>
+                                                <option value="OR" >Oregon</option>
+                                                <option value="PA" >Pennsylvania</option>
+                                                <option value="RI" >Rhode Island</option>
+                                                <option value="SC" >South Carolina</option>
+                                                <option value="SD" >South Dakota</option>
+                                                <option value="TN" >Tennessee</option>
+                                                <option value="TX" >Texas</option>
+                                                <option value="UT" >Utah</option>
+                                                <option value="VT" >Vermont</option>
+                                                <option value="VA" >Virginia</option>
+                                                <option value="WA" >Washington</option>
+                                                <option value="WV" >West Virginia</option>
+                                                <option value="WI" >Wisconsin</option>
+                                                <option value="WY" >Wyoming</option>
+                                            </select>
                                         </div>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
