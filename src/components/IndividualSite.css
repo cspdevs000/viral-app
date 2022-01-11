@@ -14,14 +14,17 @@
     left: 33.5%;
     border-radius: 25px;
     padding: 10px;
-    margin: 10px;
+    margin: 5px;
+    top: 2vh;
   }
 
   .comment-box {
     height: 70px; 
-    width: 95%;
+    width: 90%;
     text-align: left;
     border-radius: 10px;
+    padding: 10px;
+
   }
 
 .content table td,
@@ -30,4 +33,13 @@
   border-width: 0 0 1px;
   padding: 0.5em 0.75em;
   vertical-align: top;
+}
+
+.site-submit-button {
+  /* margin: 5px; */
+}
+
+.site-drop-down {
+  padding: 5px;
+  margin: 10px;
 }
