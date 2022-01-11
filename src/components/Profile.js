@@ -129,22 +129,35 @@ const Profile = (props) => {
   }
 
 
-  const handleInfoSubmit = (event) => {
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
 
-    const data = {
-      user: user,
-      newName: newName,
-      newEmail: newEmail,
-      newState: newState,
-      newCounty: newCounty
+  const handleInfoSubmit = (event) => {
+    if (validateEmail(newEmail) == null) {
+      console.log("NOT VALID")
+      alert('email is not valid');
     }
-    axios
-      .post(`${REACT_APP_SERVER_URL}/users/update`, data)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => console.log("===> Error in Profile Update", error));
-    handleProfileUpdateLogout();
+    else {
+      const data = {
+        user: user,
+        newName: newName,
+        newEmail: newEmail,
+        newState: newState,
+        newCounty: newCounty
+      }
+      axios
+        .post(`${REACT_APP_SERVER_URL}/users/update`, data)
+        .then((response) => {
+          console.log(response.data);
+        })
+        .catch((error) => console.log("===> Error in Profile Update", error));
+      handleProfileUpdateLogout();
+    }
   }
 
   const handleName = (e) => {
@@ -176,148 +189,76 @@ const Profile = (props) => {
           <h1 >Profile</h1>
         </div>
         <div>
-          <div className="content">
-            <table>
-              <tr>
-                <th></th>
-              </tr>
-              <tr>
-                <td>Name: {name}
-                  <br />
-                  <br />
-                  <input value={newName} defaultValue={newName} onChange={handleName.bind(this)} type="text" name="name" placeholder={name} />
-                </td>
-              </tr>
-              <tr>
-                <td>Email: {email}
-                  <br />
-                  <br />
-                  <input value={newEmail} defaultValue={newEmail} onChange={handleEmail.bind(this)} type="text" name="email" placeholder={email} />
-                </td>
-              </tr>
-              <tr>
-                <td>State: {state}
-                  <br />
-                  <br />
-                  <select
-                    value={newState}
-                    defaultValue={newState}
-                    onChange={handleState.bind(this)}
-                    name="state">
-                    <option value="test" >Select New State</option>
-                    <option value="AL" >Alabama</option>
-                    <option value="AK" >Alaska</option>
-                    <option value="AZ" >Arizona</option>
-                    <option value="AR" >Arkansas</option>
-                    <option value="CA" >California</option>
-                    <option value="CO" >Colorado</option>
-                    <option value="CT" >Connecticut</option>
-                    <option value="DE" >Delaware</option>
-                    <option value="FL" >Florida</option>
-                    <option value="GA" >Georgia</option>
-                    <option value="HI" >Hawaii</option>
-                    <option value="ID" >Idaho</option>
-                    <option value="IL" >Illinois</option>
-                    <option value="IN" >Indiana</option>
-                    <option value="IA" >Iowa</option>
-                    <option value="KS" >Kansas</option>
-                    <option value="KY" >Kentucky</option>
-                    <option value="LA" >Louisiana</option>
-                    <option value="ME" >Maine</option>
-                    <option value="MD" >Maryland</option>
-                    <option value="MA" >Massachusetts</option>
-                    <option value="MI" >Michigan</option>
-                    <option value="MN" >Minnesota</option>
-                    <option value="MS" >Mississippi</option>
-                    <option value="MO" >Missouri</option>
-                    <option value="MT" >Montana</option>
-                    <option value="NE" >Nebraska</option>
-                    <option value="NV" >Nevada</option>
-                    <option value="NH" >New Hampshire</option>
-                    <option value="NJ" >New Jersey</option>
-                    <option value="NM" >New Mexico</option>
-                    <option value="NY" >New York</option>
-                    <option value="NC" >North Carolina</option>
-                    <option value="ND" >North Dakota</option>
-                    <option value="OH" >Ohio</option>
-                    <option value="OK" >Oklahoma</option>
-                    <option value="OR" >Oregon</option>
-                    <option value="PA" >Pennsylvania</option>
-                    <option value="RI" >Rhode Island</option>
-                    <option value="SC" >South Carolina</option>
-                    <option value="SD" >South Dakota</option>
-                    <option value="TN" >Tennessee</option>
-                    <option value="TX" >Texas</option>
-                    <option value="UT" >Utah</option>
-                    <option value="VT" >Vermont</option>
-                    <option value="VA" >Virginia</option>
-                    <option value="WA" >Washington</option>
-                    <option value="WV" >West Virginia</option>
-                    <option value="WI" >Wisconsin</option>
-                    <option value="WY" >Wyoming</option>
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td>County: {county}
-                  <br />
-                  <br />
-                  <select
-                    value={newCounty}
-                    defaultValue={newCounty}
-                    onChange={handleCounty.bind(this)}
-                    name="county">
-                    <option value="test" >Choose New County</option>
-                    {display}
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td>Update with new submissions:
-                  <br />
-                  <br />
-                  <form onSubmit={handleInfoSubmit} >
-                    <button type="submit" >Submit</button>
-                  </form>
-                </td>
-              </tr>
-            </table>
-                  </div>
-                </div>
+          <div className="user-content">
+            <p>
+              Name: {name}
+            </p><p>
+              Email: {email}
+            </p><p>
+              County: {county}
+            </p>
+            <br />
           </div>
 
-            <div className='vacc-photo-container'>
-              <div className='vacc-photo-sub-container'>
-                <div className='vacc-photo'>
+          <div className='update-user-content'>
 
-                Current Vaccination Card :
-                {imageIds && imageIds.map((imageId, index) => (
-                  <Image
-                  key={index}
-                  cloudName="djtd4wqoc"
-                  publicId={imageId}
-                  width="500"
-                  crop="scale"
-                  />
-                  ))}
-                  </div>
+            <input className='profile-field' value={newName} defaultValue={newName} onChange={handleName.bind(this)} type="text" name="name" placeholder="Name" /><br />
+            <input className='profile-field' value={newEmail} defaultValue={newEmail} onChange={handleEmail.bind(this)} type="text" name="email" placeholder="email" /><br />
 
-              Change Vaccination Card :
-              <br />
-              <br />
-              <form onSubmit={handleSubmit} >
-                <input onChange={handleChange} name="image" value={fileInputState} type='file' />
+            <select className='profile-field'
+              value={newCounty}
+              defaultValue={newCounty}
+              onChange={handleCounty.bind(this)}
+              name="county">
+              <option value="test" >Choose New County</option>
+              {display}
+            </select><br /><br />
 
-                <button type="submit" >Submit</button>
-              </form>
-              <br />
-              {previewSource && (
-                <img src={previewSource} style={{ height: '200px', width: '300px' }} />
-                )}
+            {/* Update with new submissions: */}
 
+            <form onSubmit={handleInfoSubmit} >
+              <button type="submit" >Update Profile</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+      <div className='vacc-photo-container'>
+
+              <p>
+
+                  Current Vaccination Card :
+          </p>
+      <div className='vacc-photo-sub-container'>
+
+            {imageIds && imageIds.map((imageId, index) => (
+              <Image
+              className="vacc-photo"
+              key={index}
+              cloudName="djtd4wqoc"
+              publicId={imageId}
+              />
+              ))}
+          </div>
+          <div className='update-vacc-photo'>
+
+<br></br>
+          <p>
+            Change Vaccination Card Photo :
+            </p>
+          <form onSubmit={handleSubmit} >
+            <input onChange={handleChange} name="image" value={fileInputState} type='file' />
+
+            <button type="submit" >Submit</button>
+          </form>
+          <br />
+          {previewSource && (
+            <img src={previewSource} style={{ height: '200px', width: '300px' }} />
+            )}
+            </div>
             </div>
 
-    </div>
+
 
     </div>) : <h2>Loading...</h2>
 
