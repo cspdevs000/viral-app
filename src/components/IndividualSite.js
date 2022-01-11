@@ -12,6 +12,7 @@ class IndividualSite extends Component {
             commentData: [],
             waitTimes: "choiceA",
             typWaitTime: '', 
+            phoneNumber: this.props.phoneNumber
         };
 
     }
@@ -33,6 +34,10 @@ class IndividualSite extends Component {
             if(this.props.typWaitTime == "choiceB"){this.setState({typWaitTime: "30 minutes - 1 hour" })};
             if(this.props.typWaitTime == "choiceC"){this.setState({typWaitTime: "1-2 hours" })};
             if(this.props.typWaitTime == "choiceD"){this.setState({typWaitTime: "More than 2 hours" })};
+            if(this.props.phoneNumber == '' || this.props.phoneNumber == undefined){
+                this.setState({phoneNumber: 'N/A'})
+            }
+            console.log(this.props.phoneNumber);
     }
 
     handleComment = (e) => {
@@ -66,6 +71,7 @@ class IndividualSite extends Component {
             siteId: this.props.id,
             downVoteColor: '#F0F8FF',
             upVoteColor: '#F0F8FF',
+           
         };
 
         axios.post(`${REACT_APP_SERVER_URL}/review/new`, newComment)
@@ -146,6 +152,11 @@ class IndividualSite extends Component {
                         <tr>
                             <td>
                                 <p>{this.props.address}, {this.props.city}, {this.props.state}, {this.props.zipCode}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>Phone Number: {this.state.phoneNumber}</p>
                             </td>
                         </tr>
                         {/* <tr>

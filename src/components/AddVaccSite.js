@@ -16,6 +16,7 @@ class AddVaccSite extends Component {
             state: "",
             zipCode: "",
             waitTimes: "choiceA",
+            phoneNumber: '',
             redirect: false,
         };
     }
@@ -35,6 +36,11 @@ class AddVaccSite extends Component {
     handleCity(e) {
         this.setState({
             city: e.target.value,
+        });
+    }
+    handlePhoneNumber(e) {
+        this.setState({
+            phoneNumber: e.target.value,
         });
     }
 
@@ -69,6 +75,7 @@ class AddVaccSite extends Component {
             state: this.state.state,
             zipCode: this.state.zipCode,
             waitTimes: this.state.waitTimes,
+            phoneNumber: this.state.phoneNumber
         };
         axios
             .post(`${REACT_APP_SERVER_URL}/site/new`, newSite)
@@ -134,6 +141,20 @@ class AddVaccSite extends Component {
                                         name="city"
                                         value={this.state.city}
                                         onChange={this.handleCity.bind(this)}
+                                        required
+                                    />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>Phone Number:</h4>
+                                    <input
+                                        className="input"
+                                        type="text"
+                                        placeholder="Type Here"
+                                        autoComplete="Phone Number"
+                                        name="phoneNumber"
+                                        value={this.state.phoneNumber}
+                                        onChange={this.handlePhoneNumber.bind(this)}
                                         required
                                     />
                                 </td>

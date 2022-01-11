@@ -1,0 +1,14 @@
+.footer {
+ background-color: white;
+ height: 8px;
+ color: black;
+ padding: 0;
+ margin: 0px;
+}
+
+.footer-text {
+    font-size: 8px;
+    text-align: right;
+    padding: 0;
+    margin: 0;
+}
