@@ -201,10 +201,8 @@ const Profile = (props) => {
           </div>
 
           <div className='update-user-content'>
-
             <input className='profile-field' value={newName} defaultValue={newName} onChange={handleName.bind(this)} type="text" name="name" placeholder="Name" /><br />
             <input className='profile-field' value={newEmail} defaultValue={newEmail} onChange={handleEmail.bind(this)} type="text" name="email" placeholder="email" /><br />
-
             <select className='profile-field'
               value={newCounty}
               defaultValue={newCounty}
