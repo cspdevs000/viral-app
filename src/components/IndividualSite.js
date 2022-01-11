@@ -168,11 +168,11 @@ class IndividualSite extends Component {
                 </div>
                 <div className="card content">
                     <form onSubmit={this.handleSubmitWaitTimes.bind(this)}>
-                        <h1>Been here before?</h1>
+                        <h2>Been here before?</h2>
                         <label for="waitTime">How long did you wait?</label>
                         <br/>
-                        <br/>
                         <select
+                            className="site-drop-down"
                             name="waitTime"
                             onChange={this.handleWaitTimes.bind(this)}
                             defaultValue={""}>
@@ -182,8 +182,7 @@ class IndividualSite extends Component {
                             <option value="choiceD">more than 2 hours</option>
                         </select>
                         <br/>
-                        <br/>
-                        <button type="submit">Submit</button>
+                        <button className="site-submit-button" type="submit">Submit</button>
                     </form>
                 </div>
                 <h1>Reviews</h1>
