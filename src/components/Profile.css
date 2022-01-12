@@ -76,7 +76,7 @@
   }
   .update-user-content {
     top: 30vh;
-    right: 1vh;
+    right: -1vh;
     position: absolute;
   }
   .profile-field {
