@@ -62,3 +62,9 @@
     color: #A7CDBD;
     padding: 25px;
   }
+
+  @media screen and (max-width: 650px) {
+    .navbar-item {
+      font-size: 9px;
+    }
+  }
