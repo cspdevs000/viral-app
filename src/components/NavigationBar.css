@@ -1,3 +1,9 @@
+@media (max-width: 600px) {
+  .navbarContainer {
+    background-color: black;
+  }
+}
+  
   a {
     color: #3b7adf;
   }

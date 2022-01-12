@@ -36,9 +36,6 @@ class CountyData extends Component {
                 this.setState({
                     data: response.data.countyNameArr
                 });
-                console.log('Test', this.props.user.email);
-                console.log('Test', this.props.user.county);
-                console.log('Test', this.props.user.state);
                 if(this.props.county !== null){
                     const userData = {
                         county: this.props.user.county
@@ -159,8 +156,12 @@ class CountyData extends Component {
                         <form title='county-form' onSubmit={this.handleSubmit.bind(this)}>
                             <select className="dropdown" onChange={this.handleChange} name="county" defaultValue={""}>
                                 <option value="test" >Type County Here</option>
+                        <form onSubmit={this.handleSubmit.bind(this)}>
+                            <input type="text" id="search" className="dropdown" onChange={this.handleChange} name="county" list="theData" placeholder="type county here"></input>
+                            <datalist id="theData" className="dropdown" name="dataList" defaultValue={""}>
+                                <option value="test" ></option>
                                 {this.displayCounties()}
-                            </select>
+                            </datalist>
                             
                             <button title="submit-button" type="submit" className="county-submit">Submit</button>
 
