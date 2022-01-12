@@ -96,7 +96,7 @@
     width: 50%;
     height: 100%;
     position: absolute;
-    left: 43%;
+    left: 10%;
   }
   .right {
     grid-column-start: 1;
@@ -104,7 +104,7 @@
     width: 50%;
     height: 100%;
     top: 99%;
-    right: 90%;
+    right: 40%;
     position: absolute;
   }
   .signup-card {
@@ -112,11 +112,11 @@
   }
   .signup-form {
     top: 99%;
-    height: 150vh;
+    height: 130vh;
   }
   .signup-submit-container {
     position: absolute;
-    top: 140vh;
+    top: 120vh;
     left: 25vw;
   }
 }
