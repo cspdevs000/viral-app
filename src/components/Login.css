@@ -25,3 +25,11 @@
 .field {
     padding: 5px;
 }
+
+
+@media screen and (max-width: 600px) {
+    .navbar-item {
+      font-size: 10px;
+      padding: 8px;
+    }
+  }
