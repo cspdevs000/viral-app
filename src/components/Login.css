@@ -47,8 +47,8 @@
         grid-row-start: 2;
         overflow: hidden;
         position: absolute;
-        left: 37.5vw;
-        bottom: 22.5vh;
+        left: 25w;
+        bottom: 12.5vh;
     }
     .field {
         padding: 1px;
