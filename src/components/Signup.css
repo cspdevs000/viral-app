@@ -58,11 +58,15 @@
 .left {
   grid-column-start: 1;
   grid-column-end: 2;
+  width: 50%;
+  height: 100%;
 }
 
 .right {
   grid-column-start: 2;
   grid-column-end: 3;
+  width: 50%;
+  height: 100%;
 }
 
 .signup-submit {
@@ -74,4 +78,45 @@
 
 .input {
   border-radius: 4px;
+}
+
+@media screen and (max-width: 600px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 99% 1%;
+    grid-template-rows: 50% 50%;
+    position: relative;
+    width: 100vw;
+    height: 100vw;
+  }
+  .left {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 35%;
+  }
+  .right {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    width: 50%;
+    height: 100%;
+    top: 99%;
+    right: 85%;
+    position: absolute;
+  }
+  .signup-card {
+    left: 5%;
+  }
+  .signup-form {
+    top: 99%;
+  }
+  .signup-submit {
+    background-color: #91785D;
+    padding: 6px 20px;
+    border-radius: 10px;
+    margin: 15px;
+    top: 199%;
+  }
 }

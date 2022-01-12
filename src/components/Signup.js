@@ -321,7 +321,7 @@ class Signup extends Component {
                             </table>
                         </div>
                         <br />
-                        <form onSubmit={this.handleSubmit.bind(this)}>
+                        <form className="signup-form" onSubmit={this.handleSubmit.bind(this)}>
                             <div>
                                 <button title="submit-button" className="signup-submit" type="submit">Submit</button>
                             </div>

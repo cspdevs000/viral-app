@@ -11,13 +11,14 @@
   width: 50vw;
   height: 100vh;
   grid-column-start: 1;
-  padding: 40px 0 0 0;
+  padding: 70px 0 0 0;
 }
 
 .vacc-photo-container {
   width: 50vw;
   height: 100vh;
   grid-column-start: 2;
+  right: 1vw;
 }
 
 .vacc-photo-sub-container {
@@ -43,4 +44,29 @@
 
 .dropdown {
   padding: 5px 20px;
+}
+
+@media screen and (max-width: 600px) {
+.profile-container {
+    background-color: #A7CDBD;
+    width: 100vw;
+    height: 100vw;
+    display: grid;
+    grid-template-columns: 99% 1%;
+    position: absolute;
+    left: 24vw;
+}
+
+.profile-data-container {
+  width: 50vw;
+  height: 50vh;
+  grid-column-start: 1;
+  padding: 10px 0 0 0;
+}
+
+.vacc-photo-container {
+  width: 50vw;
+  height: 50vh;
+  grid-column-start: 1;
+}
 }
