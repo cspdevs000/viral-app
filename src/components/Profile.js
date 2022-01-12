@@ -212,7 +212,7 @@ const Profile = (props) => {
             <form onSubmit={handleInfoSubmit} >
               <button type="submit" >Update Profile</button>
             </form>
-            <br></br> <br></br><br></br><br></br><br></br><br></br>
+            <br></br>
           </div>
         </div>
       </div>

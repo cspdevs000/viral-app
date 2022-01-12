@@ -66,10 +66,10 @@
   .vacc-photo-container {
     width: 50vw;
     height: 50vh;
+    position: absolute;
     grid-column-start: 1;
     padding: 100px 0 0 0;
-  }
-  .profile-field{
-    right: 200px;
+    top: 90vw;
+    right: 50vw;
   }
 }
