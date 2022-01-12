@@ -14,7 +14,6 @@ let countyData = [];
 
 const Profile = (props) => {
   const { handleLogout, handleProfileUpdateLogout, user } = props;
-  console.log(user);
   const { id, name, email, exp, county, state } = user;
   const expirationTime = new Date(exp * 1000);
   let currentTime = Date.now();
@@ -41,10 +40,8 @@ const Profile = (props) => {
   //Gets the cloudinary publicURL and add to state
   const loadImage = async () => {
     try {
-      console.log('email', email);
       const res = await fetch(`${REACT_APP_SERVER_URL}/users/photo/${email}`);
       const data = await res.json();
-      console.log('Test String', data);
       setImageIds(data);
     }
     catch (error) {
@@ -54,7 +51,6 @@ const Profile = (props) => {
 
   //loads the function only once
   useEffect(() => {
-    console.log('render', firstRenderRef.current)
     if (firstRenderRef.current) {
       firstRenderRef.current = false
 
@@ -63,7 +59,6 @@ const Profile = (props) => {
       axios.get(`${REACT_APP_SERVER_URL}/countyData/counties`)
         .then((response) => {
           countyData = response.data.countyNameArr;
-          // console.log('COUNTY DATA', countyData);
           setDisplay(countyData.map((c, idx) => {
             return (
               <CountyOptions
@@ -78,7 +73,6 @@ const Profile = (props) => {
           console.log('ERROR COUNTY DATA', error);
         })
     }
-    console.log('USER', user);
 
     //useEffects depends on props. when it changes, useEffects reruns
   }, [props])
@@ -86,7 +80,6 @@ const Profile = (props) => {
   //Grabs the file and runs previewFile function
   const handleChange = (event) => {
     file = event.target.files[0];
-    // console.log('running', file);
     previewFile(file);
   }
 
@@ -98,12 +91,10 @@ const Profile = (props) => {
     reader.onloadend = () => {
       setPreviewSource(reader.result);
     }
-    console.log("preview source", previewSource);
   }
 
   //Reaches out to backend passing the data URI
   const uploadImage = async (base64EncodedImage) => {
-    console.log(base64EncodedImage)
 
     try {
       await fetch(`${REACT_APP_SERVER_URL}/users/photo`, {
@@ -120,7 +111,6 @@ const Profile = (props) => {
 
   // if no image string, end. if there is, call uploadImage
   const handleSubmit = (event) => {
-    // console.log('submitting')
     event.preventDefault();
     if (!previewSource) return;
     uploadImage(previewSource);
@@ -138,7 +128,6 @@ const Profile = (props) => {
 
   const handleInfoSubmit = (event) => {
     if (validateEmail(newEmail) == null) {
-      // console.log("NOT VALID")
       alert('email is not valid');
     }
     else {
@@ -152,7 +141,6 @@ const Profile = (props) => {
       axios
         .post(`${REACT_APP_SERVER_URL}/users/update`, data)
         .then((response) => {
-          // console.log(response.data);
         })
         .catch((error) => console.log("===> Error in Profile Update", error));
       handleProfileUpdateLogout();
