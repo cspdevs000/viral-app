@@ -47,6 +47,7 @@
 }
 
 
+
 @media screen and (max-width: 600px) {
   .profile-container {
     background-color: #A7CDBD;
@@ -60,6 +61,7 @@
   .profile-data-container {
     width: 50vw;
     height: 50vh;
+    position: absolute;
     grid-column-start: 1;
     padding: 10px 0 0 0;
   }
@@ -71,5 +73,13 @@
     padding: 100px 0 0 0;
     top: 90vw;
     right: 50vw;
+  }
+  .update-user-content {
+    top: 27vh;
+    left: 3vh;
+    position: absolute;
+  }
+  .profile-field {
+    margin: 0px 6px 6px 6px;
   }
 }
