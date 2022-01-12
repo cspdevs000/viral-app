@@ -10,8 +10,10 @@ Users will be able to ‘vouch’ for vaccination sites and leave reviews to let
 ## `Give it a Try`
 * <a href="https://viral-covid.herokuapp.com/">Go to the live site here</a>
 * Follow these Installation instructions
-    * npm install
+    * clone the repo and run it
+    * run npm install
     * connect to the backend
+    * run npm start
 
 ## `User Stories`
 - User inputs locations and information for booster shots and vaccines and can upvote existing post
@@ -192,4 +194,4 @@ This page loads when the user chooses a vaccination site after searching for one
 
 ## Major Hurdles
 * One blocker we ran into was having the profile page display the correct photo when the user updated it. We solved the issue by reloading the page once the photo had been uploaded to Coudinary
-*
+* Another blocker we experienced was making the website mobile firendly. We were able to fix this issue by adding @media to the bottom of the CSS pages where necessary

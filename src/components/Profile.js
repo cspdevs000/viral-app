@@ -205,7 +205,7 @@ const Profile = (props) => {
             <input className='profile-field' value={newEmail} defaultValue={newEmail} onChange={handleEmail.bind(this)} type="text" name="email" placeholder="email" /><br />
             <input type="text" id="search" className="dropdown profile-field" onChange={handleCounty.bind(this)} name="county" list="theData" placeholder="type county here"></input>
             <datalist id="theData" className="dropdown" name="dataList" defaultValue={""}>
-              <option value="County" ></option>
+              <option value="---" ></option>
               {display}
             </datalist>
             <br></br>

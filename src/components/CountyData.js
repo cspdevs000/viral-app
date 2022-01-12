@@ -158,7 +158,7 @@ class CountyData extends Component {
                                 <option value="test" >Type County Here</option> */}
                             <input title="dropdown" type="text" id="search" className="dropdown" onChange={this.handleChange} name="county" list="theData" placeholder="type county here"></input>
                             <datalist id="theData" className="dropdown" name="dataList" defaultValue={""}>
-                                <option title="list" value="test" ></option>
+                                <option title="list" value="---" ></option>
                                 {this.displayCounties()}
                             </datalist>
                             
