@@ -1,3 +1,8 @@
+@media screen and (max-width: 600px) {
+    .home-container {
+      background-color: black;
+    }
+  }
 
 .home-container {
     background-color: #A7CDBD;
@@ -17,13 +22,10 @@
     width: 75%;
     height: 100%;
     max-width: 1024px;
- 
     margin: 0 auto;
-    /* padding-bottom: 10vw; */
 }
 
 .map-container {
-    background-color: #A7CDBD;
     height: 40vh;
     width: 100vw;
     grid-row-start: 2;
