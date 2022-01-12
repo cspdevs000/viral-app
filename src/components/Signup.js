@@ -312,7 +312,7 @@ class Signup extends Component {
                                             <div className="control">
                                                 <input title="county-list"type="text" id="search" className="dropdown" onChange={this.handleChange} name="county" list="theData" placeholder="type county here"></input>
                                                 <datalist id="theData" className="dropdown" name="dataList" defaultValue={""}>
-                                                    <option value="test" ></option>
+                                                    <option value="---" ></option>
                                                     {this.displayCounties()}
                                                 </datalist>
                                             </div>
