@@ -154,13 +154,13 @@ class CountyData extends Component {
                     <div className="form-container">
                         <h1>Select a County</h1>
                         <form onSubmit={this.handleSubmit.bind(this)}>
-                            <input type="text" id="search" className="dropdown" onChange={this.handleChange} name="county" list="theData" placeholder="type county here"></input>
+                            <input title="dropdown" type="text" id="search" className="dropdown" onChange={this.handleChange} name="county" list="theData" placeholder="type county here"></input>
                             <datalist id="theData" className="dropdown" name="dataList" defaultValue={""}>
-                                <option value="test" ></option>
+                                <option title="list" value="test" ></option>
                                 {this.displayCounties()}
                             </datalist>
                             
-                            <button type="submit" className="county-submit">Submit</button>
+                            <button title="submit-button" type="submit" className="county-submit">Submit</button>
 
                         </form>
                     </div>

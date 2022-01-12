@@ -9,13 +9,13 @@ test('renders h1 title', () => {
 
 test('renders county form', () => {
     render(<CountyData />);
-    const formElement = screen.getByTitle(/county-form/i);
+    const formElement = screen.getByTitle(/dropdown/i);
     expect(formElement).toBeInTheDocument();
 });
 
 test('renders form display', () => {
     render(<CountyData />);
-    const formDisplayElement = screen.getByText(/Type County Here/i);
+    const formDisplayElement = screen.getByTitle(/list/i);
     expect(formDisplayElement).toBeInTheDocument();
 });
 
