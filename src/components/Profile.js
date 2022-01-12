@@ -202,14 +202,11 @@ const Profile = (props) => {
           <div className='update-user-content'>
             <input className='profile-field' value={newName} defaultValue={newName} onChange={handleName.bind(this)} type="text" name="name" placeholder="Name" /><br />
             <input className='profile-field' value={newEmail} defaultValue={newEmail} onChange={handleEmail.bind(this)} type="text" name="email" placeholder="email" /><br />
-            <select className='profile-field'
-              value={newCounty}
-              defaultValue={newCounty}
-              onChange={handleCounty.bind(this)}
-              name="county">
-              <option value="test" >Choose New County</option>
+            <input type="text" id="search" className="dropdown" onChange={handleCounty.bind(this)} name="county" list="theData" placeholder="type county here"></input>
+            <datalist id="theData" className="dropdown" name="dataList" defaultValue={""}>
+              <option value="test" ></option>
               {display}
-            </select><br /><br />
+            </datalist>
             <form onSubmit={handleInfoSubmit} >
               <button type="submit" >Update Profile</button>
             </form>
