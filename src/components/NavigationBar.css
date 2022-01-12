@@ -41,8 +41,8 @@
 
   .navbar {
     position: relative;
-    font-size: 17px;
-    padding-top: 13px;
+    font-size: 16px;
+    padding-top: 11px;
   }
 
   .navbar-login{
@@ -59,18 +59,20 @@
   
   .navbar-item {
     color: #A7CDBD;
-    padding: 25px;
+    padding: 20px;
   }
 
   .viral-image-nav{
     width: 60px;
     height: 60px;
-    float:left;
-    
     margin-left: 20px;
+    float:left;
+  }
+    
   @media screen and (max-width: 650px) {
     .navbar-item {
       font-size: 14px;
+      padding:10px;
     }
   }
 
