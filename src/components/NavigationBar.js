@@ -10,7 +10,9 @@ class NavigationBar extends Component {
     render() {
         return (
             <div className="navbarContainer">
+                <img class="viral-image-nav" src="../../virus-edited.png"></img>
                 <nav className="navbar" role="navigation">
+                    
                     <div className="navbar-login">
                         <div className="is-left">
                             {!this.props.user && <a className="navbar-item" href="/signup" >Signup </a>}

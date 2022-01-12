@@ -68,12 +68,15 @@ class VaccSites extends Component {
     render() {
         return (
             <div className="vacc-sites-container">
+                
                 <div class="add-site-container">
+  
                     <form action="/addsite" method="GET">
                         <button className="add-site-button">
                             Click Here to Add a Vaccination Site
                         </button>
                     </form>
+                
                 </div>
                 <div className="site-search-form">
                     <form onSubmit={this.handleSubmit.bind(this)}>

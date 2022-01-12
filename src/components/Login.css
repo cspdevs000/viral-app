@@ -25,3 +25,9 @@
 .field {
     padding: 5px;
 }
+
+.viral-image{
+    width: 200px;
+    height:200px;
+    transform: rotate(180deg);
+}
