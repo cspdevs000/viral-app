@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './SiteResult.css';
-import Site from './Site';
 const { REACT_APP_SERVER_URL } = process.env;
 
 class SiteResult extends Component {
@@ -21,11 +20,9 @@ class SiteResult extends Component {
             if(this.props.popularWaitTime == "choiceB"){this.setState({typWaitTime: "30 minutes - 1 hour" })};
             if(this.props.popularWaitTime == "choiceC"){this.setState({typWaitTime: "1-2 hours" })};
             if(this.props.popularWaitTime == "choiceD"){this.setState({typWaitTime: "More than 2 hours" })};
-            // console.log("TYP WAIT TIME", this.props.popularWaitTime)
             if(this.props.phoneNumber == '' || this.props.phoneNumber == undefined){
                 this.setState({phoneNumber: 'N/A'})
             }
-            console.log(this.props.phoneNumber);
     }
   
   handleSubmit = (e) => {
@@ -33,7 +30,6 @@ class SiteResult extends Component {
     
     axios.get(`${REACT_APP_SERVER_URL}/site/${this.props.id}`)
     .then((response) => {
-        console.log('SITE TO BE NAVIGATED TO', response.data);
         this.setState({
         })
     })
@@ -50,7 +46,6 @@ class SiteResult extends Component {
               <p>{this.props.address}, {this.props.city}, {this.props.state}, {this.props.zipCode}</p>
               <p>Typical Wait Time: {this.state.typWaitTime}</p>
               <p>Phone Number: {this.state.phoneNumber}</p>
-              {/* <form action={`${REACT_APP_SERVER_URL}/site/${this.props.id}`}> */}
               <form action={`/site/${this.props.id}`}>
               <button type="submit">
                   More Info
