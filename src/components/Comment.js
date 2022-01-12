@@ -19,9 +19,35 @@ class Comment extends Component {
         }
     }
     componentDidMount() {
-        console.log(this.props);
-        console.log(this.state);
+        axios.post(`${REACT_APP_SERVER_URL}/review/comment`, this.state)
+            .then((res) => {
+                let upVoteArr1 = res.data.comment[0].upVoteArr;
+                let downVoteArr1 = res.data.comment[0].downVoteArr;
+                if (upVoteArr1.includes(this.props.user.id) === false) {
+                    this.setState({
+                        upVoteColor: '#F0F8FF'
+                    })
+                } else {
+                    this.setState({
+                        upVoteColor: 'green'
+                    })
+                }
+                if (downVoteArr1.includes(this.props.user.id) === false) {
+                    this.setState({
+                        downVoteColor: '#F0F8FF'
+                    })
+                } else {
+                    this.setState({
+                        downVoteColor: 'red'
+                    })
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+
     }
+
     handleUpVote = (e) => {
         // console.log('button working');
         axios.post(`${REACT_APP_SERVER_URL}/review/comment`, this.state)

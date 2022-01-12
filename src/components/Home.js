@@ -59,6 +59,7 @@ class Home extends Component {
     render() {
         return (
             <div className="home-container">
+               
                 <div className='top-ten-container'>
                     <div className='top-ten-1'>
                         <h3 className='home-label'>Top Ten Total Covid Cases</h3>
