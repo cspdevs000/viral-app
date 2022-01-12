@@ -39,7 +39,7 @@
 }
 
 .profile-field {
-  margin: 5px;
+  margin: 6px;
 }
 
 .dropdown {
@@ -57,21 +57,19 @@
     position: absolute;
     left: 24vw;
   }
-  
   .profile-data-container {
     width: 50vw;
     height: 50vh;
     grid-column-start: 1;
     padding: 10px 0 0 0;
   }
-  
   .vacc-photo-container {
     width: 50vw;
     height: 50vh;
     grid-column-start: 1;
     padding: 100px 0 0 0;
   }
-  .update-user-content {
-    left: 20vw;
+  .profile-field{
+    right: 200px;
   }
 }
