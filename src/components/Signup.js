@@ -150,6 +150,7 @@ class Signup extends Component {
                                         <div className="field">
                                             <div className="control">
                                                 <input
+                                                    title="email-form"
                                                     className="input"
                                                     type="email"
                                                     placeholder="Email"
@@ -168,6 +169,7 @@ class Signup extends Component {
                                         <div className="field">
                                             <div className="control">
                                                 <input
+                                                    title="fullname-form"
                                                     className="input"
                                                     type="text"
                                                     placeholder="Name"
@@ -186,6 +188,7 @@ class Signup extends Component {
                                         <div className="field">
                                             <div className="control">
                                                 <input
+                                                    title="username-form"
                                                     className="input"
                                                     type="text"
                                                     placeholder="Username"
@@ -206,6 +209,7 @@ class Signup extends Component {
                                         <div className="field">
                                             <div className="control">
                                                 <input
+                                                    title="password-form"
                                                     className="input"
                                                     type="password"
                                                     placeholder="Password"
@@ -224,6 +228,7 @@ class Signup extends Component {
                                         <div className="field">
                                             <div className="control">
                                                 <input
+                                                    title="confirm-form"
                                                     className="input"
                                                     type="password"
                                                     placeholder="Confirm Password"
@@ -304,7 +309,7 @@ class Signup extends Component {
                                     <td><h4>County: </h4>
                                         <div className="field">
                                             <div className="control">
-                                                <input type="text" id="search" className="dropdown" onChange={this.handleChange} name="county" list="theData" placeholder="type county here"></input>
+                                                <input title="county-list"type="text" id="search" className="dropdown" onChange={this.handleChange} name="county" list="theData" placeholder="type county here"></input>
                                                 <datalist id="theData" className="dropdown" name="dataList" defaultValue={""}>
                                                     <option value="test" ></option>
                                                     {this.displayCounties()}
@@ -318,7 +323,7 @@ class Signup extends Component {
                         <br />
                         <form onSubmit={this.handleSubmit.bind(this)}>
                             <div>
-                                <button className="signup-submit" type="submit">Submit</button>
+                                <button title="submit-button" className="signup-submit" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>
