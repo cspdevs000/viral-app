@@ -9,6 +9,7 @@
     height: 100%;
     width: 100vw;
     display: flex;
+    grid-template-rows: 60% 40%;
     flex-direction:column;
     position: relative;
     /* overflow: visible; */
