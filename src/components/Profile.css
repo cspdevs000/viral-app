@@ -75,8 +75,8 @@
     right: 50vw;
   }
   .update-user-content {
-    top: 27vh;
-    left: 3vh;
+    top: 30vh;
+    /* left: 13vh; */
     position: absolute;
   }
   .profile-field {
