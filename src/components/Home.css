@@ -21,7 +21,7 @@
 }
 
 .map-container {
-    height: 40vh;
+    height: 75vh;
     width: 100vw;
     grid-row-start: 2;
     grid-row-end: 3;
@@ -119,6 +119,6 @@
         position: relative;
     }
     .map {
-        top: 25vh;
+        top: 45vh;
     }
   }
