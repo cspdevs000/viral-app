@@ -37,7 +37,6 @@ class Login extends Component {
     axios.post(`${REACT_APP_SERVER_URL}/users/login`, userData)
       .then(response => {
         const { token } = response.data;
-        console.log('data here---', response.data)
         // save token to localStorage
         localStorage.setItem('jwtToken', token);
         // set token to headers
@@ -55,10 +54,8 @@ class Login extends Component {
 
 
   render() {
-    console.log(this.props.user);
     if (this.props.user)
       return <Navigate to="/home" />;
-    // alert('You are already logged in');
 
     return (
         <div className="login-container">
@@ -96,11 +93,6 @@ class Login extends Component {
             </form>
             <br />
           </div>
-          {/* <div className="footer">
-            <small>
-              &copy; Viral Website. All Rights Reserved.
-            </small>
-          </div> */}
         </div>
     );
   }

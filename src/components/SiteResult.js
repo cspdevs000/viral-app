@@ -46,7 +46,6 @@ class SiteResult extends Component {
               <p>{this.props.address}, {this.props.city}, {this.props.state}, {this.props.zipCode}</p>
               <p>Typical Wait Time: {this.state.typWaitTime}</p>
               <p>Phone Number: {this.state.phoneNumber}</p>
-              {/* <form action={`${REACT_APP_SERVER_URL}/site/${this.props.id}`}> */}
               <form action={`/site/${this.props.id}`}>
               <button type="submit">
                   More Info
