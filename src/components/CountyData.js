@@ -36,7 +36,7 @@ class CountyData extends Component {
                 this.setState({
                     data: response.data.countyNameArr
                 });
-                if(this.props.county !== null){
+                if (this.props.county !== null) {
                     const userData = {
                         county: this.props.user.county
                     };
@@ -153,9 +153,6 @@ class CountyData extends Component {
                 <div className="county-container">
                     <div className="form-container">
                         <h1>Select a County</h1>
-                        <form title='county-form' onSubmit={this.handleSubmit.bind(this)}>
-                            <select className="dropdown" onChange={this.handleChange} name="county" defaultValue={""}>
-                                <option value="test" >Type County Here</option>
                         <form onSubmit={this.handleSubmit.bind(this)}>
                             <input type="text" id="search" className="dropdown" onChange={this.handleChange} name="county" list="theData" placeholder="type county here"></input>
                             <datalist id="theData" className="dropdown" name="dataList" defaultValue={""}>
@@ -163,7 +160,7 @@ class CountyData extends Component {
                                 {this.displayCounties()}
                             </datalist>
                             
-                            <button title="submit-button" type="submit" className="county-submit">Submit</button>
+                            <button type="submit" className="county-submit">Submit</button>
 
                         </form>
                     </div>
@@ -204,7 +201,7 @@ class CountyData extends Component {
                             </tr>
                             <tr>
                                 <td className="countyTD">Vaccinations Initiated</td>
-                                <td title="vacc-init-data"className="countyTD">{this.state.countyInfo.vaccinationsInitiated} Vaccinations</td>
+                                <td title="vacc-init-data" className="countyTD">{this.state.countyInfo.vaccinationsInitiated} Vaccinations</td>
                             </tr>
                         </table>
                     </div>
