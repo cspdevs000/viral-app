@@ -185,7 +185,7 @@ const Profile = (props) => {
     (<div className="profile-container">
       <div className="profile-data-container">
         <div>
-          <h1 >Profile</h1>
+          <h1>Profile</h1>
         </div>
         <div>
           <div className="user-content">
