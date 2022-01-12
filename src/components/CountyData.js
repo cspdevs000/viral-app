@@ -36,9 +36,6 @@ class CountyData extends Component {
                 this.setState({
                     data: response.data.countyNameArr
                 });
-                console.log('Test', this.props.user.email);
-                console.log('Test', this.props.user.county);
-                console.log('Test', this.props.user.state);
                 if(this.props.county !== null){
                     const userData = {
                         county: this.props.user.county
