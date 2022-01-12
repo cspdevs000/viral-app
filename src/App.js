@@ -14,13 +14,11 @@ import AddVaccSite from './components/AddVaccSite';
 import NavigationBar from './components/NavigationBar';
 
 function App() {
-
   const [currentUser, setCurrentUser] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   useEffect(() => {
     let token;
-
     if (!localStorage.getItem('jwtToken')) {
       setIsAuthenticated(false);
     } else {
