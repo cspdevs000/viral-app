@@ -93,16 +93,16 @@
   .left {
     grid-column-start: 1;
     grid-row-start: 1;
-    width: 50%;
-    height: 100%;
+    width: 50vw;
+    height: 100vw;
     position: absolute;
     left: 10vw;
   }
   .right {
     grid-column-start: 1;
     grid-row-start: 2;
-    width: 50%;
-    height: 100%;
+    width: 50vw;
+    height: 100vw;
     top: 50vw;
     right: 40vw;
     position: absolute;
@@ -112,11 +112,11 @@
   }
   .signup-form {
     top: 99%;
-    height: 130vh;
+    height: 140vh;
   }
   .signup-submit-container {
     position: absolute;
-    top: 120vh;
+    top: 133vh;
     left: 25vw;
   }
 }
