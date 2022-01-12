@@ -56,8 +56,14 @@ th, td {
   border-radius: 8px;
 }
 
+@media screen and (max-width: 750px) {
+  .countyTable {
+      left: 17%;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .countyTable {
-      left: 12%;
+      left: 10%;
   }
 }

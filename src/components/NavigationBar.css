@@ -53,24 +53,23 @@
   .navbarContainer {
     background: #91785D;
     height: 55px;
-
     align-items: center;
     box-shadow: 0 1px 8px #ddd;
   }
   
   .navbar-item {
     color: #A7CDBD;
-    padding: 25px;
+    padding: 15px;
   }
 
   @media screen and (max-width: 650px) {
     .navbar-item {
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 
   @media screen and (max-width: 600px) {
     .navbar-item {
-      font-size: 7px;
+      font-size: 9px;
     }
   }
