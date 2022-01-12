@@ -97,15 +97,15 @@
     width: 50%;
     height: 100%;
     position: absolute;
-    left: 13%;
+    left: 13vw;
   }
   .vacc-right {
     grid-column-start: 1;
     grid-row-start: 2;
     width: 50%;
     height: 100%;
-    top: 99%;
-    right: 37%;
+    top: 50vw;
+    right: 37vw;
     position: absolute;
   }
   .vacc-site-card {

@@ -96,15 +96,15 @@
     width: 50%;
     height: 100%;
     position: absolute;
-    left: 10%;
+    left: 10vw;
   }
   .right {
     grid-column-start: 1;
     grid-row-start: 2;
     width: 50%;
     height: 100%;
-    top: 99%;
-    right: 40%;
+    top: 50vw;
+    right: 40vw;
     position: absolute;
   }
   .signup-card {
