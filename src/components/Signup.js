@@ -116,7 +116,6 @@ class Signup extends Component {
                 axios
                     .post(`${REACT_APP_SERVER_URL}/users/signup`, newUser)
                     .then((response) => {
-                        console.log(response.data);
                         this.setState({
                             redirect: true,
                         });
@@ -334,5 +333,3 @@ class Signup extends Component {
 }
 
 export default Signup;
-
-//TODO REDIRECT TO HOMEPAGE

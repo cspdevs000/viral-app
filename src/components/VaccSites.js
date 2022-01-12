@@ -27,14 +27,10 @@ class VaccSites extends Component {
             alert("Please enter a 5 digit number for the zip code");
         }
         else{
-        // const zipCode = {
-        //     zipCode: this.state.zipCode
-        // };
 
         axios.get(`${REACT_APP_SERVER_URL}/site/zip/${this.state.zipCode}`)
             .then((response) => {
                 if (response.data.zipArr !== undefined) {
-                    // console.log('DATA', response.data.zipArr == undefined);
                     this.setState({
                         data: response.data.zipArr,
                         secondaryData: response.data.closeByArr
@@ -43,7 +39,6 @@ class VaccSites extends Component {
                 else {
                     return alert("no sites available for this zipcode");
                 }
-                // console.log('WHAOAOHAOHOAH', this.state.data);
             })
             .catch(error => {
                 console.log('error gettin zippy', error);
@@ -100,5 +95,3 @@ class VaccSites extends Component {
 }
 
 export default VaccSites;
-
-//make the results be its own route or figure out a diff way to keep state when user hits back button on browser

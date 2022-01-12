@@ -6,7 +6,6 @@ const { REACT_APP_SERVER_URL } = process.env;
 
 let temp = window.location.pathname.split('/')
 let trackerId = temp[2];
-console.log(trackerId);
 
 class Site extends Component {
     constructor(props) {
@@ -20,7 +19,6 @@ class Site extends Component {
     componentDidMount() {
         axios.get(`${REACT_APP_SERVER_URL}/site/${trackerId}`)
         .then((response) => {
-            console.log('DATA SPOSED TO BE ON PAGE', response.data);
             this.setState({
                 data: response.data.site,
                 typWaitTime: response.data.popularWaitTime
