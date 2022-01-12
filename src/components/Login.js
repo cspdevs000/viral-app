@@ -63,8 +63,10 @@ class Login extends Component {
     return (
         <div className="login-container">
           <div className="message">
+          
             <h1 style={{ color: "black" }}>Viral</h1>
             <p>An elegant and robust website that answers any questions you have about COVID-19</p>
+            <img class="viral-image" src="../../viral-icon.png"></img>
           </div>
           <div className="form-wrapper">
             <h1 style={{ color: "black" }}>Log In</h1>
