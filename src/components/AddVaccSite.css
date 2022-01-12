@@ -39,35 +39,39 @@
   
 }
 
-.card {
+.vacc-site-form {
   background-color: #869D7A;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
   color: #2c2c2c;
-  max-width: 50%;
+  max-width: 75%;
+  height:80vh;
   position: relative;
-  left: 25%;
+  left: 10vw;
   border-radius: 25px;
-  padding: 10px;
-  margin: 10px;
+  /* padding: 10px; */
+  /* margin: 10px; */
 }
 
-.grid {
+.vacc-grid {
   display: grid;
   grid-template-columns: 50% 50%;
-  
 }
 
-.left {
+.vacc-left {
   grid-column-start: 1;
   grid-column-end: 2;
+  width: 50%;
+  height: 100%;
 }
 
-.right {
+.vacc-right {
   grid-column-start: 2;
   grid-column-end: 3;
+  width: 50%;
+  height: 100%;
 }
 
-.add-submit {
+.vacc-site-submit-button {
   background-color: #91785D;
   padding: 6px 20px;
   border-radius: 10px;
@@ -76,4 +80,44 @@
 
 .input {
   border-radius: 4px;
+}
+
+@media screen and (max-width: 600px) {
+  .vacc-grid {
+    display: grid;
+    grid-template-columns: 99% 1%;
+    grid-template-rows: 50% 50%;
+    position: relative;
+    width: 100vw;
+    height: 100vw;
+  }
+  .vacc-left {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 13vw;
+  }
+  .vacc-right {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    width: 50%;
+    height: 100%;
+    top: 60vw;
+    right: 37vw;
+    position: absolute;
+  }
+  .vacc-site-card {
+    left: 5%;
+  }
+  .vacc-site-form {
+    top: 99%;
+    height: 135vh;
+  }
+  .vacc-site-submit-container {
+    position: absolute;
+    top: 125vh;
+    right: 25vw;
+  }
 }

@@ -143,6 +143,7 @@ class Signup extends Component {
                     <h1>Sign up for Viral</h1>
                     <h4>keep track of the latest covid data & your vaccine card</h4>
                     <div className="signup-card">
+                <form className="signup-form" onSubmit={this.handleSubmit.bind(this)}>
                         <div className='content grid'>
                             <table className="left">
                                 <tr>
@@ -311,7 +312,7 @@ class Signup extends Component {
                                             <div className="control">
                                                 <input title="county-list"type="text" id="search" className="dropdown" onChange={this.handleChange} name="county" list="theData" placeholder="type county here"></input>
                                                 <datalist id="theData" className="dropdown" name="dataList" defaultValue={""}>
-                                                    <option value="test" ></option>
+                                                    <option value="---" ></option>
                                                     {this.displayCounties()}
                                                 </datalist>
                                             </div>
@@ -321,8 +322,7 @@ class Signup extends Component {
                             </table>
                         </div>
                         <br />
-                        <form onSubmit={this.handleSubmit.bind(this)}>
-                            <div>
+                            <div className='signup-submit-container'>
                                 <button title="submit-button" className="signup-submit" type="submit">Submit</button>
                             </div>
                         </form>

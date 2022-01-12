@@ -38,11 +38,12 @@
   
 }
 
-.signup-card {
+.signup-form {
   background-color: #869D7A;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
   color: #2c2c2c;
   max-width: 80%;
+  height: 64vh;
   position: relative;
   left: 10%;
   border-radius: 25px;
@@ -58,11 +59,15 @@
 .left {
   grid-column-start: 1;
   grid-column-end: 2;
+  width: 50%;
+  height: 100%;
 }
 
 .right {
   grid-column-start: 2;
   grid-column-end: 3;
+  width: 50%;
+  height: 100%;
 }
 
 .signup-submit {
@@ -74,4 +79,44 @@
 
 .input {
   border-radius: 4px;
+}
+
+@media screen and (max-width: 600px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 99% 1%;
+    grid-template-rows: 50% 50%;
+    position: relative;
+    width: 100vw;
+    height: 100vw;
+  }
+  .left {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    width: 50vw;
+    height: 100vw;
+    position: absolute;
+    left: 10vw;
+  }
+  .right {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    width: 50vw;
+    height: 100vw;
+    top: 50vw;
+    right: 40vw;
+    position: absolute;
+  }
+  .signup-card {
+    left: 5%;
+  }
+  .signup-form {
+    top: 99%;
+    height: 140vh;
+  }
+  .signup-submit-container {
+    position: absolute;
+    top: 133vh;
+    left: 25vw;
+  }
 }

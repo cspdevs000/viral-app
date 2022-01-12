@@ -117,12 +117,14 @@ class AddVaccSite extends Component {
 
         return (
             <div className='add-vacc-site-container'>
+                <div className='add-vacc-ste-subcontainer'>
                 <div>
                     <h1>Add a Vaccination Site</h1>
                 </div>
-                <div className="card">
-                    <div className='content grid'>
-                        <table className="left">
+                <div className="vacc-site-card">
+        <form className='vacc-site-form' onSubmit={this.handleSubmit.bind(this)}>
+                    <div className='content vacc-grid'>
+                        <table className="vacc-left">
                             <tr>
                                 <td><h4>Name of Location:</h4>
 
@@ -185,7 +187,7 @@ class AddVaccSite extends Component {
                                 </td>
                             </tr>
                         </table>
-                        <table className="right">
+                        <table className="vacc-right">
                             <tr>
                                 <td><h4>State:</h4>
                                     {/* <input
@@ -296,11 +298,11 @@ class AddVaccSite extends Component {
                         </table>
                     </div>
                     <br />
-                    <div>
-                        <form onSubmit={this.handleSubmit.bind(this)}>
-                            <button title="submit-button" className="add-submit" type="submit">Submit</button>
-                        </form>
+                    <div className='vacc-site-submit-container'>
+                            <button title="submit-button" className="vacc-site-submit-button" type="submit">Submit</button>
                     </div>
+                        </form>
+                </div>
                 </div>
             </div>
         );
