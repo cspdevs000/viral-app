@@ -304,11 +304,11 @@ class Signup extends Component {
                                     <td><h4>County: </h4>
                                         <div className="field">
                                             <div className="control">
-                                            <input type="text" id="search" className="dropdown" onChange={this.handleChange} name="county" list="theData" placeholder="type county here"></input>
-                            <datalist id="theData" className="dropdown" name="dataList" defaultValue={""}>
-                                <option value="test" ></option>
-                                {this.displayCounties()}
-                            </datalist>
+                                                <input type="text" id="search" className="dropdown" onChange={this.handleChange} name="county" list="theData" placeholder="type county here"></input>
+                                                <datalist id="theData" className="dropdown" name="dataList" defaultValue={""}>
+                                                    <option value="test" ></option>
+                                                    {this.displayCounties()}
+                                                </datalist>
                                             </div>
                                         </div>
                                     </td>
