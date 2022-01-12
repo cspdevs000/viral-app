@@ -4,7 +4,8 @@
     height: 100%;
     width: 100vw;
     display: flex;
-    flex-direction:column;
+    grid-template-rows: 60% 40%;
+    flex-direction: column;
     position: relative;
     /* overflow: visible; */
     padding-top: 5px;
@@ -12,38 +13,36 @@
 
 .map {
     position: absolute;
-    top: 1vh;
     left: 12vw;
     width: 75%;
-    height: 100%;
+    height: 95%;
     max-width: 1024px;
- 
     margin: 0 auto;
-    /* padding-bottom: 10vw; */
 }
 
 .map-container {
-    background-color: #A7CDBD;
     height: 40vh;
     width: 100vw;
-    grid-row-start: 2;
-    grid-row-end: 3;
+    /* grid-row-start: 2;
+    grid-row-end: 3; */
     position: relative;
-    padding-bottom: 41.25%;
-    overflow: hidden;
+    padding-bottom: 36.25%;
+    overflow: visible;
     max-width: 100%;
     max-height: 100%;
     margin: 0 auto;
+    bottom: 20vh;
 }
 
 .top-ten-container {
     position: relative;
     min-height: 450px;
     max-height: 1000px;
+    height: 80vh;
     width: 100vw;
     display: grid;
     overflow: visible;
-    grid-template-rows: subgrid;
+    /* grid-template-rows: subgrid; */
     grid-template-columns: 33% 34% 33%;
 }
 
@@ -64,11 +63,72 @@
 .top-ten-3 {
     grid-column-start: 3;
     position: absolute;
-    width: 33vw;
+    width: 33vw;    
     /* padding: 10px; */
 }
 
 .home-label {
     text-align: left;
-    padding-left: 3vw;
+    padding-left: 4vw;
 }
+
+@media screen and (max-width: 800px) {
+    .map {
+        top: 8vh;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .map {
+        top: 12vh;
+    }
+    .home-label {
+        padding-left: 5vw;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .map {
+        top: 16vh;
+    }
+}
+
+@media screen and (max-width: 675px) {
+    .map {
+        top: 19vh;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .map {
+        top: 23vh;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .home-container {
+        display: flex;
+    }
+    .top-ten-container {
+        display: inline-flex;
+    }
+    .top-ten-1 {
+        position: relative;
+    }
+    .top-ten-2 {
+        position: relative;
+    }
+    .top-ten-3 {
+        position: relative;
+    }
+    .map {
+        top: 65vh;
+        height:85%;
+    }
+    .home-label {
+        padding-left: 7vw;
+    }
+    .map-container {
+        bottom: 1vh;
+    }
+  }

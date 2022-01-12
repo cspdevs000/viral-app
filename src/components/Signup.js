@@ -143,6 +143,7 @@ class Signup extends Component {
                     <h1>Sign up for Viral</h1>
                     <h4>keep track of the latest covid data & your vaccine card</h4>
                     <div className="signup-card">
+                <form className="signup-form" onSubmit={this.handleSubmit.bind(this)}>
                         <div className='content grid'>
                             <table className="left">
                                 <tr>
@@ -150,6 +151,7 @@ class Signup extends Component {
                                         <div className="field">
                                             <div className="control">
                                                 <input
+                                                    title="email-form"
                                                     className="input"
                                                     type="email"
                                                     placeholder="Email"
@@ -168,6 +170,7 @@ class Signup extends Component {
                                         <div className="field">
                                             <div className="control">
                                                 <input
+                                                    title="fullname-form"
                                                     className="input"
                                                     type="text"
                                                     placeholder="Name"
@@ -186,6 +189,7 @@ class Signup extends Component {
                                         <div className="field">
                                             <div className="control">
                                                 <input
+                                                    title="username-form"
                                                     className="input"
                                                     type="text"
                                                     placeholder="Username"
@@ -206,6 +210,7 @@ class Signup extends Component {
                                         <div className="field">
                                             <div className="control">
                                                 <input
+                                                    title="password-form"
                                                     className="input"
                                                     type="password"
                                                     placeholder="Password"
@@ -224,6 +229,7 @@ class Signup extends Component {
                                         <div className="field">
                                             <div className="control">
                                                 <input
+                                                    title="confirm-form"
                                                     className="input"
                                                     type="password"
                                                     placeholder="Confirm Password"
@@ -304,13 +310,11 @@ class Signup extends Component {
                                     <td><h4>County: </h4>
                                         <div className="field">
                                             <div className="control">
-                                                <select
-                                                    onChange={this.handleCounty.bind(this)}
-                                                    name="county"
-                                                    defaultValue={""}>
-                                                    <option value="test" >Choose County</option>
+                                                <input title="county-list"type="text" id="search" className="dropdown" onChange={this.handleChange} name="county" list="theData" placeholder="type county here"></input>
+                                                <datalist id="theData" className="dropdown" name="dataList" defaultValue={""}>
+                                                    <option value="---" ></option>
                                                     {this.displayCounties()}
-                                                </select>
+                                                </datalist>
                                             </div>
                                         </div>
                                     </td>
@@ -318,9 +322,8 @@ class Signup extends Component {
                             </table>
                         </div>
                         <br />
-                        <form onSubmit={this.handleSubmit.bind(this)}>
-                            <div>
-                                <button className="signup-submit" type="submit">Submit</button>
+                            <div className='signup-submit-container'>
+                                <button title="submit-button" className="signup-submit" type="submit">Submit</button>
                             </div>
                         </form>
                     </div>

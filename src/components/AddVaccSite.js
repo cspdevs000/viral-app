@@ -117,16 +117,19 @@ class AddVaccSite extends Component {
 
         return (
             <div className='add-vacc-site-container'>
+                <div className='add-vacc-ste-subcontainer'>
                 <div>
                     <h1>Add a Vaccination Site</h1>
                 </div>
-                <div className="card">
-                    <div className='content grid'>
-                        <table className="left">
+                <div className="vacc-site-card">
+        <form className='vacc-site-form' onSubmit={this.handleSubmit.bind(this)}>
+                    <div className='content vacc-grid'>
+                        <table className="vacc-left">
                             <tr>
                                 <td><h4>Name of Location:</h4>
 
                                     <input
+                                        title="location-form"
                                         className="input"
                                         type="text"
                                         placeholder="Type Here"
@@ -141,6 +144,7 @@ class AddVaccSite extends Component {
                             <tr>
                                 <td><h4>Address:</h4>
                                     <input
+                                        title="address-form"
                                         className="input"
                                         type="text"
                                         placeholder="Type Here"
@@ -155,6 +159,7 @@ class AddVaccSite extends Component {
                             <tr>
                                 <td><h4>City:</h4>
                                     <input
+                                        title="city-form"
                                         className="input"
                                         type="text"
                                         placeholder="Type Here"
@@ -169,6 +174,7 @@ class AddVaccSite extends Component {
                             <tr>
                                 <td><h4>Phone Number:</h4>
                                     <input
+                                        title="phone-form"
                                         className="input"
                                         type="text"
                                         placeholder="Type Here"
@@ -181,7 +187,7 @@ class AddVaccSite extends Component {
                                 </td>
                             </tr>
                         </table>
-                        <table className="right">
+                        <table className="vacc-right">
                             <tr>
                                 <td><h4>State:</h4>
                                     {/* <input
@@ -197,6 +203,7 @@ class AddVaccSite extends Component {
                                     <div className="field">
                                         <div className="control">
                                             <select
+                                                title="state-form"
                                                 className="input"
                                                 onChange={this.handleState.bind(this)}
                                                 name="state"
@@ -260,6 +267,7 @@ class AddVaccSite extends Component {
                             <tr>
                                 <td><h4>Zip Code:</h4>
                                     <input
+                                        title="zip-form"
                                         className="input"
                                         type="text"
                                         placeholder="Type Here"
@@ -275,6 +283,7 @@ class AddVaccSite extends Component {
                                 <td>
                                     <h4><label for="waitTimes">How long did you wait?</label></h4>
                                     <select
+                                        title="wait-form"
                                         className="input"
                                         name="waitTimes"
                                         onChange={this.handleWaitTimes.bind(this)}
@@ -289,11 +298,11 @@ class AddVaccSite extends Component {
                         </table>
                     </div>
                     <br />
-                    <div>
-                        <form onSubmit={this.handleSubmit.bind(this)}>
-                            <button className="add-submit" type="submit">Submit</button>
-                        </form>
+                    <div className='vacc-site-submit-container'>
+                            <button title="submit-button" className="vacc-site-submit-button" type="submit">Submit</button>
                     </div>
+                        </form>
+                </div>
                 </div>
             </div>
         );

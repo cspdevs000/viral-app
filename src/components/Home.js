@@ -62,19 +62,19 @@ class Home extends Component {
                
                 <div className='top-ten-container'>
                     <div className='top-ten-1'>
-                        <h3 className='home-label'>Top Ten Total Covid Cases</h3>
+                        <h3 title='table-1' className='home-label'>Top Ten Total Covid Cases</h3>
                         {this.displayTopTenCases()}<br />
                     </div>
                     <div className='top-ten-2'>
-                        <h3 className='home-label'>Top Ten Covid Deaths</h3>
+                        <h3 title='table-2' className='home-label'>Top Ten Covid Deaths</h3>
                         {this.displayTopTenDeaths()}<br />
                     </div>
                     <div className='top-ten-3'>
-                        <h3 className='home-label'>Top Ten New Covid Cases</h3>
+                        <h3 title='table-3' className='home-label'>Top Ten New Covid Cases</h3>
                         {this.displayTopTenNewCases()}<br />
                     </div>
                 </div>
-                <div className="map-container">
+                <div title="map" className="map-container">
                     <iframe className="map" src="https://covidactnow.org/embed/us/" title="CoVid Act Now"></iframe>
                 </div>
             </div>

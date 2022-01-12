@@ -60,7 +60,7 @@ class VaccSites extends Component {
 
     displaySecondarySites() {
         const display = this.state.secondaryData.map((s, idx) => {
-            return <SiteResult key={idx} id={s._id} phoneNumber={s.phoneNumber} name={s.name} address={s.address} zipCode={s.zipCode} city={s.city} />
+            return <SiteResult key={idx} id={s._id} phoneNumber={s.phoneNumber} name={s.name} address={s.address} zipCode={s.zipCode} city={s.city} popularWaitTime={s.popularWaitTime}/>
         });
         return display;
     }
@@ -72,7 +72,7 @@ class VaccSites extends Component {
                 <div class="add-site-container">
   
                     <form action="/addsite" method="GET">
-                        <button className="add-site-button">
+                        <button title="site-button" className="add-site-button">
                             Click Here to Add a Vaccination Site
                         </button>
                     </form>
@@ -80,15 +80,17 @@ class VaccSites extends Component {
                 </div>
                 <div className="site-search-form">
                     <form onSubmit={this.handleSubmit.bind(this)}>
-                        <input className='site-search-field'
+                        <input 
+                            title="search-field"
+                            className='site-search-field'
                             placeholder="Search by Zip Code"
                             value={this.state.zipCode}
                             onChange={this.handleZipCode.bind(this)}
                         />
-                        <button className="zip-submit" type="submit" >Submit</button>
+                        <button title="submit-button" className="zip-submit" type="submit" >Submit</button>
                     </form>
                 </div>
-                <div className='site-results-container'>
+                <div title="display" className='site-results-container'>
                     {this.displaySiteSearch()}
                     {this.displaySecondarySites()}
                 </div>

@@ -40,7 +40,7 @@ class Site extends Component {
   
     render() {
       return (
-          <div className='site-container'>
+          <div title="site-display" className='site-container'>
               {this.displayIndividualSite()}
           </div>
       );

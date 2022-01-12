@@ -11,13 +11,14 @@
   width: 50vw;
   height: 100vh;
   grid-column-start: 1;
-  padding: 40px 0 0 0;
+  padding: 70px 0 0 0;
 }
 
 .vacc-photo-container {
   width: 50vw;
   height: 100vh;
   grid-column-start: 2;
+  right: 1vw;
 }
 
 .vacc-photo-sub-container {
@@ -38,5 +39,56 @@
 }
 
 .profile-field {
-  margin: 5px;
+  margin: 6px;
+}
+
+.dropdown {
+  padding: 5px 20px;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .profile-container {
+    background-color: #A7CDBD;
+    width: 100vw;
+    height: 100vw;
+    display: grid;
+    grid-template-columns: 99% 1%;
+    position: absolute;
+    left: 4vw;
+  }
+  .profile-data-container {
+    width: 50vw;
+    height: 50vh;
+    position: absolute;
+    grid-column-start: 1;
+    padding: 10px 0 0 0;
+    left: 20vw;
+  }
+  .vacc-photo-container {
+    width: 100vw;
+    height: 50vh;
+    position: absolute;
+    grid-column-start: 1;
+    padding: 100px 0 0 0;
+    top: 90vw;
+    left: 1vw;
+  }
+  .update-user-content {
+    top: 30vh;
+    right: 4vh;
+    position: absolute;
+  }
+  .profile-field {
+    margin: 0px 6px 6px 6px;
+  }
+
+.vacc-photo {
+  position: relative;
+  width: 90vw;
+  height: 100%;
+  overflow: visible;
+  margin: 0 auto;
+}
 }
