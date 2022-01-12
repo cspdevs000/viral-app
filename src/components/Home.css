@@ -122,13 +122,13 @@
         position: relative;
     }
     .map {
-        top: 45vh;
-        height:80%;
+        top: 65vh;
+        height:85%;
     }
     .home-label {
         padding-left: 7vw;
     }
     .map-container {
-        bottom: 2vh;
+        bottom: 1vh;
     }
   }
