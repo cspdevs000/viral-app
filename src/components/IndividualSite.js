@@ -14,7 +14,6 @@ class IndividualSite extends Component {
             typWaitTime: '', 
             phoneNumber: this.props.phoneNumber
         };
-
     }
 
     componentDidMount() {
@@ -23,9 +22,6 @@ class IndividualSite extends Component {
                 this.setState({
                     commentData: response.data.allReviewArr
                 });
-                // console.log(this.state.commentData[0]._id);
-                console.log(this.props);
-                console.log(response.data.allReviewArr);
             })
             .catch((error) => {
                 console.log('ERROR', error);
@@ -37,21 +33,17 @@ class IndividualSite extends Component {
             if(this.props.phoneNumber == '' || this.props.phoneNumber == undefined){
                 this.setState({phoneNumber: 'N/A'})
             }
-            console.log(this.props.phoneNumber);
     }
 
     handleComment = (e) => {
         e.preventDefault();
         let messageVal = e.target.value;
-        console.log("inputted Message", messageVal);
-
         this.setState({
             message: messageVal,
         });
     };
 
     handleWaitTimes(e) {
-        
         this.setState({
             waitTimes: e.target.value,
         });
@@ -81,18 +73,12 @@ class IndividualSite extends Component {
             axios.post(`${REACT_APP_SERVER_URL}/review/new`, newComment)
                 .then(response => {
                     let newReview = response.data.newReview[0]
-    
                     let commentArr = this.state.commentData.slice();
-    
                     commentArr.push(newReview);
-    
                     this.setState({
                         message: "",
                         commentData: commentArr,
                     })
-    
-    
-    
                 })
                 .catch(error => {
                     console.log('===> ERROR GETTING DATA', error);
@@ -112,11 +98,6 @@ class IndividualSite extends Component {
 
         axios.put(`${REACT_APP_SERVER_URL}/site/updateWaitTime`, newWaitTimes)
             .then(response => {
-                console.log(response.data);
-                // this.setState({
-                //     waitTime: this.state.waitTime
-                // })
-           
                 alert('Your wait time has been submitted. Thanks for your feedback!');
             })
             .catch(error => {
@@ -165,21 +146,6 @@ class IndividualSite extends Component {
                                 <p>Phone Number: {this.state.phoneNumber}</p>
                             </td>
                         </tr>
-                        {/* <tr>
-                            <td>
-                                <p>City: {this.props.city}</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>State: {this.props.state}</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Zip Code: {this.props.zipCode}</p>
-                            </td>
-                        </tr> */}
                         <p> Typical Wait Time: {this.state.typWaitTime}</p>
                     </table>
                 </div>

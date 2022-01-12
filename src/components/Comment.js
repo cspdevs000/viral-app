@@ -49,20 +49,12 @@ class Comment extends Component {
     }
 
     handleUpVote = (e) => {
-        // console.log('button working');
         axios.post(`${REACT_APP_SERVER_URL}/review/comment`, this.state)
             .then((res) => {
                 let userArr1 = res.data.comment[0].userArr;
                 let userInfo = this.props.user;
-                console.log('logged in user information', userInfo);
-                // console.log(userArr1);
-                // console.log(userArr1.includes(userInfo.id));
                 let upVoteArr1 = res.data.comment[0].upVoteArr;
-                console.log(upVoteArr1);
-                console.log('includes in upVoteArr1', upVoteArr1.includes(userInfo.id));
-                // console.log(userInfo.id);
                 if ((userArr1.includes(userInfo.id)) === true) {
-                    console.log('you have already voted');
                     if ((upVoteArr1.includes(userInfo.id)) === true) {
                         for (let i = 0; i < upVoteArr1.length; i++) {
                             if (upVoteArr1[i] === userInfo.id) {
@@ -84,17 +76,13 @@ class Comment extends Component {
                         })
                         axios.post(`${REACT_APP_SERVER_URL}/review/vote`, this.state)
                             .then(res => {
-                                console.log(res.data);
                             })
                             .catch(err => {
-                                console.log(err);
                             })
                     }
                 } else if (userInfo.id === null || userInfo.id === undefined) {
-                    console.log('please log in');
                     alert('You must be logged in to vote');
                 } else {
-                    console.log('you can vote');
                     upVoteArr1.push(userInfo.id);
                     userArr1.push(userInfo.id);
                     this.setState({
@@ -103,13 +91,10 @@ class Comment extends Component {
                         userArr: userArr1,
                         upVoteColor: 'green'
                     })
-                    console.log(userArr1);
                     axios.post(`${REACT_APP_SERVER_URL}/review/vote`, this.state)
                         .then(res => {
-                            console.log(res.data);
                         })
                         .catch(err => {
-                            console.log(err);
                         })
                 }
             })
@@ -121,20 +106,10 @@ class Comment extends Component {
     handleDownVote = (e) => {
         axios.post(`${REACT_APP_SERVER_URL}/review/comment`, this.state)
             .then(res => {
-                console.log(this.props.downVotes);
                 let userArr1 = res.data.comment[0].userArr;
                 let userInfo = this.props.user;
-                console.log('logged in user information', userInfo);
-                // console.log(userArr1);
-                // console.log(userArr1.includes(userInfo.id));
-                // console.log(userInfo.id);
                 let downVoteArr1 = res.data.comment[0].downVoteArr;
-                console.log(downVoteArr1);
-                console.log('includes in downVoteArr1', downVoteArr1.includes(userInfo.id));
-                //If they already voted
                 if ((userArr1.includes(userInfo.id)) === true) {
-                    console.log('you have already voted');
-                    //if already voted in downvote
                     if ((downVoteArr1.includes(userInfo.id)) === true) {
                         for (let i = 0; i < downVoteArr1.length; i++) {
                             if (downVoteArr1[i] === userInfo.id) {
@@ -156,19 +131,14 @@ class Comment extends Component {
                         })
                         axios.post(`${REACT_APP_SERVER_URL}/review/downVote`, this.state)
                             .then(res => {
-                                console.log(res.data);
                             })
                             .catch(err => {
                                 console.log(err);
                             })
                     }
                 } else if (userInfo.id === null || userInfo.id === undefined) {
-                    console.log('please log in');
                     alert('You must be logged in to vote');
                 } else {
-                    // if they have not voted 
-                    console.log('you can vote');
-
                     userArr1.push(userInfo.id);
                     downVoteArr1.push(userInfo.id);
                     this.setState({
@@ -177,10 +147,8 @@ class Comment extends Component {
                         userArr: userArr1,
                         downVoteColor: 'red'
                     })
-                    console.log(userArr1);
                     axios.post(`${REACT_APP_SERVER_URL}/review/downVote`, this.state)
                         .then(res => {
-                            console.log(res.data);
                         })
                         .catch(err => {
                             console.log(err);
@@ -206,31 +174,10 @@ class Comment extends Component {
                 </div>
                 <div className="vote-container">
                     <i class="material-icons vote-button" style={{ backgroundColor: this.state.upVoteColor }} onClick={this.handleUpVote.bind(this)}>arrow_upward</i>
-                    {/* <button class="vote-button" style={{ backgroundColor: this.state.upVoteColor }} onClick={this.handleUpVote.bind(this)}>Up</button> */}
                     <p>{this.state.upVotes}</p>
                     <i class="material-icons vote-button downvote-button" style={{ backgroundColor: this.state.downVoteColor }} onClick={this.handleDownVote.bind(this)}>arrow_downward</i>
-                    {/* <button class="vote-button downvote-button" style={{ backgroundColor: this.state.downVoteColor }} onClick={this.handleDownVote.bind(this)}>Down</button> */}
                     <p>{this.state.downVotes}</p>
                 </div>
-                {/* <table> */}
-                {/* <tr>
-                        <td> */}
-                {/* <p>Username: {this.props.userName}</p> */}
-                {/* </td>
-                    </tr>
-                    <tr>
-                        <td> */}
-                {/* <p>Comment: {this.props.review}</p> */}
-                {/* </td>
-                    </tr>
-                    <tr>
-                        <td> */}
-                {/* <p>Created Date: {this.props.createdDate}</p> */}
-                {/* </td>
-                    </tr> */}
-
-
-                {/* </table> */}
             </div>
         )
     }

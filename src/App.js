@@ -12,7 +12,6 @@ import Site from './components/Site';
 import VaccSites from './components/VaccSites';
 import AddVaccSite from './components/AddVaccSite';
 import NavigationBar from './components/NavigationBar';
-import Footer from './components/Footer';
 
 function App() {
 
@@ -24,7 +23,6 @@ function App() {
 
     if (!localStorage.getItem('jwtToken')) {
       setIsAuthenticated(false);
-      // console.log('====> Authenticated is now FALSE');
     } else {
       token = jwt_decode(localStorage.getItem('jwtToken'));
       setAuthToken(localStorage.getItem('jwtToken'));
@@ -33,16 +31,13 @@ function App() {
   }, []);
 
   const nowCurrentUser = (userData) => {
-    // console.log('===> nowCurrentUser is here.');
     setCurrentUser(userData);
     setIsAuthenticated(true);
   }
 
   const handleLogout = () => {
     if (localStorage.getItem('jwtToken')) {
-      // remove token for localStorage
       localStorage.removeItem('jwtToken');
-      // console.log('YOU LOGGED OUT')
       setCurrentUser(null);
       setIsAuthenticated(false);
       alert('YOU LOGGED OUT');
@@ -51,9 +46,7 @@ function App() {
 
   const handleProfileUpdateLogout = () => {
     if (localStorage.getItem('jwtToken')) {
-      // remove token for localStorage
       localStorage.removeItem('jwtToken');
-      // console.log('YOU LOGGED OUT')
       setCurrentUser(null);
       setIsAuthenticated(false);
       alert('Please log back in');
@@ -63,29 +56,28 @@ function App() {
 
   return (
     <div >
-      <NavigationBar handleLogout={handleLogout} user={currentUser} isAuth={isAuthenticated}/>
+      <NavigationBar handleLogout={handleLogout} user={currentUser} isAuth={isAuthenticated} />
       <BrowserRouter>
-      <div className="everything test">
-        <Routes>
-          <Route exact path='/' element={<Home/>}/>
-          <Route 
-            path="/login"
-            element={<Login
-            nowCurrentUser={nowCurrentUser} 
-            setIsAuthenticated={setIsAuthenticated} 
-            user={currentUser}/>}
-          />
-          <Route path='/signup' element={<Signup/>}/>
-          <Route path='/home' element={<Home/>}/>
-          <Route path='/site/:id' element={<Site user={currentUser}/>}/>
-          <Route path='/countydata' element={<CountyData user={currentUser}/>}/>
-          <Route path='/sites' element={<VaccSites/>}/>
-          <Route path='/addsite' element={<AddVaccSite/>}/>
-          <Route path="/profile" element={<Profile user={currentUser} handleLogout={handleLogout} handleProfileUpdateLogout={handleProfileUpdateLogout}/>}/>
-        </Routes>
-      </div>
+        <div className="everything test">
+          <Routes>
+            <Route exact path='/' element={<Home />} />
+            <Route
+              path="/login"
+              element={<Login
+                nowCurrentUser={nowCurrentUser}
+                setIsAuthenticated={setIsAuthenticated}
+                user={currentUser} />}
+            />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/site/:id' element={<Site user={currentUser} />} />
+            <Route path='/countydata' element={<CountyData user={currentUser} />} />
+            <Route path='/sites' element={<VaccSites />} />
+            <Route path='/addsite' element={<AddVaccSite />} />
+            <Route path="/profile" element={<Profile user={currentUser} handleLogout={handleLogout} handleProfileUpdateLogout={handleProfileUpdateLogout} />} />
+          </Routes>
+        </div>
       </BrowserRouter>
-      {/* <Footer /> */}
     </div>
   );
 }

@@ -42,7 +42,6 @@ class CountyData extends Component {
                     };
                     axios.post(`${REACT_APP_SERVER_URL}/actNow/county`, userData)
                         .then(response => {
-                            console.log(response.data.countyInfo)
                             this.setState({
                                 countyInfo: {
                                     name: response.data.countyInfo.county,
@@ -56,7 +55,6 @@ class CountyData extends Component {
                                     vaccinationsInitiated: response.data.countyInfo.vaccinationsInitiated,
                                 }
                             });
-
                             this.setState({
                                 county: this.state.county,
                                 countyInfo: {
@@ -93,7 +91,6 @@ class CountyData extends Component {
                 />
             )
         })
-
         return display;
     }
 
@@ -104,14 +101,13 @@ class CountyData extends Component {
     }
 
     handleSubmit = (e) => {
-        e.preventDefault(); // at the beginning of a submit function
+        e.preventDefault();
         const userData = {
             county: this.state.county
         };
 
         axios.post(`${REACT_APP_SERVER_URL}/actNow/county`, userData)
             .then(response => {
-                console.log(response.data.countyInfo)
                 this.setState({
                     countyInfo: {
                         name: response.data.countyInfo.county,
@@ -154,16 +150,12 @@ class CountyData extends Component {
                     <div className="form-container">
                         <h1>Select a County</h1>
                         <form title='county-form' onSubmit={this.handleSubmit.bind(this)}>
-                            {/* <select className="dropdown" onChange={this.handleChange} name="county" defaultValue={""}>
-                                <option value="test" >Type County Here</option> */}
                             <input title="dropdown" type="text" id="search" className="dropdown" onChange={this.handleChange} name="county" list="theData" placeholder="type county here"></input>
                             <datalist id="theData" className="dropdown" name="dataList" defaultValue={""}>
                                 <option title="list" value="---" ></option>
                                 {this.displayCounties()}
                             </datalist>
-                            
                             <button title="submit-button" type="submit" className="county-submit">Submit</button>
-
                         </form>
                     </div>
                     

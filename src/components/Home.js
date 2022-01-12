@@ -20,14 +20,11 @@ class Home extends Component {
     componentDidMount() {
         axios.get(`${REACT_APP_SERVER_URL}/actNow`)
             .then((response) => {
-                // console.log(response.data);
                 this.setState({
                     cases: response.data.topTenCasesArr,
                     deaths: response.data.topTenDeathsArr,
                     newCases: response.data.topTenNewCasesArr
                 })
-                // console.log('this.state', this.state);
-                console.log('this.state.data', this.state.cases);
             })
             .catch((error) => {
                 console.log('error ERROR error', error)
@@ -59,7 +56,6 @@ class Home extends Component {
     render() {
         return (
             <div className="home-container">
-               
                 <div className='top-ten-container'>
                     <div className='top-ten-1'>
                         <h3 title='table-1' className='home-label'>Top Ten Total Covid Cases</h3>

@@ -8,11 +8,9 @@
     border-radius: 25px;
     padding: 5px;
     margin: 10px;
-    /* margin-bottom:30px; */
 }
 
 .comment-user-container{
-    /* background-color: rgb(161, 127, 127); */
     height: 25px;
     margin-top: 5px;
     margin-left: 20px;
@@ -29,11 +27,8 @@
 }
 
 .review-text-container{
-    /* background-color:rgb(185, 131, 131); */
     min-height: 10px;
-    /* margin-top: 15px; */
     margin-left: 20px;
-    /* margin-bottom: 15px; */
     margin-right: 20px;
     display: flex;
     flex-direction: row;
@@ -42,11 +37,8 @@
 }
 
 .vote-container{
-    /* background-color:rgb(185, 131, 131); */
     height: 50px;
-    /* margin-top: 15px; */
     margin-left: 20px;
-    /* margin-bottom: 15px; */
     margin-right: 20px;
     display: flex;
     flex-direction: row;
