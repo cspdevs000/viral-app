@@ -44,13 +44,20 @@ th, td {
     padding: 3px;
   }
 
-  .county-submit {
+.county-submit {
     background-color: #869D7A;
     padding: 11px 6px;
     border-radius: 12px;
     margin: 15px;
   }
+
 .dropdown {
   padding: 11px 26px;
   border-radius: 8px;
+}
+
+@media screen and (max-width: 600px) {
+  .countyTable {
+      left: 12%;
+  }
 }
