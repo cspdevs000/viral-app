@@ -58,7 +58,7 @@ function App() {
       <BrowserRouter>
         <div className="everything test">
           <Routes>
-            <Route exact path='/' element={<Home />} />
+            <Route exact path='/' element={<Login />} />
             <Route
               path="/login"
               element={<Login
