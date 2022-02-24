@@ -1,23 +1,23 @@
- .countyTH {
+.countyTH {
     text-align: center;
     background-color: #869D7A;
     border: 2px solid #91785D;
-  }
+}
 
-  .countyTable {
+.countyTable {
     position: absolute;
     left: 25%;
     width: 50%;
     border: 2px solid #91785D;
     text-align: center;
     font-size: 20px;
-  }
+}
 
-  .countyTD {
+.countyTD {
     background-color: #8fb8a6;
     border: 2px solid #91785D;
     padding: 7px;
-  }
+}
 
 .county-container {
     height: 120vh;
@@ -41,14 +41,14 @@ html {
 
 th, td {
     padding: 3px;
-  }
+}
 
 .county-submit {
     background-color: #869D7A;
     padding: 11px 6px;
     border-radius: 12px;
     margin: 15px;
-  }
+}
 
 .dropdown {
   padding: 11px 26px;
